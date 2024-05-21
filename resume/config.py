@@ -1,0 +1,8 @@
+import os
+
+RESUME_TEMPLATE_PATH = 'assets/template'
+if not os.path.exists(RESUME_TEMPLATE_PATH):
+  os.mkdir(RESUME_TEMPLATE_PATH)
+
+SENTENCE_DB_CACHE_TTL = 1
+TEMPLATE_CACHE_TTL = 180

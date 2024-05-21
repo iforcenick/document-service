@@ -1,0 +1,4 @@
+export RESUME_SERVER_HOST=
+export RESUME_SERVER_PORT=
+
+export OPENAI_API_KEY=

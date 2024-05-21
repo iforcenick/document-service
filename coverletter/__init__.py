@@ -1,0 +1,1 @@
+from .file import generate_cover_letter_file
