@@ -1,6 +1,5 @@
 import re
 import base64
-from .config import RESUME_TEMPLATE_PATH
 
 def get_most_relevant_template(position: str, required_skills: any):
     if re.search("full(.*?)stack", position, re.IGNORECASE):
@@ -102,7 +101,7 @@ def replace_mock_images(document):
   for rel_index, rel in enumerate(image_rels):
     if rel_index not in mock_images:
       continue
-    logo_path = f'{RESUME_TEMPLATE_PATH}/company_logos/{mock_images[rel_index]}'
+    logo_path = f'assets/company_logos/{mock_images[rel_index]}'
     with open(logo_path, "rb") as image_file:
       image_content = base64.b64encode(image_file.read()).decode("utf-8")
     rel.target_part._blob = base64.b64decode(image_content)

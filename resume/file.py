@@ -2,16 +2,18 @@
 # Download here: https://www.libreoffice.org/donate/dl/mac-x86_64/7.5.0/en-US/LibreOffice_7.5.0_MacOS_x86-64.dmg
 # Related post:  https://apple.stackexchange.com/questions/80791/command-line-tool-to-convert-doc-and-docx-files-to-pdf
 
+from docx import Document
+import os
+import uuid
+import shutil
+import tempfile
+
+from env import LIBREOFFICE_PATH
+
 from .skillmatrix import generate_skill_matrix
 from .sentences import generate_resume_history
 from .metadata import generate_meta_data
 
-from docx import Document
-from autobid.env import LIBREOFFICE_PATH, TEMP_PATH
-from .config import RESUME_TEMPLATE_PATH
-import os
-import uuid
-import shutil
 from . import _genresume1
 from . import _genresume2
 from . import _genresume3
@@ -27,9 +29,11 @@ resume_generators = [
     _genresume5.generate,
 ]
 
+TEMP_PATH = tempfile.gettempdir()
+
 def _generate_resume_file(headline, summary, history, skill_section_headers, skill_section_contents, profile, path):
     template_index = profile['resume-template-index'] - 1
-    document = Document(f'{RESUME_TEMPLATE_PATH}/resume_{template_index + 1}.docx')
+    document = Document(f'assets/template/resume_{template_index + 1}.docx')
     generate_resume = resume_generators[template_index]
     generate_resume(document, headline, summary, history, skill_section_headers, skill_section_contents, profile)
 

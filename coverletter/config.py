@@ -1,1 +1,0 @@
-COVER_LETTER_TEMPLATE_PATH = 'assets/template'
