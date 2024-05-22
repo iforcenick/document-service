@@ -109,4 +109,4 @@ def generate_cover_letter_binary():
     os.remove(temp_pdfpath)
     return response
 
-app.run(port=DOCUMENT_SERVICE_PORT)
+app.run(port=DOCUMENT_SERVICE_PORT, host='0.0.0.0')
