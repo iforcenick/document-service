@@ -1,7 +1,6 @@
-from skill.utils import get_skill_list, get_required_skill_groups, get_required_skills, normalize_skill_name
-from resume.sentences import generate_resume_sentences
+from skill.utils import normalize_skill_name
 from job_familarity_model.word2vec import similarity_nm
-from resume._sentencedb import get_sentence_db
+from resume._sentencedb import sentence_db
 from resume.sentences import generate_template_sentences
 
 print("Input regexp of the target sentence:")
@@ -11,8 +10,7 @@ query_skills = [ normalize_skill_name(item) for item in temp.split(" ") ]
 
 result = []
 
-sentences = get_sentence_db()
-for sentence in sentences:
+for sentence in sentence_db:
     new_sentences = generate_template_sentences(sentence)
     max_sentence = None
     max_similarity = 0

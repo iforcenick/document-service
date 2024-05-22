@@ -1,16 +1,15 @@
 from flask import Flask, request, send_file
 from flask_cors import CORS
-
-from env import DOCUMENT_SERVICE_PORT
-
-import resume
-import coverletter
-import json
-from skill.utils import get_required_skills
 import tempfile
-
 import uuid
 import os
+import json
+
+from env import DOCUMENT_SERVICE_PORT, DOCUMENT_LOG_PATH
+import resume
+import coverletter
+from skill.utils import get_required_skills
+from social_profile import get_profile_from_name
 
 TEMP_PATH = tempfile.gettempdir()
 
@@ -55,16 +54,16 @@ def generate_resume_detailed_skill_matrix():
 def generate_resume_history():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
-    profile_index = body["profile"]
-    history = resume.generate_resume_history(profile_index, body["position"], required_skills, body["jd"])
+    profile = get_profile_from_name(body['profile'])
+    history = resume.generate_resume_history(profile, body["position"], required_skills, body["jd"])
     return history
 
 @app.post("/resume/generate/history/detail")
 def generate_detailed_resume_history():
     body = json.loads(request.data)
-    profile_index = body["profile"]
     required_skills = get_required_skills(body["jd"], body["position"])
-    detailed_history = resume.generate_detailed_resume_history(profile_index, body["position"], required_skills, body["jd"])
+    profile = get_profile_from_name(body['profile'])
+    detailed_history = resume.generate_detailed_resume_history(profile, body["position"], required_skills, body["jd"])
     return detailed_history
 
 
@@ -73,7 +72,8 @@ def generate_detailed_resume_history():
 def generate_resume_file():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
-    resume.generate_resume_file(body["position"], required_skills, body["jd"], int(body['profile']), body["path"])
+    profile = get_profile_from_name(body['profile'])
+    resume.generate_resume_file(body["position"], required_skills, body["jd"], profile, f'{DOCUMENT_LOG_PATH}/{body["filename"]}')
     return ""
 
 @app.post("/resume/generate/binary")
@@ -82,7 +82,8 @@ def generate_resume_binary():
     required_skills = get_required_skills(body["jd"], body["position"])
     temp_file_id = str(uuid.uuid4())
     temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
-    resume.generate_resume_file(body["position"], required_skills, body["jd"], int(body['profile']), temp_pdfpath)
+    profile = get_profile_from_name(body['profile'])
+    resume.generate_resume_file(body["position"], required_skills, body["jd"], profile, temp_pdfpath)
     response = send_file(temp_pdfpath, mimetype='application/pdf')
     os.remove(temp_pdfpath)
     return response
@@ -92,7 +93,8 @@ def generate_resume_binary():
 def generate_cover_letter_file():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
-    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], int(body['profile']), body["path"])
+    profile = get_profile_from_name(body['profile'])
+    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, f'{DOCUMENT_LOG_PATH}/{body["filename"]}')
     return ""
 
 @app.post("/coverletter/generate/binary")
@@ -101,7 +103,8 @@ def generate_cover_letter_binary():
     required_skills = get_required_skills(body["jd"], body["position"])
     temp_file_id = str(uuid.uuid4())
     temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
-    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], int(body['profile']), temp_pdfpath)
+    profile = get_profile_from_name(body['profile'])
+    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, temp_pdfpath)
     response = send_file(temp_pdfpath, mimetype='application/pdf')
     os.remove(temp_pdfpath)
     return response

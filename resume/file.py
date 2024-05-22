@@ -5,7 +5,6 @@
 from .skillmatrix import generate_skill_matrix
 from .sentences import generate_resume_history
 from .metadata import generate_meta_data
-from social_profile import get_social_profiles
 
 from docx import Document
 from autobid.env import LIBREOFFICE_PATH, TEMP_PATH
@@ -47,10 +46,8 @@ def _generate_resume_file(headline, summary, history, skill_section_headers, ski
         shutil.move(temp_docxpath, path)
     return os.path.abspath(path)
 
-def generate_resume_file(position: str, required_skills, jd: str, profile_index: int, path: str) -> str:
-    profiles = get_social_profiles()
-    profile = profiles[profile_index]
-    history = generate_resume_history(profile_index, position, required_skills, jd)
+def generate_resume_file(position: str, required_skills, jd: str, profile: dict, path: str) -> str:
+    history = generate_resume_history(profile, position, required_skills, jd)
     ( skill_section_headers, skill_section_contents ) = generate_skill_matrix(position, required_skills)
     ( headline, _ ) = generate_meta_data(position, required_skills)
     _generate_resume_file(headline, profile['summary'], history, skill_section_headers, skill_section_contents, profile, path)

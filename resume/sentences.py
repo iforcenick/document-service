@@ -2,29 +2,12 @@ from skill.utils import normalize_skill_name, get_required_skill_groups
 from skill.skill_tree import get_skill_tree
 from .utils import get_most_relevant_template, expand_weighted_skills_into_full_list
 from ._template import get_template_data
-from ._sentencedb import get_sentence_db
-from social_profile import get_social_profiles
+from ._sentencedb import sentence_db
 from job_familarity_model.word2vec import similarity_nm
 import re
 import time
 from datetime import datetime
 import random
-
-def _get_partial_sentence_db(profile_index, profiles):
-    sentence_db = get_sentence_db()
-    return sentence_db
-    # index_arr = []
-    # for index, _ in enumerate(sentence_db):
-    #     index_arr.append(index)
-    # random.seed(0)
-    # random.shuffle(index_arr)
-    # part = len(index_arr) // len(profiles)
-    # subindices = index_arr[part*profile_index:part*(profile_index + 1)]
-    # res = []
-    # for index in subindices:
-    #     res.append(sentence_db[index])
-    # return res
-
 
 def generate_sentences_from_template(template):
     exchange = template.get("exchange", {})
@@ -73,9 +56,7 @@ def generate_sentences_from_template(template):
     _recursive_generate(content, relations, list(exchange.keys()))
     return sentences
     
-def generate_detailed_resume_history(profile_index: int, position: str, required_skills, jd: str) -> str:
-    profiles = get_social_profiles()
-    profile = profiles[profile_index]
+def generate_detailed_resume_history(profile: dict, position: str, required_skills, jd: str) -> str:
     (root, nodes) = get_skill_tree()
     template_type = get_most_relevant_template(position, required_skills)
     try:
@@ -93,7 +74,6 @@ def generate_detailed_resume_history(profile_index: int, position: str, required
     if len(required_skills) == 0:
         return final_history
     
-    sentence_db = _get_partial_sentence_db(profile_index, profiles)
     sentence_usage = [ False ] * len(sentence_db)
 
 
@@ -291,8 +271,8 @@ def generate_detailed_resume_history(profile_index: int, position: str, required
     
     return final_history
 
-def generate_resume_history(profile_index, position: str, required_skills, jd: str) -> list:
-    detailed_history = generate_detailed_resume_history(profile_index, position, required_skills, jd)
+def generate_resume_history(profile: dict, position: str, required_skills, jd: str) -> list:
+    detailed_history = generate_detailed_resume_history(profile, position, required_skills, jd)
     history = []
     for group in detailed_history:
         sentences = [ sentence["content"] for sentence in group["sentences"] ]

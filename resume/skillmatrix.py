@@ -1,10 +1,12 @@
-from skill.utils import normalize_skill_name, get_allowed_nodes, get_skill_occurence_matrix
+from skill.utils import normalize_skill_name, get_allowed_nodes
 from skill.skill_tree import get_skill_tree, get_skill_relation_value
+from skill.occurence_matrix import matrix
 from .utils import get_most_relevant_template, select_skill_section_items
 
+(_, nodes) = get_skill_tree()
 
 def generate_detailed_skill_matrix(position: str, required_skills):
-    (root, nodes) = get_skill_tree()
+    global nodes
     template_type = get_most_relevant_template(position, required_skills)
 
     levels = {}
@@ -71,11 +73,10 @@ def generate_detailed_skill_matrix(position: str, required_skills):
         if line_length > category_length:
             selected_skills = _selected_skills
         else:
-            o_matrix = get_skill_occurence_matrix()
             candidates = {}
             for full_skill_name in base_skill_full_names:
                 candidates[full_skill_name] = []
-                relations = o_matrix[full_skill_name]
+                relations = matrix[full_skill_name]
                 for relation in relations:
                     candidates[full_skill_name].append((relation, relations[relation]))
                 candidates[full_skill_name].sort(key=lambda x: x[1], reverse=True)

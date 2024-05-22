@@ -2,7 +2,6 @@
 # Download here: https://www.libreoffice.org/donate/dl/mac-x86_64/7.5.0/en-US/LibreOffice_7.5.0_MacOS_x86-64.dmg
 # Related post:  https://apple.stackexchange.com/questions/80791/command-line-tool-to-convert-doc-and-docx-files-to-pdf
 from resume.metadata import generate_meta_data
-from social_profile import get_social_profiles
 from autobid.env import LIBREOFFICE_PATH
 from docx import Document
 from .config import COVER_LETTER_TEMPLATE_PATH
@@ -46,8 +45,6 @@ def _generate_cover_letter_file(position, jd, company, headline, profile, path):
       shutil.move(temp_docxpath, path)
   return os.path.abspath(path)
 
-def generate_cover_letter_file(position: str, required_skills, jd: str, company: str, profile_index: int, path: str) -> str:
-    profiles = get_social_profiles()
-    profile = profiles[profile_index]
+def generate_cover_letter_file(position: str, required_skills, jd: str, company: str, profile: dict, path: str) -> str:
     ( headline, _ ) = generate_meta_data(position, required_skills)
     _generate_cover_letter_file(position, jd, company, headline, profile, path)

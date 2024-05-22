@@ -5,7 +5,6 @@ from env import PARSE_ENGINE_URL
 def normalize_skill_name(skill_name):
     return skill_name.lower().replace(" ", "").replace("-", "").replace("*", "").replace("/", "").replace(".", "").strip()
 
-
 def get_required_skills(jd: str, position: str = ""):
     wrapped_jd = f"<p>{position}<br/>{position}</p>{jd}"
     request_body = parse.urlencode({"jd": wrapped_jd}).encode()
@@ -23,11 +22,6 @@ def get_required_skill_groups(jd: str, position: str = ""):
 
 def get_skill_list():
     req = request.Request(f'{PARSE_ENGINE_URL}/skill/list', method="GET") # this will make the method "POST"
-    response = request.urlopen(req)
-    return json.loads(response.read())
-
-def get_skill_occurence_matrix():
-    req = request.Request(f'{PARSE_ENGINE_URL}/skill/occurence/matrix', method="GET") # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
