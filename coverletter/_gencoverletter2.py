@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-from autobid.ai import generate_ai_answer, inject_variables_to_content
+from ai import generate_ai_answer, inject_variables_to_content
 
 prompt_template = '''
 My name is {{first-name}} and I am a {{headline}} with more than 10 years of experience.
