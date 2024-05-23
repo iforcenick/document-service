@@ -5,11 +5,12 @@ import uuid
 import os
 import json
 
-from env import DOCUMENT_SERVICE_PORT, DOCUMENT_LOG_PATH
+from env import DOCUMENT_SERVICE_PORT
 import resume
 import coverletter
 from skill.utils import get_required_skills
 from social_profile import get_profile_from_name
+from util import get_save_path
 
 TEMP_PATH = tempfile.gettempdir()
 
@@ -73,8 +74,10 @@ def generate_resume_file():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
     profile = get_profile_from_name(body['profile'])
-    resume.generate_resume_file(body["position"], required_skills, body["jd"], profile, f'{DOCUMENT_LOG_PATH}/{body["filename"]}')
-    return ""
+    file_path = get_save_path(body["fileId"], body['profile'], 'resume')
+    resume.generate_resume_file(body["position"], required_skills, body["jd"], profile, file_path)
+    response = send_file(file_path, mimetype='application/pdf')
+    return response
 
 @app.post("/resume/generate/binary")
 def generate_resume_binary():
@@ -94,8 +97,10 @@ def generate_cover_letter_file():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
     profile = get_profile_from_name(body['profile'])
-    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, f'{DOCUMENT_LOG_PATH}/{body["filename"]}')
-    return ""
+    file_path = get_save_path(body["fileId"], body['profile'], 'coverletter')
+    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, file_path)
+    response = send_file(file_path, mimetype='application/pdf')
+    return response
 
 @app.post("/coverletter/generate/binary")
 def generate_cover_letter_binary():

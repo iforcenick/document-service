@@ -15,7 +15,7 @@ def inject_variables_to_content(content: str, variables):
 
 def generate_ai_answer(prompt: str):
   chat_completion = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4o",
     messages=[{"role": "user", "content": prompt}],
     temperature=1.7
   )

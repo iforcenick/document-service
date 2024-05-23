@@ -4,7 +4,7 @@ from ai import generate_ai_answer, inject_variables_to_content
 
 prompt_template = '''
 My name is {{first-name}} and I am a {{headline}} with more than 10 years of experience.
-Write a conversational cover letter for a job application as a {{position}} at {{company}} using the below job description as a reference.
+Write 4 or 5 paragraphs of conversational cover letter for a job application as a {{position}} at {{company}} using the below job description as a reference.
 
 {{jd}}
 '''
