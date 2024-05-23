@@ -17,7 +17,7 @@ def generate_ai_answer(prompt: str):
   chat_completion = client.chat.completions.create(
     model="gpt-4o",
     messages=[{"role": "user", "content": prompt}],
-    temperature=1.7
+    temperature=0.8
   )
   try:
     message = chat_completion.choices[0].message.content

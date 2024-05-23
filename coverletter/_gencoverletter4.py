@@ -4,9 +4,13 @@ from ai import generate_ai_answer, inject_variables_to_content
 
 prompt_template = '''
 My name is {{first-name}} and I am a {{headline}} with more than 10 years of experience.
-Create a compelling cover letter that explains why I am the best fit for the {{position}} at {{company}}. Write the cover letter using the StoryBrand Framework using the below job description as a reference.
+Create a compelling cover letter that explains why I am the best fit for the {{position}} at {{company}}.
+Write the 3 or 4 paragraphs using the StoryBrand Framework using the below job description as a reference.
+DONT'T WRITE IT LIKE A TEMPLATE AND DON'T WRITE SENTENCES TOO LONG.
 
+\'\'\'
 {{jd}}
+\'\'\'
 '''
 
 def gen_linkedin_default(url):

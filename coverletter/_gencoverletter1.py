@@ -4,9 +4,12 @@ from ai import generate_ai_answer, inject_variables_to_content
 
 prompt_template = '''
 My name is {{first-name}} and I am a {{headline}} with more than 10 years of experience.
-Write 4 or 5 paragraphs of conversational cover letter for a job application as a {{position}} at {{company}} using the below job description as a reference.
+Write the 4 or 5 paragraphs of simple but strong cover letter for a {{position}} job at {{company}} using the below job description as a reference.
+DONT'T WRITE IT LIKE A TEMPLATE AND DON'T WRITE SENTENCES TOO LONG.
 
+\'\'\'
 {{jd}}
+\'\'\'
 '''
 
 def gen_linkedin_default(url):
