@@ -1,1 +1,1 @@
-from .file import generate_cover_letter_file
+from .file import generate_cover_letter_file, generate_cover_letter_file_from_jd

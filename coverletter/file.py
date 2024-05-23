@@ -50,3 +50,6 @@ def _generate_cover_letter_file(position, jd, company, headline, profile, path):
 def generate_cover_letter_file(position: str, required_skills, jd: str, company: str, profile: dict, path: str) -> str:
     ( headline, _ ) = generate_meta_data(position, required_skills)
     _generate_cover_letter_file(position, jd, company, headline, profile, path)
+
+def generate_cover_letter_file_from_jd(jd: str, profile: dict, path: str) -> str:
+    _generate_cover_letter_file(None, jd, None, None, profile, path)

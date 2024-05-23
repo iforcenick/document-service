@@ -2,9 +2,20 @@ import re
 from datetime import datetime
 from ai import generate_ai_answer, inject_variables_to_content
 
-prompt_template = '''
-My name is {{first-name}} and I am a {{headline}} with more than 10 years of experience.
+full_prompt_template = '''
+My name is {{first-name}} and I am a {{headline}} with around 10 years of experience.
 Create a compelling cover letter that explains why I am the best fit for the {{position}} at {{company}}.
+Write the 3 or 4 paragraphs using the StoryBrand Framework using the below job description as a reference.
+DONT'T WRITE IT LIKE A TEMPLATE AND DON'T WRITE SENTENCES TOO LONG.
+
+\'\'\'
+{{jd}}
+\'\'\'
+'''
+
+jd_prompt_template = '''
+My name is {{first-name}} and I have around 10 years of experience in software development.
+Create a compelling cover letter that explains why I am the best fit for this job.
 Write the 3 or 4 paragraphs using the StoryBrand Framework using the below job description as a reference.
 DONT'T WRITE IT LIKE A TEMPLATE AND DON'T WRITE SENTENCES TOO LONG.
 
@@ -59,6 +70,7 @@ def _replace_data(document, position, jd, company, headline, profile, pipeline):
             "company": company if company != "" else "a company",
             "jd": jd,
           }
+          prompt_template = jd_prompt_template if position is None else full_prompt_template
           prompt = inject_variables_to_content(prompt_template, variables)
           print(prompt)
           return generate_ai_answer(prompt)

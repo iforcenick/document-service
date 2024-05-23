@@ -91,6 +91,22 @@ def generate_resume_binary():
     os.remove(temp_pdfpath)
     return response
 
+@app.post("/resume/generate/fromjd")
+def generate_resume_fromjd_binary():
+    body = json.loads(request.data)
+    position = resume.metadata.get_most_proper_position_from_jd(body["jd"])
+    required_skills = get_required_skills(body["jd"], position)
+    temp_file_id = str(uuid.uuid4())
+    temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
+    profile = get_profile_from_name(body['profile'])
+    resume.generate_resume_file(position, required_skills, body["jd"], profile, temp_pdfpath)
+    response = send_file(temp_pdfpath, mimetype='application/pdf')
+    os.remove(temp_pdfpath)
+    return response
+
+
+
+
 
 @app.post("/coverletter/generate/file")
 def generate_cover_letter_file():
@@ -100,6 +116,17 @@ def generate_cover_letter_file():
     file_path = get_save_path(body["fileId"], body['profile'], 'coverletter')
     coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, file_path)
     response = send_file(file_path, mimetype='application/pdf')
+    return response
+
+@app.post("/coverletter/generate/fromjd")
+def generate_cover_letter_fromjd_binary():
+    body = json.loads(request.data)
+    temp_file_id = str(uuid.uuid4())
+    temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
+    profile = get_profile_from_name(body['profile'])
+    coverletter.generate_cover_letter_file_from_jd(body['jd'], profile, temp_pdfpath)
+    response = send_file(temp_pdfpath, mimetype='application/pdf')
+    os.remove(temp_pdfpath)
     return response
 
 @app.post("/coverletter/generate/binary")
