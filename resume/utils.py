@@ -34,20 +34,15 @@ def select_skill_section_items(nodes):
             line_length += len(node.skill_name)
     return (selected_skills, line_length)
 
-def expand_weighted_skills_into_full_list(weighted_skills):
+def expand_weighted_skills_into_full_list(weighted_skills, simple=False):
     if len(weighted_skills) == 0:
         return []
-    min_weight = min([ weighted_skill['weight'] for weighted_skill in weighted_skills ])
-
-    expand_scale = None
-
-    if min_weight >= 1:
-        expand_scale = 2
-    elif min_weight >= 0.5:
-        expand_scale = 1.0 / min_weight * 2
-    else:
-        expand_scale = 1.0 / min_weight
-    expand_scale *= 3
+    expand_scale = 2
+    if simple is False:
+      weights = [ weighted_skill['weight'] for weighted_skill in weighted_skills ]
+      weight_total = sum(weights)
+      EXPAND_LIMIT = 50
+      expand_scale = EXPAND_LIMIT / weight_total
 
     expanded = []
     for weighted_skill in weighted_skills:

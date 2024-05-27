@@ -64,6 +64,7 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     except:
         return None
 
+    # copy full template data
     history = template["history"]
     final_history = []
     for item in history:
@@ -74,11 +75,12 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     if len(required_skills) == 0:
         return final_history
     
+    # Initialize sentence db usage
     sentence_usage = [ False ] * len(sentence_db)
 
 
     skill_category_info = {
-        "frontend": { "score": 0.03, "skills": [], "weighted_skills": [], "scale": 1.1 },
+        "frontend": { "score": 0.03, "skills": [], "weighted_skills": [], "scale": 1 },
         "backend":  { "score": 0.02, "skills": [], "weighted_skills": [], "scale": 1 },
         "dev":      { "score": 0.01, "skills": [], "weighted_skills": [], "scale": 0.3 },
         "cloud":    { "score": 0, "skills": [], "weighted_skills": [], "scale": 1 },
@@ -169,9 +171,9 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     total_category_score = sum([ cat[0] for cat in skill_categories ])
     
     # Group skills by category and add weight to every skill using the importance level
-    skill_category_words = []
+    categorized_weighted_skill_names = []
     for category in skill_categories:
-        skill_category_words = [ skill_category_info[category[1]]["weighted_skills"] for category in skill_categories ]
+        categorized_weighted_skill_names = [ skill_category_info[category[1]]["weighted_skills"] for category in skill_categories ]
         
     selected_categories = []
     for group_index, group in enumerate(final_history):
@@ -179,7 +181,7 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
         end_date_str = profile[f'company-end-date-{group_index + 1}']
         limit_year = datetime.strptime(end_date_str, '%m/%d/%Y').year if end_date_str != "" else 2100
         for (sentence_index, sentence) in enumerate(sentences):
-            # Selecte exchangable slots
+            # Select exchangable slots
             if "exchangable" not in sentence or sentence["exchangable"] is False:
                 continue
 
@@ -225,6 +227,19 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                 "similarity": 0,
                 "index": 0
             }
+
+            # Add non-related category skills as the additional factor of sentence selection process
+            target_skill_group = [ weighted_skill.copy() for weighted_skill in categorized_weighted_skill_names[current_category_index]]
+            for weighted_skill in target_skill_group:
+                weighted_skill['weight'] *= 3
+            for category_index, other_weighted_skill_names in enumerate(categorized_weighted_skill_names):
+                if category_index == current_category_index:
+                    continue
+                for weighted_skill_name in other_weighted_skill_names:
+                    target_skill_group.append(weighted_skill_name)
+            # Generated expanded skill list for target(remaining) skill group
+            expanded_target_skills = expand_weighted_skills_into_full_list(target_skill_group)
+
             for index, sentence_template in enumerate(sentence_db):
                 if sentence_usage[index] is True:
                     continue
@@ -232,7 +247,6 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                 new_sentences = generate_sentences_from_template(sentence_template)
                 for new_sentence in new_sentences:
                     weighted_relations = new_sentence["relations"]
-                    expanded_relations = expand_weighted_skills_into_full_list(weighted_relations)
                     for weighted_relation in weighted_relations:
                         relation = weighted_relation['skill_name']
                         if relation not in nodes:
@@ -240,16 +254,17 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                         if nodes[relation].data["release"] > limit_year:
                             break
                     else:
-                        expanded_skills = expand_weighted_skills_into_full_list(skill_category_words[current_category_index])
-                        vector_similarity = similarity_nm(expanded_skills, expanded_relations) ** 2
+                        expanded_relations = expand_weighted_skills_into_full_list(weighted_relations, True)
+                        # Calculate similarity between relational skills and target skills
+                        vector_similarity = similarity_nm(expanded_target_skills, expanded_relations) ** 2
+                        # Consider manual sentence quality
                         similarity = vector_similarity * new_sentence_quality
                         if best_candidate_sentence["similarity"] < similarity:
-                            copy_of_skill_category_words = [ weighted_skill.copy() for weighted_skill in skill_category_words[current_category_index]]
                             best_candidate_sentence = {
                                 "similarity": similarity,
                                 "vector_similarity": float(vector_similarity),
                                 "sentence_quality": new_sentence_quality,
-                                "among": copy_of_skill_category_words,
+                                "among": target_skill_group,
                                 "relations": weighted_relations,
                                 "content": new_sentence["content"],
                                 "index": index
@@ -258,7 +273,7 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
             best_sentence_index = best_candidate_sentence["index"]
             sentence_usage[best_sentence_index] = True
 
-            for weighted_skill in skill_category_words[current_category_index]:
+            for weighted_skill in categorized_weighted_skill_names[current_category_index]:
                 for relation in best_candidate_sentence["relations"]:
                     if normalize_skill_name(relation['skill_name']) == normalize_skill_name(weighted_skill['skill_name']):
                         weighted_skill['weight'] /= 2

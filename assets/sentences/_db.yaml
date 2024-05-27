@@ -133,34 +133,6 @@
     relations: [ [codesplitting, 0.5] ]
 
   -
-    content: "Built RESTful APIs using {bfr} that served data to the {ffr} front-end based on dynamically chosen user inputs that handled over 100,000 concurrent users."
-    exchange:
-      bfr:
-        - [ [ Node.js ], [ nodejs ] ]
-        - [ [ Express.js ], [ expressjs ] ]
-        - [ [ Koa.js ], [ koa ] ]
-        - [ [ Nest.js ], [ nestjs ] ]
-        - [ [ Python/Django ], [ [python, 0.5], django ] ]
-        - [ [ Python/Flask ], [ [python, 0.5], flask ] ]
-        - [ [ Python/FastAPI ], [ [python, 0.5], fastapi ] ]
-        - [ [ Java ], [ java ] ]
-        - [ [ Spring Boots ], [ javaspring ] ]
-        - [ [ Java Hibernate ], [ hibernate ] ]
-        - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
-        - [ [ Laravel Framework ], [ laravel ] ]
-        - [ [ DotNet Core ], [ dotnetcore ] ]
-        - [ [ ASP.NET ], [ asp ] ]
-        - [ [ Ruby on Rails ], [ rubyonrails ] ]
-        - [ [ Golang ], [ go ] ]
-      ffr:
-        - [ [ React ], [ [react, 0.5] ] ]
-        - [ [ Vue ], [ [vue, 0.5] ] ]
-        - [ [ Angular ], [ [angular, 0.5] ] ]
-    quality: 9.5
-    writer: mitnick
-    relations: [ [backendarchitecture, 0.4] ]
-
-  -
     content: "Developed well-tested qualified code with writing test scripts using {fr}, {fr}, {e2etest} and Python Selenium following TDD methodology, attained at 78% of test coverage."
     exchange:
       fr:
@@ -323,7 +295,7 @@
     quality: 9
     writer: https://www.linkedin.com/in/birendra124/
     relations: [ restapi ]
-  
+
   - 
     content: "Worked on {fr} web application using {fr} and {fr} for state management of application."
     exchange:
@@ -744,7 +716,7 @@
     relations: [ typescript, [ nodejs, 1.5 ], [ eslint, 1.5 ] ]
   -
     content: "Developed advanced web applications with a focus on performance using React, Vue, Redux, and Typescript in a professional and Agile environment."
-    quality: 10
+    quality: 9.5
     writer: anonymous
     relations: [ react, vue, redux, typescript ]
   -

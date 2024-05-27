@@ -34,7 +34,6 @@ def generate_detailed_skill_matrix(position: str, required_skills):
     }
 
     for required_skill in required_skills:
-        norm_skill = normalize_skill_name(required_skill["skill"])
         max_category = { "score": 0, "category": "" }
         for category in skill_category_info:
             score = get_skill_relation_value(required_skill["skill"], category, nodes, 0.1) * required_skill["importance"]
@@ -46,7 +45,6 @@ def generate_detailed_skill_matrix(position: str, required_skills):
         skill_category_info[category]["skills"].append(required_skill["skill"])
         skill_category_info[category]["score"] += score * skill_category_info[category]["scale"]
     skill_categories = sorted([ (skill_category_info[item]["score"], item) for item in skill_category_info ], key=lambda x: x[0], reverse=True)
-    # print(skill_categories)
     skill_section_headers = []
     skill_section_contents = []
 

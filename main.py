@@ -69,6 +69,7 @@ def generate_detailed_resume_history():
 
 
 
+
 @app.post("/resume/generate/file")
 def generate_resume_file():
     body = json.loads(request.data)
