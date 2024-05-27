@@ -77,7 +77,7 @@ def generate_resume_file():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
     profile = get_profile_from_name(body['profile'])
-    file_path = get_save_path(body["fileId"], body['profile'], 'resume')
+    file_path = get_save_path(body["fileId"], body['profile'], 'resume', body['ext'])
     resume.generate_resume_file(body["position"], required_skills, body["jd"], profile, file_path)
     response = send_file(file_path, mimetype='application/pdf')
     return response
@@ -110,7 +110,7 @@ def generate_resume_fromjd_binary():
 @app.post("/resume/download")
 def download_generated_resume():
     body = json.loads(request.data)
-    file_path = get_save_path(body["fileId"], body['profile'], 'resume')
+    file_path = get_save_path(body["fileId"], body['profile'], 'resume', body['ext'])
     response = send_file(file_path, mimetype='application/pdf')
     return response
 
@@ -123,7 +123,7 @@ def generate_cover_letter_file():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
     profile = get_profile_from_name(body['profile'])
-    file_path = get_save_path(body["fileId"], body['profile'], 'coverletter')
+    file_path = get_save_path(body["fileId"], body['profile'], 'coverletter', body['ext'])
     coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, file_path)
     response = send_file(file_path, mimetype='application/pdf')
     return response
@@ -154,7 +154,7 @@ def generate_cover_letter_binary():
 @app.post("/coverletter/download")
 def download_generated_coverletter():
     body = json.loads(request.data)
-    file_path = get_save_path(body["fileId"], body['profile'], 'coverletter')
+    file_path = get_save_path(body["fileId"], body['profile'], 'coverletter', body['ext'])
     response = send_file(file_path, mimetype='application/pdf')
     return response
 
