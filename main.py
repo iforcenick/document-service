@@ -42,7 +42,8 @@ def generate_resume_skill_matrix():
 def generate_resume_detailed_skill_matrix():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
-    skill_section_headers, skill_section_contents = resume.generate_detailed_skill_matrix(body["position"], required_skills)
+    profile = get_profile_from_name(body['profile'])
+    skill_section_headers, skill_section_contents = resume.generate_detailed_skill_matrix(profile, body["position"], required_skills)
     sections = []
     for index, header in enumerate(skill_section_headers):
         sections.append({ "header": header, "content": skill_section_contents[index] })

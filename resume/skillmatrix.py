@@ -2,10 +2,11 @@ from skill.utils import normalize_skill_name, get_allowed_nodes
 from skill.skill_tree import get_skill_tree, get_skill_relation_value
 from skill.occurence_matrix import matrix
 from .utils import get_most_relevant_template, select_skill_section_items
+import random
 
 (_, nodes) = get_skill_tree()
 
-def generate_detailed_skill_matrix(position: str, required_skills):
+def generate_detailed_skill_matrix(profile: dict, position: str, required_skills):
     global nodes
     template_type = get_most_relevant_template(position, required_skills)
 
@@ -33,6 +34,7 @@ def generate_detailed_skill_matrix(position: str, required_skills):
         "blockchain":   { "score": 0, "skills": [], "fullname": "Blockchain Development", "length": 20 + length_more["blockchain"], "scale": 0.7, "default": ["Web3"] }
     }
 
+    # Find the most relevant skill categories to be shown on the skill section
     for required_skill in required_skills:
         max_category = { "score": 0, "category": "" }
         for category in skill_category_info:
@@ -50,7 +52,10 @@ def generate_detailed_skill_matrix(position: str, required_skills):
 
     print(skill_categories)
 
+    random.seed(f"{profile['first-name']} {profile['last-name']}")
+
     banned_skill_names_more = []
+    # For every category, select skills
     for index, skill_category_name in enumerate(skill_categories):
         norm_category_name = normalize_skill_name(skill_category_name[1])
         base_skill_full_names = skill_category_info[norm_category_name]["skills"]
@@ -60,6 +65,7 @@ def generate_detailed_skill_matrix(position: str, required_skills):
 
         if len(base_skill_full_names) == 0:
             base_skill_full_names = skill_category_info[norm_category_name]["default"]
+        random.shuffle(base_skill_full_names)
         category_length = skill_category_info[norm_category_name]["length"]
         base_skills = list(map(normalize_skill_name, filter(lambda x: levels[normalize_skill_name(x)] >= 0, base_skill_full_names)))
         banned_skill_names = list(filter(lambda x: x != norm_category_name, skill_category_info.keys())) + banned_skill_names_more
@@ -94,17 +100,17 @@ def generate_detailed_skill_matrix(position: str, required_skills):
                     selected_skills = _selected_skills
                     break
                 depth += 1
-        selected_skills.sort(key=lambda x: nodes[normalize_skill_name(x)].data["level"], reverse=True)
+        selected_skills.sort(key=lambda x: nodes[normalize_skill_name(x)].data["level"] + random.random(), reverse=True)
         banned_skill_names_more.extend(list(map(normalize_skill_name, selected_skills)))
         skill_section_headers.append({
             "label": skill_category_info[norm_category_name]["fullname"],
-            "score": skill_category_info[norm_category_name]["score"]
+            "score": skill_category_info[norm_category_name]["score"],
         })
         skill_section_contents.append({
             "skills": selected_skills
         })
     return skill_section_headers, skill_section_contents
 
-def generate_skill_matrix(position: str, required_skills):
-    skill_section_headers, skill_section_contents = generate_detailed_skill_matrix(position, required_skills)
+def generate_skill_matrix(profile: dict, position: str, required_skills):
+    skill_section_headers, skill_section_contents = generate_detailed_skill_matrix(profile, position, required_skills)
     return [ item["label"] for item in skill_section_headers ], [ item["skills"] for item in skill_section_contents ]

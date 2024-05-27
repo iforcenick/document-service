@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-from ai import generate_ai_answer, inject_variables_to_content
+from ai import generate_ai_text, inject_variables_to_content
 
 full_prompt_template = '''
 My name is {{first-name}} and I am a {{headline}} with about 10 years of experience.
@@ -73,7 +73,7 @@ def _replace_data(document, position, jd, company, headline, profile, pipeline):
           prompt_template = jd_prompt_template if position is None else full_prompt_template
           prompt = inject_variables_to_content(prompt_template, variables)
           print(prompt)
-          return generate_ai_answer(prompt)
+          return generate_ai_text(prompt)
       return match
   
   for paragraph in document.paragraphs:

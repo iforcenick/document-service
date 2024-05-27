@@ -2,7 +2,7 @@ from skill.utils import normalize_skill_name, get_required_skill_groups
 from skill.skill_tree import get_skill_tree
 from .utils import get_most_relevant_template, expand_weighted_skills_into_full_list
 from ._template import get_template_data
-from ._sentencedb import sentence_db
+from ._sentencedb import get_sentence_db
 from job_familarity_model.word2vec import similarity_nm
 import re
 import time
@@ -57,6 +57,7 @@ def generate_sentences_from_template(template):
     return sentences
     
 def generate_detailed_resume_history(profile: dict, position: str, required_skills, jd: str) -> str:
+    sentence_db = get_sentence_db(profile)
     (root, nodes) = get_skill_tree()
     template_type = get_most_relevant_template(position, required_skills)
     try:
@@ -164,8 +165,8 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     current_category_progress = [0] * len(skill_categories)
     # Get total exchangable sentence count
     total_sentence_count = 0
-    for group in history:
-        for sentence in group['sentences']:
+    for company_data in history:
+        for sentence in company_data['sentences']:
             if "exchangable" in sentence and sentence['exchangable'] is True:
                 total_sentence_count += 1
     total_category_score = sum([ cat[0] for cat in skill_categories ])
@@ -176,15 +177,15 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
         categorized_weighted_skill_names = [ skill_category_info[category[1]]["weighted_skills"] for category in skill_categories ]
         
     selected_categories = []
-    for group_index, group in enumerate(final_history):
-        sentences = group['sentences']
-        end_date_str = profile[f'company-end-date-{group_index + 1}']
+    for company_index, company_data in enumerate(final_history):
+        sentences = company_data['sentences']
+        end_date_str = profile[f'company-end-date-{company_index + 1}']
         limit_year = datetime.strptime(end_date_str, '%m/%d/%Y').year if end_date_str != "" else 2100
+        used_sentence_groups = set()
         for (sentence_index, sentence) in enumerate(sentences):
             # Select exchangable slots
             if "exchangable" not in sentence or sentence["exchangable"] is False:
                 continue
-
             # Determine in which category should select the sentence
             current_category_index = 0
             max_remain = 0
@@ -243,6 +244,8 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
             for index, sentence_template in enumerate(sentence_db):
                 if sentence_usage[index] is True:
                     continue
+                if "group" in sentence_template and sentence_template['group'] in used_sentence_groups:
+                    continue
                 new_sentence_quality = sentence_template["quality"]
                 new_sentences = generate_sentences_from_template(sentence_template)
                 for new_sentence in new_sentences:
@@ -267,11 +270,15 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                                 "among": target_skill_group,
                                 "relations": weighted_relations,
                                 "content": new_sentence["content"],
-                                "index": index
+                                "index": index,
+                                "group": sentence_template.get('group', None),
                             }
 
             best_sentence_index = best_candidate_sentence["index"]
+            best_sentence_group = best_candidate_sentence["group"]
             sentence_usage[best_sentence_index] = True
+            if best_sentence_group is not None:
+                used_sentence_groups.add(best_sentence_group)
 
             for weighted_skill in categorized_weighted_skill_names[current_category_index]:
                 for relation in best_candidate_sentence["relations"]:
