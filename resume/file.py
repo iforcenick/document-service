@@ -52,6 +52,6 @@ def _generate_resume_file(headline, summary, history, skill_section_headers, ski
 
 def generate_resume_file(position: str, required_skills, jd: str, profile: dict, path: str) -> str:
     history = generate_resume_history(profile, position, required_skills, jd)
-    ( skill_section_headers, skill_section_contents ) = generate_skill_matrix(position, required_skills)
+    ( skill_section_headers, skill_section_contents ) = generate_skill_matrix(profile, position, required_skills)
     ( headline, _ ) = generate_meta_data(position, required_skills)
     _generate_resume_file(headline, profile['summary'], history, skill_section_headers, skill_section_contents, profile, path)

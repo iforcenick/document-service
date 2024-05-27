@@ -32,7 +32,8 @@ def generate_resume_metadata():
 def generate_resume_skill_matrix():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
-    skill_section_headers, skill_section_contents = resume.generate_skill_matrix(body["position"], required_skills)
+    profile = get_profile_from_name(body['profile'])
+    skill_section_headers, skill_section_contents = resume.generate_skill_matrix(profile, body["position"], required_skills)
     sections = []
     for index, header in enumerate(skill_section_headers):
         sections.append({ "header": header, "content": skill_section_contents[index] })
@@ -106,6 +107,13 @@ def generate_resume_fromjd_binary():
     os.remove(temp_pdfpath)
     return response
 
+@app.post("/resume/download")
+def download_generated_resume():
+    body = json.loads(request.data)
+    file_path = get_save_path(body["fileId"], body['profile'], 'resume')
+    response = send_file(file_path, mimetype='application/pdf')
+    return response
+
 
 
 
@@ -141,6 +149,13 @@ def generate_cover_letter_binary():
     coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, temp_pdfpath)
     response = send_file(temp_pdfpath, mimetype='application/pdf')
     os.remove(temp_pdfpath)
+    return response
+
+@app.post("/coverletter/download")
+def download_generated_coverletter():
+    body = json.loads(request.data)
+    file_path = get_save_path(body["fileId"], body['profile'], 'coverletter')
+    response = send_file(file_path, mimetype='application/pdf')
     return response
 
 app.run(port=DOCUMENT_SERVICE_PORT, host='0.0.0.0')
