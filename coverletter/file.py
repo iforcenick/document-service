@@ -9,6 +9,7 @@ import tempfile
 
 from resume.metadata import generate_meta_data
 from env import LIBREOFFICE_PATH
+from mutex import libre_office_mutex
 
 from . import _gencoverletter1
 from . import _gencoverletter2
@@ -40,7 +41,8 @@ def _generate_cover_letter_file(position, jd, company, headline, profile, path):
   os.chmod(temp_docxpath, 0o777)
   if path.endswith('pdf'):
       temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
-      os.system(f'{LIBREOFFICE_PATH} --headless --convert-to pdf --outdir "{TEMP_PATH}" "{temp_docxpath}"')
+      with libre_office_mutex:
+        os.system(f'{LIBREOFFICE_PATH} --headless --convert-to pdf --outdir "{TEMP_PATH}" "{temp_docxpath}"')
       os.remove(temp_docxpath)
       shutil.move(temp_pdfpath, path)
   else:

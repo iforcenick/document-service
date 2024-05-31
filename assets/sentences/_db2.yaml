@@ -155,7 +155,7 @@
     relations: [ [codesplitting, 0.5] ]
 
   -
-    content: "Developed thoroughly tested code with test scripts using {fr}, {fr}, {e2etest}, and Python Selenium following TDD methodologies, achieving 78% test coverage."
+    content: "Developed thoroughly tested code with test scripts using {fr}, {fr}, {e2etest}, and Python Selenium following TDD methodologies, achieving 85% test coverage."
     exchange:
       fr:
         - [ [ Jest, Mocha ], [ jest, mocha ] ]
@@ -329,11 +329,6 @@
     writer: cednore
     relations: []
   - 
-    content: "Created ASP.NET on .NET Core, MVC on .NET Core web applications to add functionality to individual pages, including user input validation, and action invocation."
-    quality: 10
-    writer: cednore
-    relations: [ c#, mvc, dotnetcore, asp ]
-  - 
     content: "Constructed Rest APIs and relational database models using {bfr} and {db}."
     exchange:
       bfr:
@@ -424,7 +419,7 @@
     relations: [ e2etesting ]
   
   -
-    content: "Wrote maintainable unit tests using {fr} and end-to-end tests with {e2etest} while adopting TDD to achieve 60% test coverage."
+    content: "Wrote maintainable unit tests using {fr} and end-to-end tests with {e2etest} while adopting TDD to achieve over 80% test coverage."
     exchange:
       fr:
         - [ [ Jest, React ], [ jest, react ] ]
@@ -441,7 +436,7 @@
     relations: [ tdd, unittesting, e2etesting, reactnative, javascript ]
   
   -
-    content: "Identified performance issues via Chrome Dev tools (React Profiler, Redux tools) and resolved 36% of component and page reusability issues."
+    content: "Identified performance issues via Chrome Dev tools (React Profiler, Redux tools) and resolved 45% of component and page reusability issues."
     quality: 9
     writer: https://www.linkedin.com/in/emmalyn-ngoka/
     relations: [ react, redux ]
@@ -453,7 +448,7 @@
     relations: [ es6, eslint, husky, es6 ]
   
   -
-    content: "Conducted daily code reviews (10%) to write optimized code, thereby reducing bundle sizes in production."
+    content: "Conducted daily code reviews (20%) to write optimized code, thereby reducing bundle sizes in production."
     quality: 8
     writer: https://www.linkedin.com/in/emmalyn-ngoka/
     relations: [ codereview, spaframework ]
@@ -652,7 +647,7 @@
     writer: mitnick
     relations: [ docker, linux ]
   -
-    content: "Implemented A/B testing strategies for the front-end user interface of Amazon Exclusives platform, resulting in a 15% increase in click-through rates and a 5% increase in average order value."
+    content: "Implemented A/B testing strategies for the front-end user interface of Amazon Exclusives platform, resulting in a 12% increase in click-through rates and a 6.5% increase in average order value."
     quality: 10
     writer: phoenix
     relations: [ aws, frontend, e2etesting ]
@@ -667,7 +662,7 @@
     writer: phoenix
     relations: [ express, graphql ]
   -
-    content: "Optimized client-side applications by adding Apollo GraphQL Client caching implementation to reduce round-trip requests and network latency by up to 90%."
+    content: "Optimized client-side applications by adding Apollo GraphQL Client caching implementation to reduce round-trip requests and network latency by up to 83%."
     quality: 10
     writer: phoenix
     relations: [ frontend, [graphql, 1.5] ]
@@ -698,7 +693,7 @@
     writer: phoenix
     relations: [ [restapi, 0.5], [mvc, 0.5] ]
   -
-    content: "Developed a suite of microservices using {bfr}, resulting in a 10% reduction in latency and an 8% improvement in reusability."
+    content: "Developed a suite of microservices using {bfr}, resulting in a 12% reduction in latency and an 9% improvement in reusability."
     group: backend-main-dev
     exchange:
       bfr:
@@ -742,7 +737,7 @@
     writer: anonymous
     relations: [ microservice, [kubernetes, 1.5] ]
   -
-    content: "Developed and maintained fully automated CI/CD pipelines using {cicd}, reducing production delivery time by 15%."
+    content: "Developed and maintained fully automated CI/CD pipelines using {cicd}, reducing production delivery time by 20%."
     exchange:
       cicd:
         - [ [ Jenkins ], [ jenkins ]]
@@ -773,13 +768,13 @@
     writer: anonymous
     relations: [ lambda, apigateway, cloudfront, amplify, aws ]
   -
-    content: "Integrated multiple Azure Cloud technologies, including Service Bus, Functions, Event Grid, and Event Hubs, into a scalable cloud architecture, boosting system resilience and scalability by 12.6%."
+    content: "Integrated multiple Azure Cloud technologies, including Service Bus, Functions, Event Grid, and Event Hubs, into a scalable cloud architecture, boosting system resilience and scalability by 16%."
     quality: 10
     writer: anonymous
     relations: [ azure, azurefunction, cloud, backendarchitecture ]
 
   -
-    content: "Implemented SonarQube for continuous code quality checks and security vulnerability detection, reducing security issues by 60% within six months."
+    content: "Implemented SonarQube for continuous code quality checks and security vulnerability detection, reducing security issues by 30% within six months."
     quality: 10
     writer: anonymous
     relations: [ cicd, backendarchitecture ]
