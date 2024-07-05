@@ -1,6 +1,6 @@
 from skill.utils import normalize_skill_name, get_required_skill_groups
 from skill.skill_tree import get_skill_tree
-from .utils import get_most_relevant_template, expand_weighted_skills_into_full_list
+from .utils import get_most_relevant_template, get_profile_specific_template, expand_weighted_skills_into_full_list
 from ._template import get_template_data
 from ._sentencedb import get_sentence_db
 from job_familarity_model.word2vec import similarity_nm
@@ -59,7 +59,12 @@ def generate_sentences_from_template(template):
 def generate_detailed_resume_history(profile: dict, position: str, required_skills, jd: str) -> str:
     sentence_db = get_sentence_db(profile)
     (root, nodes) = get_skill_tree()
-    template_type = get_most_relevant_template(position, required_skills)
+
+    # select template
+    template_type = get_profile_specific_template(profile)
+    if template_type is None:
+        template_type = get_most_relevant_template(position, required_skills)
+    print(template_type)
     try:
         template = get_template_data(template_type)
     except:
