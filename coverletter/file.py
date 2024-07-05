@@ -15,8 +15,7 @@ from . import _gencoverletter1
 from . import _gencoverletter2
 from . import _gencoverletter3
 from . import _gencoverletter4
-
-# from . import _gencoverletter5
+from . import _gencoverletter5
 
 TEMP_PATH = tempfile.gettempdir()
 
@@ -26,7 +25,7 @@ coverletter_generators = [
     _gencoverletter2.generate,
     _gencoverletter3.generate,
     _gencoverletter4.generate,
-    # _gencoverletter5.generate,
+    _gencoverletter5.generate,
 ]
 
 def _generate_cover_letter_file(position, jd, company, headline, profile, path):
