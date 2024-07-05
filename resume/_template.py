@@ -4,7 +4,7 @@ import yaml
 template = {}
 
 def get_template_data(template_type):
-    with open(f'assets/sentences/{template_type}_data.yaml', "r") as stream:
+    with open(f'assets/sentences/template_{template_type}.yaml', "r") as stream:
         template = yaml.safe_load(stream)
         return template
 

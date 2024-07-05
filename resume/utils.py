@@ -4,7 +4,7 @@ import os
 
 def get_profile_specific_template(profile: dict):
   template_type = f"{profile['first-name'].lower()}_{profile['last-name'].lower()}"
-  if os.path.exists(f"assets/sentences/{template_type}_data.yaml"):
+  if os.path.exists(f"assets/sentences/template_{template_type}.yaml"):
     return template_type
   return None
 
