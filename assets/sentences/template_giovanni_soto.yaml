@@ -6,19 +6,19 @@
       position: Senior Front End Engineer
       sentences:
         - 
-          content: "Led a team of 7 senior frontend developers in a fully remote working environment, achieved the successful product release in time by managing the team in deadline-driven Agile scrum."
+          content: "Led front-end engineering team and supervised dozen developers during the entire development lifecycle."
           impact: 10
           writer: mitnick
           exchangable: true
           relation: [ leadership, agile ]
         - 
-          content: "Orchestrated the enterprise-level web app using Angular 13 stack with the latest Angular features including RxJS and reactive extension resulting performance upgrade to 110.7%."
+          content: "Implemented Progressive Web Apps (PWAs) utilizing JavaScript, React, Node.js, and Workbox to provide customers with a more engaging and responsive experience on mobile devices."
           exchangable: true
           impact: 10
           writer: mitnick
           relation: [ angular, typescript, rxjs ]
         - 
-          content: ""
+          content: "Collaborated with cross-functional and Scrum teams to drive React.js frontend development, including daily Scrum calls, version control with Git, task management with Jira, and communication via Slack."
           exchangable: true
           impact: 9
           writer: mitnick
@@ -28,83 +28,58 @@
           impact: 9
           writer: mitnick
           relation: [ accessibility ]
-        - 
-          content: "Participated in code review, debugging issues, and fixing technical problems on the front-end project."
-          exchangable: true
-          impact: 8
-          writer: mitnick
-          relation: [ collaboration ]
-        - 
-          content: "Closely collaborated with the product and design teams on Agile methodology, ideated software solutions, and turned wireframes into effective code."
-          impact: 7
-          writer: mitnick
-          relation: [ agile ]
     
     -
       position: Senior Front End Engineer
       sentences:
         - 
-          content: "Built beautiful-looking, pixel-perfect dashboard UIs and reusable components for large number of clients using Angular + GraphQL, upgraded and enhanced the existing web app using NgRx and RxJs."
-          exchangable: true
+          content: "Spearheaded the development of a high-impact micro frontend of \"Operation Center\" application of John Deere company using React.js and Redux toolkit."
           impact: 9
           writer: mitnick
           relation: [ angular, graphql, ngrx, rxjs ]
         - 
-          content: "Used variety of efficient tools including Figma, introduced Typescript and Design System development trend to update dev tool experience and maintainability of expanding project."
-          exchangable: true
+          content: "Contributed to John Deere's component library \"ISG\" based on Material UI, utilizing Storybook for robust development"
           impact: 8
           writer: mitnick
           relation: [ figma, typescript ]
         - 
-          content: ""
-          exchangable: true
+          content: "Heavily involved in developing a stateless {bk} microservice that serves data to \"Field Analyzer\" micro frontend application."
           impact: 8
           writer: mitnick
         -
-          content: "Drove Angular front-end development in collaboration with cross-functional and Scrum teams, including participation in daily Scrum calls, Git version control and task management on Jira."
-          exchangable: true
+          content: "Mentored junior developers with daily pairing sessions and held knowledge sharing sessions with team members to discuss latest technologies and programming technique."
           impact: 7
           writer: mitnick
           relation: [ angular, frontend, collaboration, agile ]
-        - 
-          content: "Anticipated technical issues at the product level and proactively made architectural and design decisions."
-          impact: 5
-          writer: mitnick
-          relation: [ architecture ]
 
     -
-      position: Front End Engineer
+      position: Software Engineer
       sentences:
         -
-          content: "Took part in several large-scale web projects and released completed apps met client requirements."
+          content: "Migrated an existing React application from class components to functional components using React Hooks."
           impact: 6
           writer: mitnick
           relation: [ frontend, backend ]
         -
-          content: "Built RESTful APIs in NodeJS that served data to the javascript front-end based on dynamically chosen user inputs that handled over 100,000 concurrent users."
+          content: "Conducted accessibility audits of web applications to ensure compliance with WCAG 2.0."
           exchangable: true
           impact: 8
           writer: mitnick
           relation: [ nodejs, architecture ]
         - 
-          content: ""
+          content: "Worked closely with product owners to define requirements, establish priorities, and set realistic timelines for delivery of new functionality."
           exchangable: true
           impact: 8
           writer: mitnick
         -
-          content: "Developed well-tested qualified code with writing test scripts using Jest, Mocha, Cypress and Python Selenium following TDD methodology, attained at 78% of test coverage."
+          content: "Improved code deployment efficiency by automating processes with Circle CI/CD pipelines."
           exchangable: true
           impact: 7
           writer: mitnick
           relation: [ jest, mocha, cypress, selenium, tdd ]
-        -
-          content: "Reviewed code, debugged problems, and corrected technical issues from the frontend projects."
-          impact: 6
-          writer: mitnick
-          relation: [ collaboration ]
 
     -
-      position: Web Developer Intern
+      position: Software Developer
       sentences:
         -
           content: "Focused on creating reusable UI elements – Worked closely with design & QA teams."
@@ -112,17 +87,17 @@
           writer: mitnick
           relation: [ frontend, collaboration ]
         -
-          content: "Assisted in requirement analysis, database and backend project design, web UI design with PHP and Python programming language."
+          content: "Developed and implemented user-friendly and mobile-responsive interfaces using HTML, jQuery, JS, and CSS, ensuring pixel-perfect execution."
           impact: 4
           writer: mitnick
           relation: [ php, python, frontend, database ]
         -
-          content: "Employed a variety of languages such as HTML and CSS to write & create user-friendly web pages."
+          content: "Successfully integrated third-party services, such as authentication and payment."
           impact: 3
           writer: mitnick
           relation: [ html, css, frontend ]
         -
-          content: "Developed applications using PHP frameworks that leverages classical Model View Controller (MVC) architecture."
+          content: "Developed high performance RESTful APIs using JavaScript and Python with optimized SQL queries and data structures."
           impact: 3
           writer: mitnick
           relation: [ php, mvc ]
