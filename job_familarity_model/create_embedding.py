@@ -1,4 +1,4 @@
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from skill.utils import normalize_skill_name
 import os
 from skill.utils import get_skill_list

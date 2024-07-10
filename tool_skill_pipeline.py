@@ -1,17 +1,29 @@
 
-from db import job_collection
+import pymongo
+from urllib.parse import quote_plus
 from tqdm import tqdm
 from skill.utils import get_required_skill_groups, get_skill_list
 import yaml
 
+db_host = "127.0.0.1:27017"
+db_user = "root"
+db_password = "innovation!"
+uri = "mongodb://%s:%s@%s" % (quote_plus(db_user), quote_plus(db_password), db_host)
+
+client = pymongo.MongoClient(uri)
+db = client.jobdb
+job_collection = db.jobs
+
 print("Calculating skill occurence matrix...")
-jobs = list(job_collection.find({"pageData.description": {"$not": {"$eq": None}}}))
+job_count = int(job_collection.count_documents({"pageData.description": {"$not": {"$eq": None}}}))
+jobs = job_collection.find({"pageData.description": {"$not": {"$eq": None}}})
+print(job_count)
+
 embed = {}
 skills = get_skill_list()
 for skill_name in skills:
     embed[skill_name] = {}
-count = len(jobs)
-for job in tqdm(jobs, desc="Analysing: ", total=count):
+for job in tqdm(jobs, desc="Analysing: ", total=job_count):
     position = job["position"]
     description = job["pageData"]["description"]
     groups = get_required_skill_groups(description, position)
