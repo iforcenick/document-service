@@ -6,98 +6,164 @@
       position: Senior Front End Engineer
       sentences:
         - 
-          content: "Led front-end engineering team and supervised dozen developers during the entire development lifecycle."
-          impact: 10
+          content: "Spearheaded the front-end engineering department, providing diligent supervision and guidance to a team of twelve developers throughout the entire software development lifecycle."
           writer: mitnick
-          exchangable: true
-          relation: [ leadership, agile ]
+          relations: [ leadership, agile, frontend ]
         - 
-          content: "Implemented Progressive Web Apps (PWAs) utilizing JavaScript, React, Node.js, and Workbox to provide customers with a more engaging and responsive experience on mobile devices."
-          exchangable: true
-          impact: 10
+          content: "Used {fe}, {be}, and Workbox to architect Progressive Web Apps (PWAs), enhancing mobile user engagement and responsiveness for customers."
+          slot: true
           writer: mitnick
-          relation: [ angular, typescript, rxjs ]
+          exchange:
+            fe:
+              - [ [ React/Typescript ], [ react, typescript ]]
+              - [ [ React/Javascript ], [ react, javascript ]]
+              - [ [ Next.js ], [ nextjs ] ]
+              - [ [ Remix.js ], [ remixjs ] ]
+              - [ [ React ], [ react ]]
+              - [ [ Angular ], [ angular ]]
+              - [ [ Vue 3 ], [ vue ] ]
+              - [ [ Ember 5 ], [ ember ] ]
+              - [ [ Svelte ], [ svelte ]]
+            be:
+              - [ [ Node.js ], [ nodejs ] ]
+              - [ [ Express.js ], [ expressjs ] ]
+              - [ [ Koa.js ], [ koa ] ]
+              - [ [ Nest.js ], [ nestjs ] ]
+              - [ [ Python/Django ], [ [python, 0.5], django ] ]
+              - [ [ Python/Flask ], [ [python, 0.5], flask ] ]
+              - [ [ Python/FastAPI ], [ [python, 0.5], fastapi ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Java Hibernate ], [ hibernate ] ]
+              - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ ASP.NET ], [ asp ] ]
+              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Golang ], [ go ] ]
+          category: frontend
+          relations: [ uiux ]
         - 
-          content: "Collaborated with cross-functional and Scrum teams to drive React.js frontend development, including daily Scrum calls, version control with Git, task management with Jira, and communication via Slack."
-          exchangable: true
-          impact: 9
+          content: "Contributed to cross-functional and Scrum teams, leading the {fe} frontend development efforts that included participation in daily Scrum meetings, leveraging Git, Jira, Slack etc."
+          slot: true
+          exchange:
+            fe:
+              - [ [ React/Typescript ], [ react, typescript ]]
+              - [ [ React/Javascript ], [ react, javascript ]]
+              - [ [ React ], [ react ]]
+              - [ [ Angular ], [ angular ]]
+              - [ [ Vue ], [ vue ]]
+              - [ [ Svelte ], [ svelte ]]
+          category: frontend
           writer: mitnick
+          relations: [ jira ]
         - 
-          content: "Increased web accessibility and optimized browser performance that render large quantities of data to ensure the app is user interactive and satisfying to use."
-          exchangable: true
-          impact: 9
+          content: "Enhanced web accessibility and optimized browser performance for handling massive data rendering, ensuring the application's user interactivity and satisfaction."
+          slot: true
           writer: mitnick
-          relation: [ accessibility ]
+          relations: [ accessibility, frontend ]
     
     -
       position: Senior Front End Engineer
       sentences:
         - 
-          content: "Spearheaded the development of a high-impact micro frontend of \"Operation Center\" application of John Deere company using React.js and Redux toolkit."
-          impact: 9
+          content: "Led the creation of a high-impact micro frontend for John Deere's \"Operation Center\" application, utilizing {fe} and {fe}."
+          exchange:
+            fe:
+              - [ [ React.js, Redux Toolkit ], [ react, redux ]]
+              - [ [ React.js, MobX ], [ react, mobx ]]
+              - [ [ React.js, Recoil ], [ react, recoil ]]
+              - [ [ React.js, Zustand ], [ react, zustand ]]
+              - [ [ Next.js, Redux Toolkit ], [ nextjs, redux ]]
+              - [ [ Next.js, MobX ], [ nextjs, mobx ]]
+              - [ [ Next.js, Recoil ], [ nextjs, recoil ]]
+              - [ [ Next.js, Zustand ], [ nextjs, zustand ]]
+              - [ [ Remix.js, Redux Toolkit ], [ remixjs, redux ]]
+              - [ [ Remix.js, MobX ], [ remixjs, mobx ]]
+              - [ [ Remix.js, Recoil ], [ remixjs, recoil ]]
+              - [ [ Remix.js, Zustand ], [ remixjs, zustand ]]
+              - [ [ Angular 14, NgRx ], [ angular, ngrx ]]
+              - [ [ Angular 14, RxJS ], [ angular, rxjs ]]
+              - [ [ Vue 3, Vuex ], [ vue, vuex ] ]
+              - [ [ Vue 3, Pinia ], [ vue, pinia ] ]
+              - [ [ Ember 5, Ember Data ], [ ember ] ]
+              - [ [ Svelte, SvelteKit ], [ svelte ]]
           writer: mitnick
-          relation: [ angular, graphql, ngrx, rxjs ]
+          relations: []
+          category: frontend
         - 
-          content: "Contributed to John Deere's component library \"ISG\" based on Material UI, utilizing Storybook for robust development"
-          impact: 8
+          content: "Participated in the enhancement of John Deere's component library \"ISG\", deploying Material UI and robustly developed using Storybook."
           writer: mitnick
-          relation: [ figma, typescript ]
+          relations: [ materialui, storybook ]
+          category: frontend
         - 
-          content: "Heavily involved in developing a stateless {bk} microservice that serves data to \"Field Analyzer\" micro frontend application."
-          impact: 8
+          content: "Actively engaged in the development of a stateless {be} microservice, responsible for providing data to the \"Field Analyzer\" micro frontend application."
+          exchange:
+            be:
+              - [ [ Node.js ], [ nodejs ] ]
+              - [ [ Express.js ], [ expressjs ] ]
+              - [ [ Koa.js ], [ koa ] ]
+              - [ [ Nest.js ], [ nestjs ] ]
+              - [ [ Python/Flask ], [ [python, 0.5], flask ] ]
+              - [ [ Python/FastAPI ], [ [python, 0.5], fastapi ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Java Hibernate ], [ hibernate ] ]
+              - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ ASP.NET ], [ asp ] ]
+              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Golang ], [ go ] ]
           writer: mitnick
+          category: backend
         -
-          content: "Mentored junior developers with daily pairing sessions and held knowledge sharing sessions with team members to discuss latest technologies and programming technique."
-          impact: 7
+          content: "Guided junior developers through daily mentoring sessions and initiated knowledge-sharing discussions with the team on the latest technological advancements and programming methodologies."
           writer: mitnick
-          relation: [ angular, frontend, collaboration, agile ]
+          relations: [ collaboration ]
+          category: dev
 
     -
       position: Software Engineer
       sentences:
         -
-          content: "Migrated an existing React application from class components to functional components using React Hooks."
-          impact: 6
+          content: "Initiated the transition of a current React application from class components to functional components, employing React Hooks."
+          slot: true
           writer: mitnick
-          relation: [ frontend, backend ]
+          relations: [  ]
         -
-          content: "Conducted accessibility audits of web applications to ensure compliance with WCAG 2.0."
-          exchangable: true
-          impact: 8
+          content: "Performed compliance audits on web applications to ensure adherence to Web Content Accessibility Guidelines (WCAG) 2.0."
+          slot: true
           writer: mitnick
-          relation: [ nodejs, architecture ]
+          relations: [  ]
+        -
+          content: "Enhanced code deployment efficacy by automating processes, leveraging Circle CI/CD pipelines."
+          slot: true
+          writer: mitnick
+          relations: [  ]
         - 
-          content: "Worked closely with product owners to define requirements, establish priorities, and set realistic timelines for delivery of new functionality."
-          exchangable: true
-          impact: 8
+          content: "Collaborated intimately with product owners to delineate requirements, establish priorities, and create feasible timelines for the delivery of novel functionalities."
           writer: mitnick
-        -
-          content: "Improved code deployment efficiency by automating processes with Circle CI/CD pipelines."
-          exchangable: true
-          impact: 7
-          writer: mitnick
-          relation: [ jest, mocha, cypress, selenium, tdd ]
+          category: dev
 
     -
       position: Software Developer
       sentences:
         -
-          content: "Focused on creating reusable UI elements – Worked closely with design & QA teams."
-          impact: 6
+          content: "Engineered high-performance RESTful APIs utilizing JavaScript and Python, incorporating optimized SQL queries and data structures."
+          slot: true
           writer: mitnick
-          relation: [ frontend, collaboration ]
+          relations: [ restapi, javascript, python, sql ]
         -
-          content: "Developed and implemented user-friendly and mobile-responsive interfaces using HTML, jQuery, JS, and CSS, ensuring pixel-perfect execution."
-          impact: 4
+          content: "Concentrated on the development of reusable UI elements in close collaboration with design and QA teams."
           writer: mitnick
-          relation: [ php, python, frontend, database ]
+          category: frontend
+          relations: [ uiux ]
         -
-          content: "Successfully integrated third-party services, such as authentication and payment."
-          impact: 3
+          content: "Crafted and deployed user-centric, mobile-responsive interfaces with HTML, jQuery, JS, and CSS, assuring pixel-perfect execution."
           writer: mitnick
-          relation: [ html, css, frontend ]
+          category: frontend
+          relations: [ html, jquery, javascript, css ]
         -
-          content: "Developed high performance RESTful APIs using JavaScript and Python with optimized SQL queries and data structures."
-          impact: 3
+          content: "Efficiently incorporated third-party services, including authentication and payment functionalities."
           writer: mitnick
-          relation: [ php, mvc ]
+          category: backend
+          relations: [ restapi ]

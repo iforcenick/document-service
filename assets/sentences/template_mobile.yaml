@@ -7,122 +7,102 @@
       sentences:
         - 
           content: "Led a team of 7 senior developers in a fully remote working environment, achieved the successful product release in time by managing the team in deadline-driven Agile scrum."
-          impact: 10
           writer: mitnick
-          exchangable: true
-          relation: [ leadership, agile ]
+          slot: true
+          relations: [ leadership, agile ]
         - 
           content: ""
-          exchangable: true
-          impact: 10
+          slot: true
           writer: mitnick
-          relation: []
+          relations: []
         - 
           content: ""
-          exchangable: true
-          impact: 9
+          slot: true
           writer: mitnick
         - 
           content: ""
-          exchangable: true
-          impact: 9
+          slot: true
           writer: mitnick
-          relation: []
+          relations: []
         - 
           content: ""
-          exchangable: true
-          impact: 8
+          slot: true
           writer: mitnick
-          relation: []
+          relations: []
         - 
           content: "Closely collaborated with the product and design teams on Agile methodology, ideated software solutions, and turned wireframes into effective code."
-          impact: 7
           writer: mitnick
-          relation: [ agile ]
+          relations: [ agile ]
 
     -
       position: Senior Mobile Developer
       sentences:
         - 
           content: ""
-          exchangable: true
-          impact: 9
+          slot: true
           writer: mitnick
-          relation: []
+          relations: []
         - 
           content: ""
-          exchangable: true
-          impact: 8
+          slot: true
           writer: mitnick
-          relation: []
+          relations: []
         - 
           content: ""
-          exchangable: true
-          impact: 8
+          slot: true
           writer: mitnick
         -
           content: ""
-          exchangable: true
-          impact: 7
+          slot: true
           writer: mitnick
-          relation: []
+          relations: []
         - 
           content: "Anticipated technical issues at the product level and proactively made architectural and design decisions."
-          impact: 5
           writer: mitnick
-          relation: [ architecture ]
+          relations: [ architecture ]
 
     -
       position: Senior Web Developer
       sentences:
         -
           content: "Took part in several large-scale web projects and released completed apps met client requirements."
-          impact: 6
           writer: mitnick
-          relation: [ frontend, backend ]
+          relations: [ frontend, backend ]
         -
           content: "Built RESTful APIs in NodeJS that served data to the javascript front-end based on dynamically chosen user inputs that handled over 100,000 concurrent users."
-          exchangable: true
-          impact: 8
+          slot: true
           writer: mitnick
-          relation: [ nodejs, architecture ]
+          relations: [ nodejs, architecture ]
         - 
           content: ""
-          exchangable: true
-          impact: 8
+          slot: true
           writer: mitnick
         -
           content: "Developed well-tested qualified code with writing test scripts using Jest, Mocha, Cypress and Python Selenium following TDD methodology, attained at 78% of test coverage."
-          exchangable: true
-          impact: 7
+          slot: true
           writer: mitnick
-          relation: [ jest, mocha, cypress, selenium, tdd ]
+          relations: [ jest, mocha, cypress, selenium, tdd ]
         -
           content: "Reviewed code, debugged problems, and corrected technical issues from the frontend projects."
-          impact: 6
           writer: mitnick
-          relation: [ collaboration ]
+          relations: [ collaboration ]
 
     -
       position: Web Developer Intern
       sentences:
         -
           content: "Focused on creating reusable UI elements – Worked closely with design & QA teams."
-          impact: 6
           writer: mitnick
-          relation: [ frontend, collaboration ]
+          relations: [ frontend, collaboration ]
         -
           content: "Assisted in requirement analysis, database and backend project design, web UI design with PHP and Python programming language."
-          impact: 4
           writer: mitnick
-          relation: [ php, python, frontend, database ]
+          relations: [ php, python, frontend, database ]
         -
           content: "Employed a variety of languages such as HTML and CSS to write & create user-friendly web pages."
-          impact: 3
           writer: mitnick
-          relation: [ html, css, frontend ]
+          relations: [ html, css, frontend ]
         -
           content: "Developed applications using PHP frameworks that leverages classical Model View Controller (MVC) architecture."
-          impact: 3
           writer: mitnick
-          relation: [ php, mvc ]
+          relations: [ php, mvc ]

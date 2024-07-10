@@ -5,9 +5,22 @@ from ._template import get_template_data
 from ._sentencedb import get_sentence_db
 from job_familarity_model.word2vec import similarity_nm
 import re
-import time
 from datetime import datetime
-import random
+
+def get_weighted_relations(relations):
+    weighted_relations = []
+    for relation in relations:
+        if type(relation) == list:
+            weighted_relations.append({
+                "skill_name": relation[0],
+                "weight": float(relation[1]),
+            })
+        else:
+            weighted_relations.append({
+                "skill_name": relation,
+                "weight": 1,
+            })
+    return weighted_relations
 
 def generate_sentences_from_template(template):
     exchange = template.get("exchange", {})
@@ -24,18 +37,7 @@ def generate_sentences_from_template(template):
     def _recursive_generate(content, relations, exchange_keys):
         nonlocal exchange, replacement, sentences
         if len(exchange_keys) == 0:
-            weighted_relations = []
-            for relation in relations:
-                if type(relation) == list:
-                    weighted_relations.append({
-                        "skill_name": relation[0],
-                        "weight": float(relation[1]),
-                    })
-                else:
-                    weighted_relations.append({
-                        "skill_name": relation,
-                        "weight": 1,
-                    })
+            weighted_relations = get_weighted_relations(relations)
             sentences.append({
                 "content": content,
                 "relations": weighted_relations
@@ -52,8 +54,14 @@ def generate_sentences_from_template(template):
             relation_ext.extend(list(filter(lambda x: x is not None, rep[1])))
             _recursive_generate(replaced, relation_ext, keys_left)
     content = template["content"]
-    relations = template["relations"]
-    _recursive_generate(content, relations, list(exchange.keys()))
+    relations = template.get("relations", [])
+    exchange_keys = list(exchange.keys())
+    if len(exchange_keys) == 0:
+        return [{
+            "content": content,
+            "relations": get_weighted_relations(relations)
+        }]
+    _recursive_generate(content, relations, exchange_keys)
     return sentences
     
 def generate_detailed_resume_history(profile: dict, position: str, required_skills, jd: str) -> str:
@@ -168,11 +176,11 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     skill_categories = [ (skill_category_info[item]["score"], item) for item in skill_category_info ]
 
     current_category_progress = [0] * len(skill_categories)
-    # Get total exchangable sentence count
+    # Get total slot sentence count
     total_sentence_count = 0
     for company_data in history:
         for sentence in company_data['sentences']:
-            if "exchangable" in sentence and sentence['exchangable'] is True:
+            if "slot" in sentence and sentence['slot'] is True:
                 total_sentence_count += 1
     total_category_score = sum([ cat[0] for cat in skill_categories ])
     
@@ -188,43 +196,49 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
         limit_year = datetime.strptime(end_date_str, '%m/%d/%Y').year if end_date_str != "" else 2100
         used_sentence_groups = set()
         for (sentence_index, sentence) in enumerate(sentences):
-            # Select exchangable slots
-            if "exchangable" not in sentence or sentence["exchangable"] is False:
-                continue
             # Determine in which category should select the sentence
             current_category_index = 0
-            max_remain = 0
             remain_metadata = []
-            while True:
-                remain_metadata = []
+            if 'category' in sentence and sentence['category'] is True:
                 for index, category in enumerate(skill_categories):
-
-                    # Get last sequent sentence count for the same category
-                    # For decremental calculation
-                    sequent_count = 0
-                    selected_categories_len = len(selected_categories)
-                    for last in range(selected_categories_len):
-                        if selected_categories[selected_categories_len - last - 1] != index:
-                            break
-                        sequent_count += 1
-                    
-                    # Get progress of the current category
-                    progress = current_category_progress[index] / total_sentence_count * total_category_score
-                    remain = (category[0] - progress) * (0.8 ** sequent_count)
-                    remain_metadata.append({
-                        "category": category[1],
-                        "value": remain
-                    })
-                    if max_remain < remain:
+                    if category[1] == sentence['category']:
                         current_category_index = index
-                        max_remain = remain
-                if max_remain > 0:
-                    break
-                current_category_progress = [0] * len(skill_categories)
+                        remain_metadata = []
+                        break
+            else:
+                max_remain = 0
+                while True:
+                    remain_metadata = []
+                    for index, category in enumerate(skill_categories):
 
+                        # Get last sequent sentence count for the same category
+                        # For decremental calculation
+                        sequent_count = 0
+                        selected_categories_len = len(selected_categories)
+                        for last in range(selected_categories_len):
+                            if selected_categories[selected_categories_len - last - 1] != index:
+                                break
+                            sequent_count += 1
+                        
+                        # Get progress of the current category
+                        progress = current_category_progress[index] / total_sentence_count * total_category_score
+                        remain = (category[0] - progress) * (0.8 ** sequent_count)
+                        remain_metadata.append({
+                            "category": category[1],
+                            "value": remain
+                        })
+                        if max_remain < remain:
+                            current_category_index = index
+                            max_remain = remain
+                    if max_remain > 0:
+                        break
+                    current_category_progress = [0] * len(skill_categories)
+
+            # saving the current selection for furthur sentence selections
             current_category_progress[current_category_index] += 1
             selected_categories.append(current_category_index)
 
+            # Logging the current progress for each category
             for index, category in enumerate(skill_categories):
                 progress = current_category_progress[index] / total_sentence_count * total_category_score
                 print(category[1], progress)
@@ -246,12 +260,21 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
             # Generated expanded skill list for target(remaining) skill group
             expanded_target_skills = expand_weighted_skills_into_full_list(target_skill_group)
 
-            for index, sentence_template in enumerate(sentence_db):
-                if sentence_usage[index] is True:
+            # Check to see inside the sentence db (slot) or just this sentence (not-slot).
+            possible_sentences = []
+            is_slot = sentence.get('slot', False)
+            if is_slot is False:
+                possible_sentences = [sentence]
+            else:
+                possible_sentences = sentence_db
+
+            # Now, we are searching for a most suitable sentence template with most suitable exchanges
+            for index, sentence_template in enumerate(possible_sentences):
+                if is_slot and sentence_usage[index] is True:
                     continue
                 if "group" in sentence_template and sentence_template['group'] in used_sentence_groups:
                     continue
-                new_sentence_quality = sentence_template["quality"]
+                new_sentence_quality = sentence_template.get("quality", 10)
                 new_sentences = generate_sentences_from_template(sentence_template)
                 for new_sentence in new_sentences:
                     weighted_relations = new_sentence["relations"]
@@ -267,7 +290,7 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                         vector_similarity = similarity_nm(expanded_target_skills, expanded_relations) ** 2
                         # Consider manual sentence quality
                         similarity = vector_similarity * new_sentence_quality
-                        if best_candidate_sentence["similarity"] < similarity:
+                        if best_candidate_sentence["similarity"] <= similarity:
                             best_candidate_sentence = {
                                 "similarity": similarity,
                                 "vector_similarity": float(vector_similarity),
@@ -285,6 +308,7 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
             if best_sentence_group is not None:
                 used_sentence_groups.add(best_sentence_group)
 
+            # Decreasing the weight of selected relations to avoid continously selecting the same skills in furthur selection
             for weighted_skill in categorized_weighted_skill_names[current_category_index]:
                 for relation in best_candidate_sentence["relations"]:
                     if normalize_skill_name(relation['skill_name']) == normalize_skill_name(weighted_skill['skill_name']):
