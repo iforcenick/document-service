@@ -199,7 +199,7 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
             # Determine in which category should select the sentence
             current_category_index = 0
             remain_metadata = []
-            if 'category' in sentence and sentence['category'] is True:
+            if 'category' in sentence:
                 for index, category in enumerate(skill_categories):
                     if category[1] == sentence['category']:
                         current_category_index = index
