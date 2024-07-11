@@ -1,6 +1,7 @@
 import re
 import base64
 import os
+from .config import COMPANY_LOGOS
 
 def get_profile_specific_template(profile: dict):
   template_type = f"{profile['first-name'].lower()}_{profile['last-name'].lower()}"
@@ -76,8 +77,10 @@ def replace_images(document, profile, logo_map):
   for rel_index, rel in enumerate(image_rels):
     if rel_index not in logo_map:
       continue
-    logo_key = logo_map[rel_index]
-    logo_path = f'assets/company_logos/{profile[logo_key]}'
+    section_id = logo_map[rel_index]
+    logo_key  = section_id.replace('company', 'company-name-') if section_id.startswith('company') else 'university-name'
+    logo_file_name = COMPANY_LOGOS[profile[logo_key]]
+    logo_path = f'assets/company_logos/{logo_file_name}'
     with open(logo_path, "rb") as image_file:
       image_content = base64.b64encode(image_file.read()).decode("utf-8")
     rel.target_part._blob = base64.b64decode(image_content)

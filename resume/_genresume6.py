@@ -2,14 +2,6 @@ import re
 from datetime import datetime
 from .utils import gen_linkedin_default, gen_github_default, gen_website_default, gen_phone_default, replace_images, replace_mock_images
 
-company_logos = {
-  1: 'university',
-  3: 'company4',
-  4: 'company3',
-  5: 'company2',
-  6: 'company1',
-}
-
 def _replace_data(document, headline, summary, history, skill_section_headers, skill_section_contents, profile, pipeline):
   sentence_slot_index = 0
   position_slot_index = 0
@@ -26,7 +18,7 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
       if match == "email":
           return profile['email']
       if match == "location":
-          return f"{profile['city']}, {profile['state']}, United States, {profile['zip-code']}"
+          return f"{profile['city']}, {profile['state-abbr']}"
       if match == "LK":
           return pipeline['linkedin'](profile['linkedin'])
       if match == "phone":
@@ -94,23 +86,31 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
             for run in paragraph.runs:
               if re.match("{(.*?)}", run.text):
                 run.text = re.sub("{(.*?)}", _interpolate_data, run.text)
-  replace_images(document, profile, company_logos)
   # replace_mock_images(document)
-
     
 def generate(document, headline, summary, history, skill_section_headers, skill_section_contents, profile):
+  def gen_linkedin(url):
+    return url[11:]
   def gen_duration(start_date_str, end_date_str):
     start_date = datetime.strptime(start_date_str, '%m/%d/%Y') if start_date_str != "" else None
     end_date = datetime.strptime(end_date_str, '%m/%d/%Y') if end_date_str != "" else None
-    st = start_date.strftime('%b %Y') if start_date is not None else "Present"
-    ed = end_date.strftime('%b %Y') if end_date is not None else "Present"
+    st = start_date.strftime('%m/%Y') if start_date is not None else "Present"
+    ed = end_date.strftime('%m/%Y') if end_date is not None else "Present"
     return f'{st} - {ed}'
+  def gen_edu_duration(start_date_str, end_date_str):
+    start_date = datetime.strptime(start_date_str, '%m/%d/%Y') if start_date_str != "" else None
+    end_date = datetime.strptime(end_date_str, '%m/%d/%Y') if end_date_str != "" else None
+    st = start_date.strftime('%Y')
+    ed = end_date.strftime('%Y')
+    return f'{st} - {ed}'
+  def gen_phone(phone):
+    return f"({phone[0:3]}) {phone[3:6]} {phone[6:]}"
   pipeline = {
     "duration": gen_duration,
-    "university-duration": gen_duration,
-    "linkedin": gen_linkedin_default,
+    "university-duration": gen_edu_duration,
+    "linkedin": gen_linkedin,
     "website": gen_website_default,
     "github": gen_github_default,
-    "phone": gen_phone_default,
+    "phone": gen_phone,
   }
   _replace_data(document, headline, summary, history, skill_section_headers, skill_section_contents, profile, pipeline)

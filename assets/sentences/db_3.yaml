@@ -1,156 +1,25 @@
 ---
   - 
-    content: "Developed a suite of microservices using C# and .NET 6+, which resulted in a 50% reduction in latency and a 40% improvement in system scalability."
-    group: frontend-main-dev
+    content: "Developed a suite of microservices using {be}, which resulted in a 25% reduction in latency and a 20% improvement in system scalability."
+    group: backend-main-dev
     exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
+      be:
+        - [ [ Node.js ], [ nodejs ] ]
+        - [ [ Express.js ], [ expressjs ] ]
+        - [ [ Koa.js ], [ koa ] ]
+        - [ [ Nest.js ], [ nestjs ] ]
+        - [ [ Python/Django ], [ [python, 0.5], django ] ]
+        - [ [ Python/Flask ], [ [python, 0.5], flask ] ]
+        - [ [ Python/FastAPI ], [ [python, 0.5], fastapi ] ]
+        - [ [ Java ], [ java ] ]
+        - [ [ Spring Boots ], [ javaspring ] ]
+        - [ [ Java Hibernate ], [ hibernate ] ]
+        - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+        - [ [ Laravel Framework ], [ laravel ] ]
+        - [ [ DotNet Core ], [ dotnetcore ] ]
+        - [ [ ASP.NET ], [ asp ] ]
+        - [ [ Ruby on Rails ], [ rubyonrails ] ]
+        - [ [ Golang ], [ go ] ]
     quality: 10
     writer: mitnick
     relations: [ typescript ]
-  - 
-    content: "Spearheaded the development of a high-impact web application with TypeScript and React, leading to a 30% improvement in user engagement through enhanced UI/UX design."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Integrated multiple Azure Cloud technologies, including Service Bus, Functions, Event Grid, and Event Hubs, into a scalable cloud architecture, boosting system resilience and scalability by 45%."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Designed and implemented a secure authentication and authorization system using OpenID Connect and JWT Tokens, significantly enhancing application security."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Utilized Node.js, Griffel, npm, Rollup, Vite and Web Components to develop and deploy a scalable web application, reducing the development cycle by 30% and improving build efficiency by 25%."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Architected and deployed a microservices-based solution that improved system modularity and facilitated easier updates and maintenance, resulting in a 20% reduction in downtime and a 35% increase in the speed of new feature deployments."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Led the integration of RESTful APIs with Angular for multiple clients, enhancing data retrieval speeds and responsiveness, which proved crucial for clients operating in fast-paced industries."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Transformed state management using Redux and NgRx in a large-scale web application, improving state handling efficiency by 40% and ensuring scalability for over 500,000 users."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Facilitated collaborative API contract development with .NET backend developers, boosting data exchange efficiency by 35% and elevating system performance in projects demanding high interoperability."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Implemented SonarQube for continuous code quality checks and security vulnerability detection, reducing security issues by 60% within six months."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Designed and integrated RESTful and SOAP web services, enabling seamless communication between front-end and back-end systems, and enhancing user experience by increasing data exchange speeds by 30%."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Optimized database queries and structures in both SQL Server and CosmosDB, achieving a 50% improvement in data retrieval times for critical financial operations."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Engineered and implemented a fully automated deployment pipeline using Jenkins and Docker. Achieved a 75% reduction in deployment times and significantly improved release efficiency through robust CI/CD practices. Established comprehensive automated testing protocols to maintain high code quality."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  - 
-    content: "Implemented and maintained Continuous Integration/Continuous Deployment (CI/CD) pipelines using Git, Maven, and Jenkins, automating the build and deployment processes to increase development efficiency and minimize manual errors."
-    group: frontend-main-dev
-    exchange:
-      fr:
-        - [ [ React ], [ react ] ]
-        - [ [ Angular ], [ angular ] ]
-        - [ [ Vue 3 ], [ vue ] ]
-    quality: 10
-    writer: mitnick
-    relations: [ typescript ]
-  

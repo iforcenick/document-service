@@ -279,8 +279,11 @@
     relations: []
   - 
     content: "Managed platform and change management using {cicd}, Chef, Elasticsearch, and Sensu."
+    group: cicd-creation
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ] ]
         - [ [ CircleCI ], [ circleci ] ]
     quality: 10
@@ -622,8 +625,11 @@
     relations: [ docker, ec2, s3, cicd ]
   -
     content: "Designed and implemented CI/CD pipelines using {cicd} and automated CI/CD pipelines by invoking Ansible playbooks."
+    group: cicd-creation
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9
@@ -641,6 +647,8 @@
         - [ [ C# ], [ c# ] ]
         - [ [ Python ], [ python ] ]
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9
@@ -719,13 +727,16 @@
   
   -
     content: "Implemented continuous integration/continuous deployment (CI/CD) pipelines using {cicd} and Git, enhancing development efficiency and product reliability."
+    group: cicd-creation
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9
     writer: anonymous
-    relations: [ cicd, [jenkins, 1.5] ]
+    relations: [ cicd ]
   -
     content: "Designed a communication system between microservices using Kubernetes Service Discovery and utilized {queue} for asynchronous communication between microservices."
     exchange:
@@ -738,8 +749,11 @@
     relations: [ microservice, [kubernetes, 1.5] ]
   -
     content: "Developed and maintained fully automated CI/CD pipelines using {cicd}, reducing production delivery time by 20%."
+    group: cicd-creation
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9

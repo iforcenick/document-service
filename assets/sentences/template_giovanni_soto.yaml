@@ -1,6 +1,6 @@
 ---
   headline: "Senior Front End Engineer"
-  summary: "Senior Front-End Engineer committed to various levels of SDLC for over 10 years. Proficient in developing full stack web projects and mobile apps using modern JavaScript frameworks and libraries including Angular and NestJS. Innovative problem-solver and proactive team-player with excellent time and task management skills. Ready to embrace a new opportunity to build long lasting relationship with exciting teams and companies."
+  summary: "Senior Front-End Engineer committed to various levels of SDLC for over 10 years. Proficient in developing full stack web projects and mobile apps using modern frameworks and libraries. Innovative problem-solver and proactive team-player with excellent time and task management skills. Ready to embrace a new opportunity to build long lasting relationship with exciting teams and companies."
   history:
     -
       position: Senior Front End Engineer
@@ -11,7 +11,6 @@
           relations: [ leadership, agile, frontend ]
         - 
           content: "Used {fe}, {be}, and Workbox to architect Progressive Web Apps (PWAs), enhancing mobile user engagement and responsiveness for customers."
-          slot: true
           writer: mitnick
           exchange:
             fe:
@@ -55,7 +54,7 @@
               - [ [ Svelte ], [ svelte ]]
           category: frontend
           writer: mitnick
-          relations: [ jira ]
+          relations: [ jira, agile ]
         - 
           content: "Enhanced web accessibility and optimized browser performance for handling massive data rendering, ensuring the application's user interactivity and satisfaction."
           slot: true

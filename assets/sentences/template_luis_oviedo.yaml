@@ -1,0 +1,164 @@
+---
+  headline: "Senior Full Stack Engineer"
+  summary: "Seasoned Senior Full Stack Engineer with around 10 years of proven track record of software development. Proven proficiency in developing full stack web projects and mobile apps using modern JavaScript frameworks and libraries including React, Node.js, Java and C#. Proven ability to develop new features and improve those already in place as well as taking ownership of products."
+  history:
+    -
+      position: Senior Full Stack Engineer
+      sentences:
+        - 
+          content: "Contributed significantly to the cross-functional engineering team with supervision and guidance to the team of 9 developers through all stages of the SDLC."
+          writer: mitnick
+          relations: [ leadership, agile, frontend ]
+          category: dev
+        - 
+          content: "Developed from scratch an AI-powered document generation platform - a comprehensive report generation solution that increased clients' efficiency and productivity by up to 180%, used {fe} and {be}"
+          exchange:
+            fe:
+              - [ [ React/Typescript ], [ react, typescript ]]
+              - [ [ React/Javascript ], [ react, javascript ]]
+              - [ [ Next.js ], [ nextjs ] ]
+              - [ [ Remix.js ], [ remixjs ] ]
+              - [ [ React ], [ react ]]
+              - [ [ Angular ], [ angular ]]
+              - [ [ Vue 3 ], [ vue ] ]
+              - [ [ Ember 5 ], [ ember ] ]
+              - [ [ Svelte ], [ svelte ]]
+            be:
+              - [ [ Node.js ], [ nodejs ] ]
+              - [ [ Express.js ], [ expressjs ] ]
+              - [ [ Koa.js ], [ koa ] ]
+              - [ [ Nest.js ], [ nestjs ] ]
+              - [ [ Python/Django ], [ [python, 0.5], django ] ]
+              - [ [ Python/Flask ], [ [python, 0.5], flask ] ]
+              - [ [ Python/FastAPI ], [ [python, 0.5], fastapi ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Java Hibernate ], [ hibernate ] ]
+              - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ ASP.NET ], [ asp ] ]
+              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Golang ], [ go ] ]
+          writer: mitnick
+          relations: [ typescript ]
+        - 
+          content: "Contributed to cross-functional and Scrum teams, leading the {fe} frontend development efforts that included participation in daily Scrum meetings, leveraging Git, Jira, Slack etc."
+          slot: true
+          exchange:
+            fe:
+              - [ [ React/Typescript ], [ react, typescript ]]
+              - [ [ React/Javascript ], [ react, javascript ]]
+              - [ [ React ], [ react ]]
+              - [ [ Angular ], [ angular ]]
+              - [ [ Vue ], [ vue ]]
+              - [ [ Svelte ], [ svelte ]]
+          writer: mitnick
+          relations: [ jira ]
+        - 
+          content: "Anticipated technical issues at the product level and proactively made architectural and design decisions."
+          slot: true
+          writer: mitnick
+          relations: [ architecture ]
+    
+    -
+      position: Senior Front End Engineer
+      sentences:
+        - 
+          content: "Led the creation of a high-impact web application using TypeScript and {fr}, resulting in a 12% boost in user engagement due to improved UI/UX design."
+          exchange:
+            fr:
+              - [ [ React ], [ react ]]
+              - [ [ Next.js ], [ nextjs ] ]
+              - [ [ Remix.js ], [ remixjs ] ]
+              - [ [ Angular ], [ angular ]]
+              - [ [ Vue 3 ], [ vue ] ]
+              - [ [ Ember 5 ], [ ember ] ]
+              - [ [ Svelte ], [ svelte ]]
+          quality: 10
+          writer: mitnick
+          relations: [ typescript ]
+        - 
+          content: "Implemented and structured efficient CI/CD pipelines for mobile app deployment to the AppStore and Google Play Store, utilizing Fastlane and Azure DevOps."
+          exchange:
+            cicd:
+              - [ [ GitHub Actions ], [ githubactions ]]
+              - [ [ Azure DevOps ], [ azuredevops ]]
+              - [ [ Jenkins ], [ jenkins ]]
+              - [ [ CircleCI ], [ circleci ]]
+          writer: mitnick
+          relations: [  ]
+          category: cicd
+        - 
+          content: "Reduced product defects through 70% by implementing unit testing using {unittest} and E2E testing using {e2e}."
+          exchange:
+            unittest:
+              - [ [ Jest ], [ jest ] ]
+              - [ [ Mocha ], [ mocha ] ]
+              - [ [ Chai ], [ chai ] ]
+              - [ [ React Testing Library ], [ reacttestinglibrary ] ]
+              - [ [ Jasmine ], [ chai ] ]
+              - [ [ Karma ], [ karma ] ]
+            e2etest:
+              - [ [ Cypress ], [ cypress ] ]
+              - [ [ Playwright ], [ playwright ] ]
+              - [ [ Selenium ], [ selenium ] ]
+          writer: mitnick
+          category: backend
+        -
+          content: "Mentored and provided professional guidance to junior team members, fostering skill development, promoting effective teamwork, and enhancing overall team productivity."
+          writer: mitnick
+          relations: [ collaboration ]
+          category: dev
+
+    -
+      position: Senior Full Stack Engineer
+      sentences:
+        -
+          content: "Migrated from outdated systems to a React-based infrastructure, improving the application's performance and dependability."
+          slot: true
+          writer: mitnick
+          relations: [  ]
+        -
+          content: "Performed compliance audits on web applications to ensure adherence to Web Content Accessibility Guidelines (WCAG) 2.0."
+          slot: true
+          writer: mitnick
+          relations: [  ]
+        -
+          content: "Enhanced code deployment efficacy by automating processes, leveraging Circle CI/CD pipelines."
+          slot: true
+          writer: mitnick
+          relations: [  ]
+        - 
+          content: "Actively participated in technical discussion meetings, sharing knowledge and insights with team members."
+          writer: mitnick
+          category: dev
+
+    -
+      position: Full Stack Engineer
+      sentences:
+        -
+          content: "Engineered high-performance RESTful APIs utilizing JavaScript and Python, incorporating optimized SQL queries and data structures."
+          slot: true
+          writer: mitnick
+          relations: [ restapi, javascript, python, sql ]
+        -
+          content: "Implemented suite of custom user interfaces and components with {fe} that significantly improve UX."
+          exchange:
+            fe:
+                - [ [ React ], [ react ]]
+                - [ [ Angular ], [ angular ]]
+                - [ [ Vue ], [ vue ] ]
+                - [ [ Ember ], [ ember ] ]
+          writer: mitnick
+          category: frontend
+          relations: [ uiux ]
+        -
+          content: "Enhanced application accessibility by implementing WCAG guidelines and ARIA roles on E-commerce web pages, ensuring compliance and improving usability."
+          writer: mitnick
+          category: frontend
+          relations: [ accessibility, uiux ]
+        -
+          content: "Effectively communicated with design and product teams to convert user requirements into viable digital solutions."
+          writer: mitnick
+          category: dev
+          relations: [ collaboration ]

@@ -3,11 +3,11 @@ from datetime import datetime
 from .utils import gen_linkedin_default, gen_github_default, gen_website_default, gen_phone_default, replace_images, replace_mock_images
 
 company_logos = {
-  1: 'university-logo',
-  2: 'company-logo-4',
-  3: 'company-logo-3',
-  4: 'company-logo-2',
-  0: 'company-logo-1',
+  1: 'university',
+  2: 'company4',
+  3: 'company3',
+  4: 'company2',
+  0: 'company1',
 }
 
 def _replace_data(document, headline, summary, history, skill_section_headers, skill_section_contents, profile, pipeline):

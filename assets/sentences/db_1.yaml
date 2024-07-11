@@ -159,6 +159,8 @@
     exchange:
       fr:
         - [ [ Jest, Mocha ], [ jest, mocha ] ]
+        - [ [ Jest, React Testing Library ], [ jest, reacttestinglibrary ] ]
+        - [ [ React Testing Library, Mocha ], [ reacttestinglibrary, mocha ] ]
         - [ [ Jasmine, Karma ], [ jasmine, karma ] ]
       e2etest:
         - [ [ Cypress ], [ cypress ] ]
@@ -281,6 +283,8 @@
     content: "Monitored platform and change management via {cicd}, Chef, ElasticSearch and Sensu."
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ] ]
         - [ [ CircleCI ], [ circleci ] ]
     quality: 10
@@ -428,10 +432,11 @@
     exchange:
       fr:
         - [ [ Jest, React ], [ jest, react ] ]
-        - [ [ Mocha, React ], [ Mocha, react ] ]
-        - [ [ Chai, React ], [ Chai, react ] ]
-        - [ [ Jasmine, Angular ], [ Chai, Angular ] ]
-        - [ [ Karma, Angular ], [ Karma, Angular ] ]
+        - [ [ Mocha, React ], [ mocha, react ] ]
+        - [ [ Chai, React ], [ chai, react ] ]
+        - [ [ React Testing Library, React ], [ reacttestinglibrary, react ] ]
+        - [ [ Jasmine, Angular ], [ chai, Angular ] ]
+        - [ [ Karma, Angular ], [ karma, Angular ] ]
       mobile:
         - [ [ React Native(Javascript) ], [  ] ]
         - [ [ React Native(Expo) ], [ expo ] ]
@@ -630,8 +635,11 @@
     relations: [ docker, ec2, s3, cicd ]
   -
     content: "Design and implementation of CI/CD pipelines using {cicd} and automated CI/CD pipelines by invoking Ansible playbooks."
+    group: cicd-creation
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9
@@ -649,6 +657,8 @@
         - [ [ C# ], [ c# ] ]
         - [ [ Python ], [ python ] ]
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9
@@ -699,13 +709,16 @@
     relations: [ [restapi, 0.5], [mvc, 0.5] ]
   -
     content: "Implemented continuous integration/continuous deployment (CI/CD) pipelines using {cicd} and Git, enhancing development efficiency and product reliability."
+    group: cicd-creation
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9
     writer: anonymous
-    relations: [ cicd, [jenkins, 1.5] ]
+    relations: [ cicd ]
   -
     content: "Designed communication system between microservices using Kubernetes Service Discovery and used {queue} for asynchronous communication between microservices."
     exchange:
@@ -718,8 +731,11 @@
     relations: [ microservice, [kubernetes, 1.5] ]
   -
     content: "Developed and maintained fully automated CI/CD pipelines using {cicd}, reducing production delivery time by 15%."
+    group: cicd-creation
     exchange:
       cicd:
+        - [ [ GitHub Actions ], [ githubactions ]]
+        - [ [ Azure DevOps ], [ azuredevops ]]
         - [ [ Jenkins ], [ jenkins ]]
         - [ [ CircleCI ], [ circleci ]]
     quality: 9
