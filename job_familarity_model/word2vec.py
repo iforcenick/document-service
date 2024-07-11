@@ -5,8 +5,6 @@ from gensim import matutils
 
 print("Loading Word2Vec model...")
 word_vect = KeyedVectors.load_word2vec_format("./job_familarity_model/Model/openai_powered_embedding.bin", binary=True)
-# word_vect = KeyedVectors.load_word2vec_format("./job_familarity_model/Model/SO_vectors_200.bin", binary=True)
-# word_vect = KeyedVectors.load_word2vec_format("./job_familarity_model/Model/se_wiki_w2v_SKIPGRAM.bin", binary=True)
 print("Model loaded.")
 
 def similarity_nm(skills1, skills2):

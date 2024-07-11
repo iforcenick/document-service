@@ -8,10 +8,9 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
   company_slot_index = 0
   duration_slot_index = 0
   category_slot_index = 0
-  skill_slot_index = 0
 
   def _interpolate_data(match_obj):
-      nonlocal sentence_slot_index, position_slot_index, company_slot_index, duration_slot_index, category_slot_index, skill_slot_index, pipeline
+      nonlocal sentence_slot_index, position_slot_index, company_slot_index, duration_slot_index, category_slot_index, pipeline
       match = match_obj.group(1)
       if match == "name":
           return f"{profile['first-name']} {profile['last-name']}"
@@ -64,8 +63,7 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
           category_slot_index += 1
           return skill_section_headers[category_slot_index - 1]
       if match == "skill":
-          skill_slot_index += 1
-          return " • ".join(skill_section_contents[skill_slot_index - 1])
+          return " • ".join([item for sub_list in skill_section_contents for item in sub_list])
       return match
   
   for paragraph in document.paragraphs:
@@ -90,7 +88,7 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
     
 def generate(document, headline, summary, history, skill_section_headers, skill_section_contents, profile):
   def gen_linkedin(url):
-    return url[11:]
+    return url[12:]
   def gen_duration(start_date_str, end_date_str):
     start_date = datetime.strptime(start_date_str, '%m/%d/%Y') if start_date_str != "" else None
     end_date = datetime.strptime(end_date_str, '%m/%d/%Y') if end_date_str != "" else None

@@ -40,7 +40,7 @@
               - [ [ Ruby on Rails ], [ rubyonrails ] ]
               - [ [ Golang ], [ go ] ]
           writer: mitnick
-          relations: [ typescript ]
+          relations: [  ]
         - 
           content: "Contributed to cross-functional and Scrum teams, leading the {fe} frontend development efforts that included participation in daily Scrum meetings, leveraging Git, Jira, Slack etc."
           slot: true
@@ -53,7 +53,7 @@
               - [ [ Vue ], [ vue ]]
               - [ [ Svelte ], [ svelte ]]
           writer: mitnick
-          relations: [ jira ]
+          relations: [ jira, agile ]
         - 
           content: "Anticipated technical issues at the product level and proactively made architectural and design decisions."
           slot: true
@@ -89,7 +89,7 @@
           relations: [  ]
           category: cicd
         - 
-          content: "Reduced product defects through 70% by implementing unit testing using {unittest} and E2E testing using {e2e}."
+          content: "Reduced product defects through 70% by implementing unit testing using {unittest} and E2E testing using {e2etest}."
           exchange:
             unittest:
               - [ [ Jest ], [ jest ] ]
