@@ -42,23 +42,6 @@ def select_skill_section_items(nodes):
             line_length += len(node.skill_name)
     return (selected_skills, line_length)
 
-def expand_weighted_skills_into_full_list(weighted_skills, simple=False):
-    if len(weighted_skills) == 0:
-        return []
-    expand_scale = 2
-    if simple is False:
-      weights = [ weighted_skill['weight'] for weighted_skill in weighted_skills ]
-      weight_total = sum(weights)
-      EXPAND_LIMIT = 50
-      expand_scale = EXPAND_LIMIT / weight_total
-
-    expanded = []
-    for weighted_skill in weighted_skills:
-        weight = weighted_skill['weight'] * expand_scale
-        count = round(weight)
-        expanded.extend([weighted_skill['skill_name']] * count)
-    return expanded
-
 def gen_linkedin_default(url):
   return url[12:]
 def gen_github_default(url):

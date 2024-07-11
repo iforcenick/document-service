@@ -1,6 +1,6 @@
 from skill.utils import normalize_skill_name, get_required_skill_groups
 from skill.skill_tree import get_skill_tree
-from .utils import get_most_relevant_template, get_profile_specific_template, expand_weighted_skills_into_full_list
+from .utils import get_most_relevant_template, get_profile_specific_template
 from ._template import get_template_data
 from ._sentencedb import get_sentence_db
 from job_familarity_model.word2vec import similarity_nm
@@ -114,7 +114,6 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
             "skill_name": required_skill["skill"],
             "weight": occurence_count * required_skill['affect']
         })
-    all_expanded = expand_weighted_skills_into_full_list(all_weighted_skills)
 
     # Group CLEARLY CATEGORIZED required skills by category into skill_category_info
     for required_skill in required_skills:
@@ -132,8 +131,7 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     for category in skill_category_info:
         score = 0
         if len(skill_category_info[category]["skills"]) > 0:
-            category_expanded = expand_weighted_skills_into_full_list(skill_category_info[category]["weighted_skills"])
-            score = similarity_nm(all_expanded, category_expanded) ** 10
+            score = similarity_nm(all_weighted_skills, skill_category_info[category]["weighted_skills"]) ** 10
         skill_category_info[category]["score"] = score * skill_category_info[category]["scale"]
         print("temporary category importance: ", category, score)
     
@@ -163,9 +161,6 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     #  by calculating the similarity between total occurence list and the required skills certain category
     for category in skill_category_info:
         score = 0
-        # if len(skill_category_info[category]["skills"]) > 0:
-        #     category_expanded = expand_weighted_skills_into_full_list(skill_category_info[category]["weighted_skills"])
-        #     score = similarity_nm(all_expanded, category_expanded) ** 10
         score = sum([ weighted_skill['weight'] for weighted_skill in skill_category_info[category]["weighted_skills"] ])
         skill_category_info[category]["score"] = score * skill_category_info[category]["scale"]
         print("final category importance: ", category, score)
@@ -257,8 +252,6 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                     continue
                 for weighted_skill_name in other_weighted_skill_names:
                     target_skill_group.append(weighted_skill_name)
-            # Generated expanded skill list for target(remaining) skill group
-            expanded_target_skills = expand_weighted_skills_into_full_list(target_skill_group)
 
             # Check to see inside the sentence db (slot) or just this sentence (not-slot).
             possible_sentences = []
@@ -285,9 +278,8 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                         if nodes[relation].data["release"] > limit_year:
                             break
                     else:
-                        expanded_relations = expand_weighted_skills_into_full_list(weighted_relations, True)
                         # Calculate similarity between relational skills and target skills
-                        vector_similarity = similarity_nm(expanded_target_skills, expanded_relations) ** 2
+                        vector_similarity = similarity_nm(target_skill_group, weighted_relations) ** 2
                         # Consider manual sentence quality
                         similarity = vector_similarity * new_sentence_quality
                         if best_candidate_sentence["similarity"] <= similarity:
