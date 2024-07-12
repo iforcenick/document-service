@@ -23,10 +23,11 @@ def get_most_proper_position_from_jd(jd):
     ]
     if len(all_skill_occurences) == 0:
         return candidates[0][1]
+    weighted_skills = [ {"skill_name": item, "weight": 1} for item in all_skill_occurences ]
     max_centrality = 0
     max_position = None
     for candidate in candidates:
-        centrality = similarity_n1(all_skill_occurences, candidate[0])
+        centrality = similarity_n1(weighted_skills, { "skill_name": candidate[0], "weight": 1})
         print(candidate[1], centrality)
         if centrality > max_centrality:
             max_position = candidate[1]
