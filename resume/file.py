@@ -13,7 +13,8 @@ from mutex import libre_office_mutex
 
 from .skillmatrix import generate_skill_matrix
 from .sentences import generate_resume_history
-from .metadata import generate_meta_data
+from .headline import generate_headline
+from .summary import generate_summary
 
 from . import _genresume1
 from . import _genresume2
@@ -36,7 +37,7 @@ TEMP_PATH = tempfile.gettempdir()
 
 def _generate_resume_file(headline, summary, history, skill_section_headers, skill_section_contents, profile, path):
     template_index = profile['resume-template-index'] - 1
-    document = Document(f'assets/template/resume_{template_index + 1}.docx')
+    document = Document(f'assets/docx/resume_{template_index + 1}.docx')
     generate_resume = resume_generators[template_index]
     generate_resume(document, headline, summary, history, skill_section_headers, skill_section_contents, profile)
 
@@ -57,5 +58,6 @@ def _generate_resume_file(headline, summary, history, skill_section_headers, ski
 def generate_resume_file(position: str, required_skills, jd: str, profile: dict, path: str) -> str:
     history = generate_resume_history(profile, position, required_skills, jd)
     ( skill_section_headers, skill_section_contents ) = generate_skill_matrix(profile, position, required_skills)
-    ( headline, _ ) = generate_meta_data(position, required_skills)
-    _generate_resume_file(headline, profile['summary'], history, skill_section_headers, skill_section_contents, profile, path)
+    headline = generate_headline(position, jd, profile)
+    summary = generate_summary(position, jd, profile)
+    _generate_resume_file(headline, summary, history, skill_section_headers, skill_section_contents, profile, path)

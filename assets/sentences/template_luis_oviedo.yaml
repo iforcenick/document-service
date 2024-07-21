@@ -1,15 +1,40 @@
 ---
   headline: "Senior Full Stack Engineer"
-  summary: "Seasoned Senior Full Stack Engineer with around 10 years of proven track record of software development. Proven proficiency in developing full stack web projects and mobile apps using modern JavaScript frameworks and libraries including React, Node.js, Java and C#. Proven ability to develop new features and improve those already in place as well as taking ownership of products."
+  summary:
+    content: "With around 10 years of experience as a Full Stack Engineer, I specialize in designing and implementing scalable, high-performance web applications. Proficient in JavaScript, {be}, {ffr}, and {cloud}, I thrive in both frontend and backend development. I am passionate about creating seamless user experiences and robust server-side applications, all while leveraging cloud-native technologies and CI/CD pipelines to ensure continuous delivery and operational excellence."
+    exchange:
+      be:
+        - [ [ Node.js ], [ nodejs ]]
+        - [ [ Python ], [ python ]]
+        - [ [ Java ], [ java ]]
+        - [ [ C# ], [ c# ]]
+        - [ [ Ruby ], [ ruby ] ]
+        - [ [ Golang ], [ go ] ]
+        - [ [ Rust ], [ rust ]]
+        - [ [ Kotlin ], [ kotlin ]]
+        - [ [ Swuft ], [ swift ]]
+        - [ [ Objective C ], [ objectivec ]]
+      ffr:
+        - [ [ React ], [ react ]]
+        - [ [ React Native ], [ reactnative ]]
+        - [ [ Next.js ], [ nextjs ] ]
+        - [ [ Remix.js ], [ remixjs ] ]
+        - [ [ Angular ], [ angular ]]
+        - [ [ Vue ], [ vue ]]
+        - [ [ Ember ], [ ember ]]
+        - [ [ Svelte ], [ svelte ]]
+      cloud:
+        - [ [ AWS ], [ aws ] ]
+        - [ [ GCP ], [ gcp ] ]
+        - [ [ Azure ], [ azure ] ]
   history:
     -
-      position: Senior Full Stack Engineer
       sentences:
         - 
           content: "Contributed significantly to the cross-functional engineering team with supervision and guidance to the team of 9 developers through all stages of the SDLC."
           writer: mitnick
           relations: [ leadership, agile, frontend ]
-          category: dev
+          category: all
         - 
           content: "Developed from scratch an AI-powered document generation platform - a comprehensive report generation solution that increased clients' efficiency and productivity by up to 180%, used {fe} and {be}"
           exchange:
@@ -61,7 +86,6 @@
           relations: [ architecture ]
     
     -
-      position: Senior Front End Engineer
       sentences:
         - 
           content: "Led the creation of a high-impact web application using TypeScript and {fr}, resulting in a 12% boost in user engagement due to improved UI/UX design."
@@ -108,10 +132,9 @@
           content: "Mentored and provided professional guidance to junior team members, fostering skill development, promoting effective teamwork, and enhancing overall team productivity."
           writer: mitnick
           relations: [ collaboration ]
-          category: dev
+          category: all
 
     -
-      position: Senior Full Stack Engineer
       sentences:
         -
           content: "Migrated from outdated systems to a React-based infrastructure, improving the application's performance and dependability."
@@ -131,10 +154,9 @@
         - 
           content: "Actively participated in technical discussion meetings, sharing knowledge and insights with team members."
           writer: mitnick
-          category: dev
+          category: all
 
     -
-      position: Full Stack Engineer
       sentences:
         -
           content: "Engineered high-performance RESTful APIs utilizing JavaScript and Python, incorporating optimized SQL queries and data structures."
@@ -160,5 +182,5 @@
         -
           content: "Effectively communicated with design and product teams to convert user requirements into viable digital solutions."
           writer: mitnick
-          category: dev
+          category: all
           relations: [ collaboration ]

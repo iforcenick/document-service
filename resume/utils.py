@@ -93,3 +93,60 @@ def replace_mock_images(document):
     with open(logo_path, "rb") as image_file:
       image_content = base64.b64encode(image_file.read()).decode("utf-8")
     rel.target_part._blob = base64.b64decode(image_content)
+
+def get_weighted_relations(relations):
+    weighted_relations = []
+    for relation in relations:
+        if type(relation) == list:
+            weighted_relations.append({
+                "skill_name": relation[0],
+                "weight": float(relation[1]),
+            })
+        else:
+            weighted_relations.append({
+                "skill_name": relation,
+                "weight": 1,
+            })
+    return weighted_relations
+
+def generate_sentences_from_template(template):
+    exchange = template.get("exchange", {})
+    sentences = []
+
+    replacement = []
+
+    def do_replacement(match_obj):
+        nonlocal replacement
+        value = replacement[0]
+        replacement.pop(0)
+        return value
+
+    def _recursive_generate(content, relations, exchange_keys):
+        nonlocal exchange, replacement, sentences
+        if len(exchange_keys) == 0:
+            weighted_relations = get_weighted_relations(relations)
+            sentences.append({
+                "content": content,
+                "relations": weighted_relations
+            })
+            return
+        front_key = exchange_keys[0]
+        keys_left = exchange_keys[1:]
+
+        replacements = exchange[front_key]
+        for rep in replacements:
+            replacement = rep[0][:]
+            replaced = re.sub("{" + front_key + "}", do_replacement, content)
+            relation_ext = relations[:]
+            relation_ext.extend(list(filter(lambda x: x is not None, rep[1])))
+            _recursive_generate(replaced, relation_ext, keys_left)
+    content = template["content"]
+    relations = template.get("relations", [])
+    exchange_keys = list(exchange.keys())
+    if len(exchange_keys) == 0:
+        return [{
+            "content": content,
+            "relations": get_weighted_relations(relations)
+        }]
+    _recursive_generate(content, relations, exchange_keys)
+    return sentences

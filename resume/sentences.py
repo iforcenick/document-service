@@ -1,69 +1,11 @@
 from skill.utils import normalize_skill_name, get_required_skill_groups
 from skill.skill_tree import get_skill_tree
-from .utils import get_most_relevant_template, get_profile_specific_template
+from .utils import get_most_relevant_template, get_profile_specific_template, generate_sentences_from_template
 from ._template import get_template_data
 from ._sentencedb import get_sentence_db
 from job_familarity_model.word2vec import similarity_nm
-import re
 from datetime import datetime
 
-def get_weighted_relations(relations):
-    weighted_relations = []
-    for relation in relations:
-        if type(relation) == list:
-            weighted_relations.append({
-                "skill_name": relation[0],
-                "weight": float(relation[1]),
-            })
-        else:
-            weighted_relations.append({
-                "skill_name": relation,
-                "weight": 1,
-            })
-    return weighted_relations
-
-def generate_sentences_from_template(template):
-    exchange = template.get("exchange", {})
-    sentences = []
-
-    replacement = []
-
-    def do_replacement(match_obj):
-        nonlocal replacement
-        value = replacement[0]
-        replacement.pop(0)
-        return value
-
-    def _recursive_generate(content, relations, exchange_keys):
-        nonlocal exchange, replacement, sentences
-        if len(exchange_keys) == 0:
-            weighted_relations = get_weighted_relations(relations)
-            sentences.append({
-                "content": content,
-                "relations": weighted_relations
-            })
-            return
-        front_key = exchange_keys[0]
-        keys_left = exchange_keys[1:]
-
-        replacements = exchange[front_key]
-        for rep in replacements:
-            replacement = rep[0][:]
-            replaced = re.sub("{" + front_key + "}", do_replacement, content)
-            relation_ext = relations[:]
-            relation_ext.extend(list(filter(lambda x: x is not None, rep[1])))
-            _recursive_generate(replaced, relation_ext, keys_left)
-    content = template["content"]
-    relations = template.get("relations", [])
-    exchange_keys = list(exchange.keys())
-    if len(exchange_keys) == 0:
-        return [{
-            "content": content,
-            "relations": get_weighted_relations(relations)
-        }]
-    _recursive_generate(content, relations, exchange_keys)
-    return sentences
-    
 def generate_detailed_resume_history(profile: dict, position: str, required_skills, jd: str) -> str:
     sentence_db = get_sentence_db(profile)
     (root, nodes) = get_skill_tree()
@@ -83,7 +25,6 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     final_history = []
     for item in history:
         final_history.append({
-            "position": item["position"],
             "sentences": [ sentence.copy() for sentence in item["sentences"] ]
         })
     if len(required_skills) == 0:
@@ -175,10 +116,12 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
     total_sentence_count = 0
     for company_data in history:
         for sentence in company_data['sentences']:
-            if "slot" in sentence and sentence['slot'] is True:
+            if "category" in sentence and sentence["category"] != 'all':
+                total_sentence_count += 1
+            elif "slot" in sentence and sentence['slot'] is True:
                 total_sentence_count += 1
     total_category_score = sum([ cat[0] for cat in skill_categories ])
-    
+
     # Group skills by category and add weight to every skill using the importance level
     categorized_weighted_skill_names = []
     for category in skill_categories:
@@ -192,50 +135,51 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
         used_sentence_groups = set()
         for (sentence_index, sentence) in enumerate(sentences):
             # Determine in which category should select the sentence
-            current_category_index = 0
+            current_category_index = -1
             remain_metadata = []
+
+            possible_categories = None
             if 'category' in sentence:
-                for index, category in enumerate(skill_categories):
-                    if category[1] == sentence['category']:
-                        current_category_index = index
-                        remain_metadata = []
+                if type(sentence['category']) == list:
+                    possible_categories = sentence['category']
+                else:
+                    possible_categories = [ sentence['category'] ]
+            max_remain = 0
+            remain_metadata = []
+            for index, category in enumerate(skill_categories):
+                if possible_categories is not None and category[1] not in possible_categories:
+                    continue
+                # Get last sequent sentence count for the same category
+                # For decremental calculation
+                sequent_count = 0
+                selected_categories_len = len(selected_categories)
+                for last in range(selected_categories_len):
+                    if selected_categories[selected_categories_len - last - 1] != index:
                         break
-            else:
-                max_remain = 0
-                while True:
-                    remain_metadata = []
-                    for index, category in enumerate(skill_categories):
+                    sequent_count += 1
 
-                        # Get last sequent sentence count for the same category
-                        # For decremental calculation
-                        sequent_count = 0
-                        selected_categories_len = len(selected_categories)
-                        for last in range(selected_categories_len):
-                            if selected_categories[selected_categories_len - last - 1] != index:
-                                break
-                            sequent_count += 1
-                        
-                        # Get progress of the current category
-                        progress = current_category_progress[index] / total_sentence_count * total_category_score
-                        remain = (category[0] - progress) * (0.8 ** sequent_count)
-                        remain_metadata.append({
-                            "category": category[1],
-                            "value": remain
-                        })
-                        if max_remain < remain:
-                            current_category_index = index
-                            max_remain = remain
-                    if max_remain > 0:
-                        break
-                    current_category_progress = [0] * len(skill_categories)
-
-            # saving the current selection for furthur sentence selections
-            current_category_progress[current_category_index] += 1
-            selected_categories.append(current_category_index)
+                # Get progress of the current category
+                progress = current_category_progress[index] / total_sentence_count * total_category_score
+                remain = (category[0] - progress) * (0.8 ** sequent_count)
+                remain_metadata.append({
+                    "category": category[1],
+                    "value": remain,
+                })
+                if max_remain < remain:
+                    current_category_index = index
+                    max_remain = remain
+            
+            if max_remain > 0:
+                # saving the current selection for furthur sentence selections
+                current_category_progress[current_category_index] += 1
+                selected_categories.append(current_category_index)
 
             # Logging the current progress for each category
             for index, category in enumerate(skill_categories):
-                progress = current_category_progress[index] / total_sentence_count * total_category_score
+                if total_sentence_count == 0:
+                    progress = 0 # edge case that no sentence 
+                else:
+                    progress = current_category_progress[index] / total_sentence_count * total_category_score
                 print(category[1], progress)
             
             best_candidate_sentence = {
@@ -244,9 +188,11 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
             }
 
             # Add non-related category skills as the additional factor of sentence selection process
-            target_skill_group = [ weighted_skill.copy() for weighted_skill in categorized_weighted_skill_names[current_category_index]]
-            for weighted_skill in target_skill_group:
-                weighted_skill['weight'] *= 3
+            target_skill_group = []
+            if current_category_index >= 0:
+                target_skill_group = [ weighted_skill.copy() for weighted_skill in categorized_weighted_skill_names[current_category_index]]
+                for weighted_skill in target_skill_group:
+                    weighted_skill['weight'] *= 3
             for category_index, other_weighted_skill_names in enumerate(categorized_weighted_skill_names):
                 if category_index == current_category_index:
                     continue
@@ -301,11 +247,12 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
                 used_sentence_groups.add(best_sentence_group)
 
             # Decreasing the weight of selected relations to avoid continously selecting the same skills in furthur selection
-            for weighted_skill in categorized_weighted_skill_names[current_category_index]:
-                for relation in best_candidate_sentence["relations"]:
-                    if normalize_skill_name(relation['skill_name']) == normalize_skill_name(weighted_skill['skill_name']):
-                        weighted_skill['weight'] /= 2
-                        break
+            for categorized_weighted_skill_name in categorized_weighted_skill_names:
+                for weighted_skill in categorized_weighted_skill_name:
+                    for relation in best_candidate_sentence["relations"]:
+                        if normalize_skill_name(relation['skill_name']) == normalize_skill_name(weighted_skill['skill_name']):
+                            weighted_skill['weight'] /= 2
+                            break
             sentences[sentence_index] = {
                 "content": best_candidate_sentence["content"],
                 "metadata": best_candidate_sentence,
@@ -317,10 +264,11 @@ def generate_detailed_resume_history(profile: dict, position: str, required_skil
 def generate_resume_history(profile: dict, position: str, required_skills, jd: str) -> list:
     detailed_history = generate_detailed_resume_history(profile, position, required_skills, jd)
     history = []
-    for group in detailed_history:
+    for group_index, group in enumerate(detailed_history):
         sentences = [ sentence["content"] for sentence in group["sentences"] ]
+        position = f'position-title-{group_index + 1}'
         history.append({
-            "position": group['position'],
+            "position": position,
             "sentences": sentences,
         })
     return history

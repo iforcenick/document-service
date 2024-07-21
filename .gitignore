@@ -2,5 +2,11 @@ Rough/*
 Testing/*
 __pycache__/
 
+_sdb_chunks
+_db.yaml
+_db_new.yaml
+
+.vscode
 .env
 .DS_Store
+~$*.docx

@@ -7,9 +7,9 @@ import uuid
 import shutil
 import tempfile
 
-from resume.metadata import generate_meta_data
 from env import LIBREOFFICE_PATH
 from mutex import libre_office_mutex
+from resume.headline import generate_headline
 
 from . import _gencoverletter1
 from . import _gencoverletter2
@@ -30,7 +30,7 @@ coverletter_generators = [
 
 def _generate_cover_letter_file(position, jd, company, headline, profile, path):
   template_index = profile['cover-letter-template-index'] - 1
-  document = Document(f'assets/template/coverletter_{template_index + 1}.docx')
+  document = Document(f'assets/docx/coverletter_{template_index + 1}.docx')
   generate_coverletter = coverletter_generators[template_index]
   generate_coverletter(document, position, jd, company, headline, profile)
 
@@ -49,7 +49,7 @@ def _generate_cover_letter_file(position, jd, company, headline, profile, path):
   return os.path.abspath(path)
 
 def generate_cover_letter_file(position: str, required_skills, jd: str, company: str, profile: dict, path: str) -> str:
-    ( headline, _ ) = generate_meta_data(position, required_skills)
+    headline = generate_headline(position, jd, profile)
     _generate_cover_letter_file(position, jd, company, headline, profile, path)
 
 def generate_cover_letter_file_from_jd(jd: str, profile: dict, path: str) -> str:

@@ -1,0 +1,187 @@
+---
+  headline: "Senior Front End Engineer"
+  summary:
+    content: "Experienced Full Stack Engineer with a front-end focus, proficient in latest technologies such as JavaScript, {ffr} and {be}. Proven abilities in designing responsive websites and managing databases. Skilled in lifecycles of software development projects and optimizing user engagement. Seeking a role to leverage technical skills to deliver quality software solutions."
+    exchange:
+      ffr:
+        - [ [ React ], [ react ]]
+        - [ [ Next.js ], [ nextjs ] ]
+        - [ [ Remix.js ], [ remixjs ] ]
+        - [ [ Vue3 ], [ vue ] ]
+        - [ [ Ember5 ], [ ember ] ]
+        - [ [ Svelte ], [ svelte ]]
+      be:
+        - [ [ React Native ], [ reactnative ]]
+        - [ [ Node.js ], [ nodejs ] ]
+        - [ [ Express.js ], [ expressjs ] ]
+        - [ [ Koa.js ], [ koa ] ]
+        - [ [ Nest.js ], [ nestjs ] ]
+        - [ [ Django ], [ django ] ]
+        - [ [ Flask ], [ flask ] ]
+        - [ [ FastAPI ], [ fastapi ] ]
+        - [ [ Java ], [ java ] ]
+        - [ [ Spring Boots ], [ javaspring ] ]
+        - [ [ Java Hibernate ], [ hibernate ] ]
+        - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+        - [ [ DotNet Core ], [ dotnetcore ] ]
+        - [ [ ASP.NET ], [ asp ] ]
+        - [ [ Ruby on Rails ], [ rubyonrails ] ]
+        - [ [ Golang ], [ go ] ]
+        - [ [ Laravel ], [ laravel ] ]
+  history:
+    -
+      sentences:
+        - 
+          content: "Spearheaded the development of Cube's business report generation platform powered by gen.AI utilizing {fe} and {other}, consequently achieving expansive user experience metrics and performance measures."
+          exchange:
+            fe:
+              - [ [ React.js v18 ], [ react ]]
+              - [ [ React Native ], [ reactnative ]]
+              - [ [ Next.js v14 ], [ nextjs ] ]
+              - [ [ Remix.js ], [ remixjs ] ]
+              - [ [ Angular v18 ], [ angular ]]
+              - [ [ Vue 3 ], [ vue ]]
+              - [ [ Ember 5 ], [ ember ]]
+              - [ [ Svelte ], [ svelte ]]
+            other:
+              - [ [ Typescript ], [ typescript ]]
+              - [ [ GraphQL ], [ graphql ]]
+          writer: mitnick
+          relations: [  ]
+          category: frontend
+        - 
+          content: "Implemented Cube's analytics dashboard pages utilizing {fe} and {other}, translated from Figma designs. Utilization of Storybook facilitated the creation of a cohesive user experience and a reusable design system."
+          exchange:
+            fe:
+              - [ [ React 18 ], [ react ]]
+              - [ [ React Native ], [ reactnative ]]
+              - [ [ Next.js 14 ], [ nextjs ] ]
+              - [ [ Remix.js ], [ remixjs ] ]
+              - [ [ Angular 18 ], [ angular ]]
+              - [ [ Vue 3 ], [ vue ]]
+              - [ [ Ember 5 ], [ ember ]]
+              - [ [ Svelte ], [ svelte ]]
+            other:
+              - [ [ TailwindCSS ], [ tailwindcss ]]
+              - [ [ SASS ], [ sass ]]
+              - [ [ Chart.js ], [ chartjs ]]
+              - [ [ D3.js ], [ d3js ]]
+          writer: mitnick
+          relations: [ storybook, figma ]
+          category: frontend
+        - 
+          content: ""
+          slot: true
+          writer: mitnick
+        - 
+          content: "Increased web accessibility and optimized browser performance that render large quantities of data to ensure the app is user interactive and satisfying to use."
+          slot: true
+          writer: mitnick
+          relations: [ accessibility ]
+        - 
+          content: "Participated in code review, debugging issues, and fixing technical problems on the front-end project."
+          writer: mitnick
+          relations: [ collaboration ]
+          category: all
+        - 
+          content: "Closely collaborated with the product and design teams on Agile methodology, ideated software solutions, and turned wireframes into effective code."
+          writer: mitnick
+          relations: [ agile ]
+          category: all
+    
+    -
+      sentences:
+        - 
+          content: "Directed the entire development process of Lifetorch's Phoenix application from green-field stage using {fe} and {be}, fulfilled the requirements of customers and stakeholders adhering to stringent deadlines."
+          exchange:
+            fe:
+              - [ [ React.js ], [ react ]]
+              - [ [ React Native ], [ reactnative ]]
+              - [ [ Next.js ], [ nextjs ] ]
+              - [ [ Remix.js ], [ remixjs ] ]
+              - [ [ Angular ], [ angular ]]
+              - [ [ Vue.js ], [ vue ]]
+              - [ [ Ember ], [ ember ]]
+              - [ [ Svelte ], [ svelte ]]
+            be:
+              - [ [ Node.js ], [ nodejs ] ]
+              - [ [ Express.js ], [ expressjs ] ]
+              - [ [ Koa.js ], [ koa ] ]
+              - [ [ Nest.js ], [ nestjs ] ]
+              - [ [ Django ], [ django ] ]
+              - [ [ Flask ], [ flask ] ]
+              - [ [ FastAPI ], [ fastapi ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Java Hibernate ], [ hibernate ] ]
+              - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ ASP.NET ], [ asp ] ]
+              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Golang ], [ go ] ]
+              - [ [ Laravel ], [ laravel ] ]
+          writer: mitnick
+          relations: [  ]
+        - 
+          content: "Used variety of efficient tools including Figma, introduced Typescript and Design System development trend to update dev tool experience and maintainability of expanding project."
+          slot: true
+          writer: mitnick
+          relations: [ figma, typescript ]
+        - 
+          content: ""
+          slot: true
+          writer: mitnick
+        - 
+          content: "Drove React.js front-end development in collaboration with cross-functional and Scrum teams, including participation in daily Scrum calls, Git version control and task management on Jira."
+          slot: true
+          writer: mitnick
+          relations: [ react, frontend, collaboration, agile ]
+        - 
+          content: "Anticipated technical issues at the product level and proactively made architectural and design decisions."
+          writer: mitnick
+          relations: [ architecture ]
+          category: all
+    
+    -
+      sentences:
+        -
+          content: "Took part in several large-scale web projects and released completed apps met client requirements."
+          writer: mitnick
+          relations: [ frontend, backend ]
+        -
+          content: "Built RESTful APIs in NodeJS that served data to the javascript front-end based on dynamically chosen user inputs that handled over 100,000 concurrent users."
+          slot: true
+          writer: mitnick
+          relations: [ nodejs, architecture ]
+        - 
+          content: ""
+          slot: true
+          writer: mitnick
+        -
+          content: "Developed well-tested qualified code with writing test scripts using Jest, Mocha, Cypress and Python Selenium following TDD methodology, attained at 78% of test coverage."
+          slot: true
+          writer: mitnick
+          relations: [ jest, mocha, cypress, selenium, tdd ]
+        -
+          content: "Reviewed code, debugged problems, and corrected technical issues from the frontend projects."
+          writer: mitnick
+          relations: [ collaboration ]
+    
+    -
+      sentences:
+        -
+          content: "Developed web application for Wolters Kluwer's mHealth application, leveraging HTML5, CSS3, JavaScript, JQuery, AngularJS, PHP, and PostgreSQL to facilitated expedited data entry and improved response times."
+          writer: mitnick
+          relations: [ frontend, collaboration ]
+        -
+          content: "Assisted in requirement analysis, database and backend project design, web UI design with PHP and Python programming language."
+          writer: mitnick
+          relations: [ php, python, frontend, database ]
+        -
+          content: "Used a variety of libraries such as Bootstrap and TailwindCSS to write & create user-friendly web pages."
+          writer: mitnick
+          relations: [ bootstrap, tailwindcss ]
+        -
+          content: "Developed applications using PHP frameworks that leverages classical Model View Controller (MVC) architecture."
+          writer: mitnick
+          relations: [ php, mvc ]

@@ -1,16 +1,14 @@
-from .utils import get_most_relevant_template
-from ._template import get_template_data
 from job_familarity_model.word2vec import similarity_n1
 from skill.utils import get_required_skill_groups
+from .utils import get_profile_specific_template
+from ._template import get_template_data
 
-def generate_meta_data(position: str, required_skills):
-    template_type = get_most_relevant_template(position, required_skills)
-    template = get_template_data(template_type)
-    
-    # Initialze variables
-    headline = template["headline"]
-    summary = template["summary"]
-    return headline, summary
+def generate_headline(position: str, jd: str, profile: dict):
+    template_name = get_profile_specific_template(profile)
+    if template_name is None:
+        return None
+    template = get_template_data(template_name)
+    return template['headline']
 
 def get_most_proper_position_from_jd(jd):
     skill_groups = get_required_skill_groups(jd, '')
@@ -27,7 +25,7 @@ def get_most_proper_position_from_jd(jd):
     max_centrality = 0
     max_position = None
     for candidate in candidates:
-        centrality = similarity_n1(weighted_skills, { "skill_name": candidate[0], "weight": 1})
+        centrality = similarity_n1(weighted_skills, {"skill_name": candidate[0], "weight": 1})
         print(candidate[1], centrality)
         if centrality > max_centrality:
             max_position = candidate[1]

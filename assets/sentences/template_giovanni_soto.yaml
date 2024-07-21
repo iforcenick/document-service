@@ -1,14 +1,59 @@
 ---
   headline: "Senior Front End Engineer"
-  summary: "Senior Front-End Engineer committed to various levels of SDLC for over 10 years. Proficient in developing full stack web projects and mobile apps using modern frameworks and libraries. Innovative problem-solver and proactive team-player with excellent time and task management skills. Ready to embrace a new opportunity to build long lasting relationship with exciting teams and companies."
+  summary:
+    content: "As a Senior Frontend Engineer with a wealth of experience in the tech industry, I specialize in building robust, high-performing, and scalable applications. I am proficient in an array of coding languages including JavaScript and {lang}, and have a substantial grasp of frameworks like {ff} and {bf}. Having worked with leading tech companies, I have honed my skills in Agile methodologies, cross-functional team collaboration, and UX/UI design best practices."
+    exchange:
+      lang:
+        - [ [ Typescript ], [ typescript ]]
+        - [ [ Python ], [ python ]]
+        - [ [ Java ], [ java ]]
+        - [ [ C# ], [ c# ]]
+        - [ [ Ruby ], [ ruby ] ]
+        - [ [ Golang ], [ go ] ]
+        - [ [ Rust ], [ rust ]]
+        - [ [ Kotlin ], [ kotlin ]]
+        - [ [ Swuft ], [ swift ]]
+        - [ [ Objective C ], [ objectivec ]]
+      ff:
+        - [ [ React 18 ], [ react ]]
+        - [ [ React Native ], [ reactnative ]]
+        - [ [ Next.js 14 ], [ nextjs ] ]
+        - [ [ Remix.js ], [ remixjs ] ]
+        - [ [ Angular 18 ], [ angular ]]
+        - [ [ Vue 3 ], [ vue ]]
+        - [ [ Ember 5 ], [ ember ]]
+        - [ [ Svelte ], [ svelte ]]
+      bf:
+        - [ [ Redux ], [ redux ] ]
+        - [ [ Mobx ], [ mobx ] ]
+        - [ [ Recoil ], [ recoil ] ]
+        - [ [ Zustand ], [ zustand ] ]
+        - [ [ Flux ], [ flux ] ]
+        - [ [ Three.js ], [ threejs ] ]
+        - [ [ NgRx ], [ ngrx ] ]
+        - [ [ RxJs ], [ rxjs ] ]
+        - [ [ Express.js ], [ expressjs ] ]
+        - [ [ Koa.js ], [ koa ] ]
+        - [ [ Nest.js ], [ nestjs ] ]
+        - [ [ Django ], [ django ] ]
+        - [ [ Flask ], [ flask ] ]
+        - [ [ FastAPI ], [ fastapi ] ]
+        - [ [ Spring Boots ], [ javaspring ] ]
+        - [ [ Java Hibernate ], [ hibernate ] ]
+        - [ [ Rust/Rocket ], [ rocket ] ]
+        - [ [ Laravel ], [ laravel ] ]
+        - [ [ DotNet Core ], [ dotnetcore ] ]
+        - [ [ ASP.NET ], [ asp ] ]
+        - [ [ Ruby on Rails ], [ rubyonrails ] ]
+        - [ [ Golang ], [ go ] ]
   history:
     -
-      position: Senior Front End Engineer
       sentences:
         - 
-          content: "Spearheaded the front-end engineering department, providing diligent supervision and guidance to a team of twelve developers throughout the entire software development lifecycle."
+          content: "Spearheaded the front-end engineering department, providing diligent supervision and guidance to a team of 12 developers throughout the entire software development lifecycle."
           writer: mitnick
           relations: [ leadership, agile, frontend ]
+          category: all
         - 
           content: "Used {fe}, {be}, and Workbox to architect Progressive Web Apps (PWAs), enhancing mobile user engagement and responsiveness for customers."
           writer: mitnick
@@ -62,40 +107,43 @@
           relations: [ accessibility, frontend ]
     
     -
-      position: Senior Front End Engineer
       sentences:
         - 
-          content: "Led the creation of a high-impact micro frontend for John Deere's \"Operation Center\" application, utilizing {fe} and {fe}."
+          content: "Led the creation of a high-impact {fe} for John Deere's \"Operation Center\" application, utilizing {fe} and {fe}."
           exchange:
             fe:
-              - [ [ React.js, Redux Toolkit ], [ react, redux ]]
-              - [ [ React.js, MobX ], [ react, mobx ]]
-              - [ [ React.js, Recoil ], [ react, recoil ]]
-              - [ [ React.js, Zustand ], [ react, zustand ]]
-              - [ [ Next.js, Redux Toolkit ], [ nextjs, redux ]]
-              - [ [ Next.js, MobX ], [ nextjs, mobx ]]
-              - [ [ Next.js, Recoil ], [ nextjs, recoil ]]
-              - [ [ Next.js, Zustand ], [ nextjs, zustand ]]
-              - [ [ Remix.js, Redux Toolkit ], [ remixjs, redux ]]
-              - [ [ Remix.js, MobX ], [ remixjs, mobx ]]
-              - [ [ Remix.js, Recoil ], [ remixjs, recoil ]]
-              - [ [ Remix.js, Zustand ], [ remixjs, zustand ]]
-              - [ [ Angular 14, NgRx ], [ angular, ngrx ]]
-              - [ [ Angular 14, RxJS ], [ angular, rxjs ]]
-              - [ [ Vue 3, Vuex ], [ vue, vuex ] ]
-              - [ [ Vue 3, Pinia ], [ vue, pinia ] ]
-              - [ [ Ember 5, Ember Data ], [ ember ] ]
-              - [ [ Svelte, SvelteKit ], [ svelte ]]
+              - [ [ micro-frontend, React.js, Redux Toolkit ], [ react, redux ]]
+              - [ [ micro-frontend, React.js, MobX ], [ react, mobx ]]
+              - [ [ micro-frontend, React.js, Recoil ], [ react, recoil ]]
+              - [ [ micro-frontend, React.js, Zustand ], [ react, zustand ]]
+              - [ [ micro-frontend, Next.js, Redux Toolkit ], [ nextjs, redux ]]
+              - [ [ micro-frontend, Next.js, MobX ], [ nextjs, mobx ]]
+              - [ [ micro-frontend, Next.js, Recoil ], [ nextjs, recoil ]]
+              - [ [ micro-frontend, Next.js, Zustand ], [ nextjs, zustand ]]
+              - [ [ micro-frontend, Remix.js, Redux Toolkit ], [ remixjs, redux ]]
+              - [ [ micro-frontend, Remix.js, MobX ], [ remixjs, mobx ]]
+              - [ [ micro-frontend, Remix.js, Recoil ], [ remixjs, recoil ]]
+              - [ [ micro-frontend, Remix.js, Zustand ], [ remixjs, zustand ]]
+              - [ [ micro-frontend, Angular 14, NgRx ], [ angular, ngrx ]]
+              - [ [ micro-frontend, Angular 14, RxJS ], [ angular, rxjs ]]
+              - [ [ micro-frontend, Vue 3, Vuex ], [ vue, vuex ] ]
+              - [ [ micro-frontend, Vue 3, Pinia ], [ vue, pinia ] ]
+              - [ [ micro-frontend, Ember 5, Ember Data ], [ ember ] ]
+              - [ [ micro-frontend, Svelte, SvelteKit ], [ svelte ]]
+              - [ [ mobile pages, React Native, Redux Toolkit ], [ reactnative, redux ]]
+              - [ [ mobile pages, React Native, MobX ], [ reactnative, mobx ]]
+              - [ [ mobile pages, React Native, Recoil ], [ reactnative, recoil ]]
+              - [ [ mobile pages, React Native, Zustand ], [ reactnative, zustand ]]
           writer: mitnick
           relations: []
-          category: frontend
+          category: [ frontend, mobile ]
         - 
           content: "Participated in the enhancement of John Deere's component library \"ISG\", deploying Material UI and robustly developed using Storybook."
           writer: mitnick
           relations: [ materialui, storybook ]
           category: frontend
         - 
-          content: "Actively engaged in the development of a stateless {be} microservice, responsible for providing data to the \"Field Analyzer\" micro frontend application."
+          content: "Actively engaged in the development of a stateless {be} microservice, responsible for providing data to the \"Field Analyzer\" {fe}."
           exchange:
             be:
               - [ [ Node.js ], [ nodejs ] ]
@@ -112,16 +160,18 @@
               - [ [ ASP.NET ], [ asp ] ]
               - [ [ Ruby on Rails ], [ rubyonrails ] ]
               - [ [ Golang ], [ go ] ]
+            fe:
+              - [ [ micro frontend application ], [ frontend ] ]
+              - [ [ mobile application ], [ mobile ] ]
           writer: mitnick
           category: backend
         -
           content: "Guided junior developers through daily mentoring sessions and initiated knowledge-sharing discussions with the team on the latest technological advancements and programming methodologies."
           writer: mitnick
           relations: [ collaboration ]
-          category: dev
+          category: all
 
     -
-      position: Software Engineer
       sentences:
         -
           content: "Initiated the transition of a current React application from class components to functional components, employing React Hooks."
@@ -141,10 +191,9 @@
         - 
           content: "Collaborated intimately with product owners to delineate requirements, establish priorities, and create feasible timelines for the delivery of novel functionalities."
           writer: mitnick
-          category: dev
+          category: all
 
     -
-      position: Software Developer
       sentences:
         -
           content: "Engineered high-performance RESTful APIs utilizing JavaScript and Python, incorporating optimized SQL queries and data structures."

@@ -1,4 +1,5 @@
 from .skillmatrix import generate_skill_matrix, generate_detailed_skill_matrix
 from .sentences import generate_resume_history, generate_detailed_resume_history
-from .metadata import generate_meta_data
+from .headline import generate_headline, get_most_proper_position_from_jd
+from .summary import generate_summary
 from .file import generate_resume_file

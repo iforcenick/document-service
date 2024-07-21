@@ -18,13 +18,21 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.post("/resume/generate/metadata")
-def generate_resume_metadata():
+@app.post("/resume/generate/headline")
+def generate_resume_headline():
     body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"], body["position"])
-    headline, summary = resume.generate_meta_data(body["position"], required_skills)
+    profile = get_profile_from_name(body['profile'])
+    headline = resume.generate_headline(body["position"], body["jd"], profile)
     return {
         "headline": headline,
+    }
+
+@app.post("/resume/generate/summary")
+def generate_resume_summary():
+    body = json.loads(request.data)
+    required_skills = get_required_skills(body["jd"], body["position"])
+    summary = resume.generate_summary(body["position"], required_skills)
+    return {
         "summary": summary,
     }
 
@@ -97,7 +105,7 @@ def generate_resume_binary():
 @app.post("/resume/generate/fromjd")
 def generate_resume_fromjd_binary():
     body = json.loads(request.data)
-    position = resume.metadata.get_most_proper_position_from_jd(body["jd"])
+    position = resume.get_most_proper_position_from_jd(body["jd"])
     required_skills = get_required_skills(body["jd"], position)
     temp_file_id = str(uuid.uuid4())
     temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
