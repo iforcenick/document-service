@@ -31,7 +31,8 @@ def generate_resume_headline():
 def generate_resume_summary():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"], body["position"])
-    summary = resume.generate_summary(body["position"], required_skills)
+    profile = get_profile_from_name(body['profile'])
+    summary = resume.generate_summary(body["position"], required_skills, profile)
     return {
         "summary": summary,
     }
