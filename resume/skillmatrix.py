@@ -46,7 +46,7 @@ def generate_detailed_skill_matrix(profile: dict, position: str, required_skills
         score = max_category["score"]
         skill_category_info[category]["skills"].append(required_skill["skill"])
         skill_category_info[category]["score"] += score * skill_category_info[category]["scale"]
-    skill_categories = sorted([ (skill_category_info[item]["score"], item) for item in skill_category_info ], key=lambda x: x[0], reverse=True)
+    skill_categories = sorted([ (skill_category_info[item]["score"], item) for item in skill_category_info ], key=lambda x: (-100 if x[1] == 'dev' else x[0]), reverse=True)
     skill_section_headers = []
     skill_section_contents = []
 

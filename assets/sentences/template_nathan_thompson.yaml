@@ -70,10 +70,6 @@
           relations: [ storybook, figma ]
           category: frontend
         - 
-          content: ""
-          slot: true
-          writer: mitnick
-        - 
           content: "Increased web accessibility and optimized browser performance that render large quantities of data to ensure the app is user interactive and satisfying to use."
           slot: true
           writer: mitnick
