@@ -18,6 +18,7 @@ COMPANY_LOGOS = {
   'ServiceNow': 'servicenow.jpeg',
   'Indiana University': 'idu.jpeg',
   'Urgent IT Solutions': 'urgentit.jpeg',
+  'American Society of Clinical Oncology': 'asco.jpeg',
   'Walmart': 'walmart.jpeg',
   'Florida International University': 'fiu.jpeg',
 }

@@ -36,7 +36,7 @@
           relations: [ leadership, agile, frontend ]
           category: all
         - 
-          content: "Developed from scratch an AI-powered document generation platform - a comprehensive report generation solution that increased clients' efficiency and productivity by up to 180%, used {fe} and {be}"
+          content: "Developed from scratch an AI-powered document generation platform - a comprehensive report generation solution that increased clients' efficiency and productivity by up to 130%, used {fe} and {be}"
           exchange:
             fe:
               - [ [ React/Typescript ], [ react, typescript ]]
