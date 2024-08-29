@@ -25,6 +25,29 @@ def get_skill_list():
     response = request.urlopen(req)
     return json.loads(response.read())
 
+def get_highlighted_positions(jd: str, position: str = ""):
+  wrapped_jd = f"<p>{position}<br/>{position}</p>{jd}".encode('ascii', 'ignore').decode('utf-8')
+  request_body = parse.urlencode({"jd": wrapped_jd}).encode()
+  req = request.Request(f'{PARSE_ENGINE_URL}/skill/highlights/tagged', data=request_body) # this will make the method "POST"
+  response = request.urlopen(req)
+  occurences = json.loads(response.read())
+  highlights = []
+  for occ in occurences:
+    highlight = wrapped_jd[occ[0]:occ[1]]
+    highlights.append([highlight, occ[2]])
+  return highlights
+
+def get_highlighted_blockers(jd: str, position: str = ""):
+  wrapped_jd = f"<p>{position}<br/>{position}</p>{jd}".encode('ascii', 'ignore').decode('utf-8')
+  request_body = parse.urlencode({"jd": wrapped_jd}).encode()
+  req = request.Request(f'{PARSE_ENGINE_URL}/blocker/highlights/tagged', data=request_body) # this will make the method "POST"
+  response = request.urlopen(req)
+  occurences = json.loads(response.read())
+  highlights = []
+  for occ in occurences:
+    highlight = wrapped_jd[occ[0]:occ[1]]
+    highlights.append([highlight, occ[2]])
+  return highlights
 
 def get_allowed_nodes(root_skill_name, banned_skill_names, nodes):
     def _iterate_children(root_node, banned_nodes) -> list:

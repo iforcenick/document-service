@@ -1,0 +1,5 @@
+remote
+from home
+fully remote
+from-home
+from_home

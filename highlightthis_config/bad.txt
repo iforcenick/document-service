@@ -1,0 +1,35 @@
+ruby
+drupal
+flutter
+salesforce
+devops
+cms
+j2ee
+kotlin
+scala
+ruby on rails
+rails
+hibernate
+swift
+objective-c
+dart
+terraform
+backend architect
+elixir
+perl
+backbone.js
+sharepoint
+servicenow
+back-end architect
+cosmosdb
+rail
+deno
+cosmos db
+backbonejs
+ror
+spinnaker
+objective c
+objectivec
+back end architect
+ruby on rail
+backbone js
