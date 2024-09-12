@@ -20,5 +20,8 @@ COMPANY_LOGOS = {
   'Urgent IT Solutions': 'urgentit.jpeg',
   'American Society of Clinical Oncology': 'asco.jpeg',
   'Walmart': 'walmart.jpeg',
+  'United Health Group': 'unitedhealthgroup.jpeg',
+  'United Airlines': 'unitedairlines.jpeg',
   'Florida International University': 'fiu.jpeg',
+  'Penn State University': 'penn.jpeg',
 }
