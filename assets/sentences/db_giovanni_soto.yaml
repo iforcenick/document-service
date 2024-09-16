@@ -75,7 +75,7 @@
         - [ [ Salesforce/AppCenter ], [ salesforce ] ]
     quality: 10
     writer: https://www.linkedin.com/in/darrylschombergii/
-    relations: [ reactnative ]
+    relations: [ reactnative, reactquery ]
 
   - 
     content: "Enhanced expertise in designing and publishing Mobile Apps with {mobile}, Xcode, and Android Studio."

@@ -88,7 +88,7 @@
     -
       sentences:
         - 
-          content: "Directed the entire development process of Lifetorch's Phoenix application from green-field stage using {fe} and {be}, fulfilled the requirements of customers and stakeholders adhering to stringent deadlines."
+          content: "Directed the entire development process of Telehealth Service of UnitedHealth Group from green-field stage using {fe} and {be}, fulfilled the requirements of customers and stakeholders under tight deadline."
           exchange:
             fe:
               - [ [ React.js ], [ react ]]
@@ -117,6 +117,7 @@
               - [ [ Golang ], [ go ] ]
               - [ [ Laravel ], [ laravel ] ]
           writer: mitnick
+          category: [ frontend, backend ]
           relations: [  ]
         - 
           content: "Used variety of efficient tools including Figma, introduced Typescript and Design System development trend to update dev tool experience and maintainability of expanding project."
@@ -141,7 +142,35 @@
     -
       sentences:
         -
-          content: "Took part in several large-scale web projects and released completed apps met client requirements."
+          content: "Developed United Airline's cargo account management software for improved cargo handling and shipment tracking efficiency using {fe} and {be}."
+          exchange:
+            exchange:
+            fe:
+              - [ [ React.js ], [ react ]]
+              - [ [ React Native ], [ reactnative ]]
+              - [ [ Next.js ], [ nextjs ] ]
+              - [ [ Remix.js ], [ remixjs ] ]
+              - [ [ Angular ], [ angular ]]
+              - [ [ Vue.js ], [ vue ]]
+              - [ [ Ember ], [ ember ]]
+              - [ [ Svelte ], [ svelte ]]
+            be:
+              - [ [ Node.js ], [ nodejs ] ]
+              - [ [ Express.js ], [ expressjs ] ]
+              - [ [ Koa.js ], [ koa ] ]
+              - [ [ Nest.js ], [ nestjs ] ]
+              - [ [ Python/Django ], [ django ] ]
+              - [ [ Python/Flask ], [ flask ] ]
+              - [ [ Python/FastAPI ], [ fastapi ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Java Hibernate ], [ hibernate ] ]
+              - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ ASP.NET ], [ asp ] ]
+              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Golang ], [ go ] ]
+              - [ [ Laravel ], [ laravel ] ]
           writer: mitnick
           relations: [ frontend, backend ]
         -
@@ -166,18 +195,68 @@
     -
       sentences:
         -
-          content: "Developed web application for Wolters Kluwer's mHealth application, leveraging HTML5, CSS3, JavaScript, JQuery, AngularJS, PHP, and PostgreSQL to facilitated expedited data entry and improved response times."
+          content: "Participated in API migration of Mediavine's streaming service from {old} to {new}, achieving better language support, greater code reusability and enhanced maintainability."
+          exchange:
+            old:
+              - [ [ Laravel ], [ laravel ] ]
+              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Java Hibernate ], [ hibernate ] ]
+              - [ [ ASP.NET ], [ asp ] ]
+            new:
+              - [ [ Node.js ], [ nodejs ] ]
+              - [ [ Express.js ], [ expressjs ] ]
+              - [ [ Koa.js ], [ koa ] ]
+              - [ [ Nest.js ], [ nestjs ] ]
+              - [ [ Django ], [ django ] ]
+              - [ [ Flask ], [ flask ] ]
+              - [ [ FastAPI ], [ fastapi ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ Golang ], [ go ] ]
           writer: mitnick
-          relations: [ frontend, collaboration ]
+          relations: [  ]
+          category: backend
         -
-          content: "Assisted in requirement analysis, database and backend project design, web UI design with PHP and Python programming language."
+          content: "Assisted in requirement analysis, database and backend project design, web UI design with jQuery and {be} programming language."
+          exchange:
+            be:
+              - [ [ PHP ], [ php ] ]
+              - [ [ Ruby ], [ ruby ] ]
+              - [ [ C# ], [ c# ] ]
+              - [ [ server side Javascript ], [ javascript ] ]
+              - [ [ Python ], [ python ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Golang ], [ go ] ]
           writer: mitnick
-          relations: [ php, python, frontend, database ]
+          relations: [ database ]
+          category: backend
         -
           content: "Used a variety of libraries such as Bootstrap and TailwindCSS to write & create user-friendly web pages."
           writer: mitnick
           relations: [ bootstrap, tailwindcss ]
         -
-          content: "Developed applications using PHP frameworks that leverages classical Model View Controller (MVC) architecture."
+          content: "Developed applications using {be} frameworks that leverages classical Model View Controller (MVC) architecture."
+          exchange:
+            be:
+              - [ [ Laravel ], [ laravel ] ]
+              - [ [ PHP ], [ php ] ]
+              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Java Hibernate ], [ hibernate ] ]
+              - [ [ ASP.NET ], [ asp ] ]
+              - [ [ Node.js ], [ nodejs ] ]
+              - [ [ Express.js ], [ expressjs ] ]
+              - [ [ Koa.js ], [ koa ] ]
+              - [ [ Nest.js ], [ nestjs ] ]
+              - [ [ Django ], [ django ] ]
+              - [ [ Flask ], [ flask ] ]
+              - [ [ FastAPI ], [ fastapi ] ]
+              - [ [ Java ], [ java ] ]
+              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
+              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ Golang ], [ go ] ]
           writer: mitnick
-          relations: [ php, mvc ]
+          relations: [ mvc ]
+          category: backend
