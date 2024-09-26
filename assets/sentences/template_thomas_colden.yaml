@@ -144,7 +144,6 @@
         -
           content: "Developed United Airline's cargo account management software for improved cargo handling and shipment tracking efficiency using {fe} and {be}."
           exchange:
-            exchange:
             fe:
               - [ [ React.js ], [ react ]]
               - [ [ React Native ], [ reactnative ]]

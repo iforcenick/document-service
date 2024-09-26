@@ -17,7 +17,7 @@
     -
       sentences:
         - 
-          content: "Architected and developed Gen.AI powered Real Estate report generation platform leveraging {fe}, {be} and {db} and deployed on {cloud} environment."
+          content: "Architected and developed Gen.AI powered VR professionals practice platform leveraging {fe}, {be} and {db} and deployed on {cloud} environment."
           exchange:
             fe:
               - [ [ React.js v18 ], [ react ]]
@@ -93,7 +93,7 @@
     -
       sentences:
         -
-          content: "Worked on Meta's AI data annotaiton platform \"Simmy\" v2 using {tech} on fully containerized environment."
+          content: "Worked on Journey Optimizer service of Adobe Experience Cloud platform using {tech} on fully containerized environment."
           exchange:
             tech:
               - [ [ React.js v18 ], [ react ]]
@@ -163,7 +163,7 @@
     -
       sentences:
         -
-          content: "Participated in the {category} development of Cube's extensive analytics dashboard utilizing {fe} and {be}, achieving enhanced performance and user experience metrics throughout the maintenance lifecycle."
+          content: "Developed and enhanced user-centric features for CVS Health's telehealth service platform utilizing {fe} and {be}, achieving enhanced performance and user experience metrics throughout the maintenance lifecycle."
           exchange:
             fe:
               - [ [ React.js v18 ], [ react ]]
@@ -191,9 +191,6 @@
               - [ [ Ruby on Rails ], [ rubyonrails ] ]
               - [ [ Golang ], [ go ] ]
               - [ [ Laravel ], [ laravel ] ]
-            category:
-              - [ [ frontend ], [ frontend ] ]
-              - [ [ backend ], [ backend ] ]
           writer: mitnick
           relations: [ frontend, backend ]
         -
@@ -214,22 +211,3 @@
           content: "Focused on creating reusable UI elements – Worked closely with design & QA teams."
           writer: mitnick
           relations: [ collaboration, frontend ]
-
-    -
-      sentences:
-        -
-          content: "Reviewed code, debugged problems, and corrected technical issues from the frontend projects."
-          writer: mitnick
-          relations: [ collaboration, frontend ]
-        -
-          content: "Assisted in requirement analysis, database and backend project design, web UI design with PHP and Python programming language."
-          writer: mitnick
-          relations: [ php, python, frontend, database ]
-        -
-          content: "Employed a variety of languages such as HTML and CSS to write & create user-friendly web pages."
-          writer: mitnick
-          relations: [ html, css, frontend ]
-        -
-          content: "Developed applications using PHP frameworks that leverages classical Model View Controller (MVC) architecture."
-          writer: mitnick
-          relations: [ php, mvc ]
