@@ -166,13 +166,13 @@
           content: "Developed and enhanced user-centric features for CVS Health's telehealth service platform utilizing {fe} and {be}, achieving enhanced performance and user experience metrics throughout the maintenance lifecycle."
           exchange:
             fe:
-              - [ [ React.js v18 ], [ react ]]
+              - [ [ React.js ], [ react ]]
               - [ [ React Native ], [ reactnative ]]
-              - [ [ Next.js v14 ], [ nextjs ] ]
+              - [ [ Next.js ], [ nextjs ] ]
               - [ [ Remix.js ], [ remixjs ] ]
               - [ [ Angular.js ], [ angular ]]
-              - [ [ Vue 3 ], [ vue ]]
-              - [ [ Ember 5 ], [ ember ]]
+              - [ [ Vue ], [ vue ]]
+              - [ [ Ember ], [ ember ]]
               - [ [ Svelte ], [ svelte ]]
             be:
               - [ [ Node.js ], [ nodejs ] ]
