@@ -29,4 +29,5 @@ COMPANY_LOGOS = {
   'Florida International University': 'fiu.jpeg',
   'Penn State University': 'penn.jpeg',
   'Georgia Southwestern State University': 'gss.jpeg',
+  'Florida Southwestern State College': 'fssc.jpeg',
 }
