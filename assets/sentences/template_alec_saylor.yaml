@@ -17,7 +17,7 @@
     -
       sentences:
         - 
-          content: "Spearheaded the development of John Deere's \"Operation Center™\" application in Field Analyzer team, utilizing {fe} and {be}."
+          content: "Spearheaded the development of John Deere's Operation Center™ application in Field Analyzer team, utilizing {fe} and {be}."
           exchange:
             fe:
               - [ [ React.js v18 ], [ react ]]
@@ -29,22 +29,22 @@
               - [ [ Ember 5 ], [ ember ]]
               - [ [ Svelte ], [ svelte ]]
             be:
-              - [ [ Node.js ], [ nodejs ] ]
-              - [ [ Express.js ], [ expressjs ] ]
-              - [ [ Koa.js ], [ koa ] ]
-              - [ [ Nest.js ], [ nestjs ] ]
-              - [ [ Django ], [ django ] ]
-              - [ [ Flask ], [ flask ] ]
+              - [ [ Node.js v20 ], [ nodejs ] ]
+              - [ [ Express.js v4 ], [ expressjs ] ]
+              - [ [ Koa.js v2 ], [ koa ] ]
+              - [ [ Nest.js v10 ], [ nestjs ] ]
+              - [ [ Django v5 ], [ django ] ]
+              - [ [ Flask v3 ], [ flask ] ]
               - [ [ FastAPI ], [ fastapi ] ]
-              - [ [ Java ], [ java ] ]
-              - [ [ Spring Boots ], [ javaspring ] ]
+              - [ [ Java v20 ], [ java ] ]
+              - [ [ Spring Boots v3 ], [ javaspring ] ]
               - [ [ Java Hibernate ], [ hibernate ] ]
               - [ [ Rust/Rocket ], [ [rust, 0.5], rocket ] ]
-              - [ [ DotNet Core ], [ dotnetcore ] ]
+              - [ [ DotNet Core v3 ], [ dotnetcore ] ]
               - [ [ ASP.NET ], [ asp ] ]
-              - [ [ Ruby on Rails ], [ rubyonrails ] ]
+              - [ [ Ruby on Rails v7 ], [ rubyonrails ] ]
               - [ [ Golang ], [ go ] ]
-              - [ [ Laravel ], [ laravel ] ]
+              - [ [ Laravel v11 ], [ laravel ] ]
           writer: mitnick
           category: all
           relations: [  ]

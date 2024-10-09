@@ -111,4 +111,5 @@ def generate(document, headline, summary, history, skill_section_headers, skill_
     "github": gen_github_default,
     "phone": gen_phone_default,
   }
+  skill_section_contents.insert(0, ["HTML5", "CSS3", "Javascript", "Git"])
   _replace_data(document, headline, summary, history, skill_section_headers, skill_section_contents, profile, pipeline)
