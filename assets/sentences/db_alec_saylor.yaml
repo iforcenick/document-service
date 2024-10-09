@@ -1,6 +1,6 @@
 ---
   - 
-    content: "Orchestrated the enterprise-level web app using {fr}/TypeScript stack, incorporating the latest {fr} features such as {fr} and {fr}, leading to a performance upgrade of 110.7%."
+    content: "Led the enterprise-wide development of a web application leveraging the latest {fr}/TypeScript stack, incorporating cutting-edge {fr} features such as {fr} and {fr}, achieving a performance enhancement of 110.7%."
     group: frontend-main-dev
     exchange:
       fr:
@@ -11,7 +11,7 @@
     writer: mitnick
     relations: [ typescript ]
   - 
-    content: "Constructed well-designed, reliable, and aesthetically-pleasing dashboard UIs using React and {mobile}, tailored for the SaaS platform."
+    content: "Engineered a visually appealing, reliable, and intuitive dashboard UI using React and integrated {mobile} for the SaaS platform."
     group: frontend-main-dev
     exchange:
       mobile:
@@ -21,7 +21,7 @@
     writer: rambo
     relations: [ react, reactnative ]
   - 
-    content: "Engineered visually appealing, pixel-perfect dashboard UIs and reusable components for a large client base utilizing {fr} + GraphQL; updated and enhanced the existing web app using {fr} and {fr}."
+    content: "Developed a sleek, pixel-perfect dashboard UI and reusable components for diverse clients using {fr} in conjunction with GraphQL, leading to an improved and comprehensive overhaul of the existing web application utilizing {fr} and {fr}."
     group: frontend-main-dev
     exchange:
       fr:
@@ -32,7 +32,7 @@
     writer: mitnick
     relations: [ graphql ]
   - 
-    content: "Spearheaded the development of a high-impact web application with TypeScript and {fr}, resulting in a 10% improvement in user engagement through an enhanced UI/UX design."
+    content: "Directed the creation of a high-impact web application utilizing TypeScript and {fr}, significantly boosting user engagement by 10% through enhanced UI/UX design."
     group: frontend-main-dev
     exchange:
       fr:
@@ -46,13 +46,13 @@
     quality: 10
     relations: [ typescript ]
   -
-    content: "Developed advanced web applications with a key focus on performance using React, Vue, Redux, and TypeScript within a professional and Agile environment."
+    content: "Executed the development of advanced web applications emphasizing performance with React, Vue, Redux, and TypeScript in a professional, Agile environment."
     group: frontend-main-dev
     quality: 9.5
     writer: anonymous
     relations: [ react, vue, redux, typescript ]
   - 
-    content: "Facilitated a successful transition of a {fr}-based CRM platform to {fr}, significantly enhancing performance and scalability."
+    content: "Successfully transitioned a {fr}-based CRM platform to {fr}, enhancing overall performance and scalability."
     exchange:
       fr:
         - [ [ React, Next.js ], [ react, nextjs ] ]
@@ -65,7 +65,7 @@
 
 
   - 
-    content: "Architected and implemented a tech stack for the app comprising {mobile} for the frontend, {ana} for the backend and analytics, React-Query for API calls, and data/state management."
+    content: "Conceived, architected, and implemented the application's tech stack, utilizing {mobile} for frontend development, {ana} for backend and analytics, integrated React-Query for API communications, and enhanced data/state management."
     exchange:
       mobile:
         - [ [ React Native ], [  ] ]
@@ -75,10 +75,10 @@
         - [ [ Salesforce/AppCenter ], [ salesforce ] ]
     quality: 10
     writer: https://www.linkedin.com/in/darrylschombergii/
-    relations: [ reactnative, reactquery ]
+    relations: [ reactnative ]
 
   - 
-    content: "Acquired expertise in designing and publishing Mobile Apps with {mobile}, Xcode, and Android Studio."
+    content: "Acquired proficiency in both the design and publication of Mobile Applications using {mobile}, Xcode, and Android Studio."
     exchange:
       mobile:
         - [ [ React Native ], [  ] ]
@@ -88,7 +88,7 @@
     relations: [ reactnative, ios, android ]
   
   - 
-    content: "Built responsive {fr} pages and dashboards displaying various types of real-time data in interactive chart, graph, and table formats using {fr}, TypeScript, GraphQL, {fr}, and {chart}."
+    content: "Crafted responsive {fr} pages and dashboards demonstrating real-time data in engaging formats such as interactive charts, graphs, and tables by employing {fr}, TypeScript, GraphQL, and {chart}."
     exchange:
       fr:
         - [ [ mobile, React Native, React Native Paper ], [ [reactnative, 1.5], mobile ] ]
@@ -112,13 +112,13 @@
     relations: [ typescript, graphql ]
 
   - 
-    content: "Enhanced web accessibility and optimized browser performance to render large data sets, ensuring the app is user-interactive and satisfying to use."
+    content: "Enhanced website accessibility and optimized browser performance for efficient data rendering, ensuring the application remains user-friendly and satisfactory to use."
     quality: 10
     writer: mitnick
     relations: [ accessibility, frontend ]
 
   - 
-    content: "Utilized a wide range of efficient tools, including {designtool}, and introduced TypeScript and Design System development trend to update dev tool experience and maintainability of expanding project."
+    content: "Engineered with a variety of robust tools such as {designtool}, implementing advancements in Typescript and Design System development to refine the developer experience and reinforce the scalability of growing projects."
     exchange:
       designtool:
         - [ [ Figma ], [ figma ]]
@@ -129,7 +129,7 @@
     relations: [ typescript, designsystem ]
 
   - 
-    content: "Led the development of {fr} collaboratively with cross-functional and Scrum teams, participating in daily Scrum calls, Git version control, and task management on {tk}."
+    content: "Spearheaded the collaborative development of {fr} with cross-functional and Scrum teams, participating in daily Scrum meetings, employing Git version control, and task management tool {tk}."
     exchange:
       fr:
         - [ [ React Native, mobile ], [ reactnative, mobile ] ]
@@ -143,7 +143,7 @@
     relations: [ frontend, collaboration, agile ]
   
   - 
-    content: "Enhanced app performance through optimization of components, implementing techniques such as memoization, code-splitting, windowing, and migrating from {fr} to {fr}."
+    content: "Improved application responsiveness and performance by employing strategies like component memoization, code-splitting, windowing, and migrating applications from {fr} to {fr}."
     exchange:
       fr:
         - [ [ React, Next.js ], [ react, nextjs ] ]
@@ -155,7 +155,7 @@
     relations: [ [codesplitting, 0.5] ]
 
   -
-    content: "Developed robust code, authored test scripts using {fr}, {fr}, {e2etest}, and Python Selenium, following TDD methodology resulting in 78% test coverage."
+    content: "Produced efficient code with comprehensive test scripts using {fr}, {fr}, and {e2etest}, along with Python Selenium, following a TDD approach, and achieved 78% test coverage."
     exchange:
       fr:
         - [ [ Jest, Mocha ], [ jest, mocha ] ]
@@ -170,7 +170,7 @@
     relations: [ selenium, tdd ]
   
   - 
-    content: "Designed, implemented, and optimized databases in {db} and other DBMSs as appropriate."
+    content: "Architected and optimized databases within {db} and other database management systems to ensure performance alignment with business requirements."
     exchange:
       db:
         - [ [ MySQL ], [ mysql ] ]
@@ -184,13 +184,13 @@
     relations: [ dbms ]
 
   - 
-    content: "Researched, audited, and integrated third-party solutions according to business requirements using third-party services, APIs, modules, etc."
+    content: "Investigated, audited, and implemented integrations of third-party solutions aligning with business needs using diverse third-party services, APIs, and modules."
     quality: 9.2
     writer: cednore
     relations: [ restapi ]
   
   - 
-    content: "Swiftly created templates from {designtool} and {designtool} files, utilizing best coding practices to ensure fast website load times and optimal search results."
+    content: "Promptly generated development templates from {designtool} and {designtool} files applying industry-standard coding practices, ensuring quick web load times and improved search engine results."
     exchange:
       designtool:
         - [ [ Photoshop, Figma ], [ photoshop, figma ] ]
@@ -201,7 +201,7 @@
     relations: []
 
   -
-    content: "Monitored and improved backend performance, contributing to critical design decisions in 180+ microservices running on {cloud}."
+    content: "Oversaw backend performance enhancements crucial in making significant design decisions involving 180+ microservices operational in the {cloud} environment."
     exchange:
       cloud:
         - [ [ AWS ], [ aws ] ]
@@ -212,12 +212,12 @@
     relations: [ microservice ]
   
   - 
-    content: "Developed and managed a local Redis server-side caching data store to maintain efficient and responsive database operations while ensuring data persistence for the application."
+    content: "Established and governed a localized Redis server-side caching system to achieve speed and responsiveness by reducing redundant and time-intensive database inquiries while ensuring application data persistence."
     quality: 10
     writer: cednore
     relations: [ redis ]
   - 
-    content: "Architected a caching model adhering to the GraphQL specification, integrating a normalized caching strategy native to the {runtime} runtime environment."
+    content: "Constructed an advanced caching architecture modeled on the GraphQL specification, seamlessly integrating a normalized caching strategy within the {runtime} runtime ecosystem."
     exchange:
       runtime:
         - [ [ Deno ], [ deno ] ]
@@ -227,7 +227,7 @@
     relations: [ graphql ]
   
   - 
-    content: "Architected scalable out-of-the-box processes by leveraging serverless architectures such as {function}, Step functions, Kafka clusters, Kubernetes, and more."
+    content: "Developed scalable, out-of-the-box solutions utilizing serverless architectures, including {function}, Step Functions, Kafka clusters, Kubernetes, and more."
     exchange:
       function:
         - [ [ Lambda ], [ lambda ] ]
@@ -238,7 +238,7 @@
     relations: [ lambda, kafka, kubernetes, stepfunction ]
 
   - 
-    content: "Developed and deployed {cloud} applications for clients, collaborating with stakeholders to ensure requirements were met."
+    content: "Designed, implemented, and deployed {cloud} cloud applications collaboratively with stakeholders to ensure alignment with requirements."
     exchange:
       cloud:
         - [ [ AWS ], [ aws ] ]
@@ -248,7 +248,7 @@
     writer: cednore
     relations: [ azure, collaboration ]
   - 
-    content: "Designed robust and automated {lang} SDK for deploying infrastructure using Packer and Chef Solo with {cloud} APIs."
+    content: "Developed a robust and automated {lang} SDK for infrastructure deployment using Packer and Chef Solo with {cloud} APIs."
     exchange:
       lang:
         - [ [ Ruby ], [ ruby ] ]
@@ -267,7 +267,7 @@
     relations: []
   
   - 
-    content: "Implemented flexible query matches and mutation support within our schema-less caching client, enabling declarative data fetching from a {db} database, thereby eliminating unnecessary network requests."
+    content: "Created flexible query matching and mutation capabilities within our schema-less caching client, supporting declarative data fetching from a {db} database while minimizing unnecessary network requests."
     exchange:
       db:
         - [ [ MySQL ], [ mysql ] ]
@@ -280,7 +280,7 @@
     writer: cednore
     relations: []
   - 
-    content: "Supervised platform and change management using {cicd}, Chef, Elasticsearch, and Sensu."
+    content: "Utilized {cicd}, Chef, Elasticsearch, and Sensu to monitor and manage platform changes effectively."
     exchange:
       cicd:
         - [ [ GitHub Actions ], [ githubactions ]]
@@ -291,7 +291,7 @@
     writer: cednore
     relations: [ elasticsearch ]
   - 
-    content: "Designed and built a {serverless} Serverless CI/CD pipeline as a hackweek project which was adopted company-wide."
+    content: "Created and implemented a state-of-the-art {serverless} CI/CD pipeline as a hackweek project that was widely adopted across the company."
     exchange:
       serverless:
         - [ [ AWS Lambda ], [ lambda ] ]
@@ -302,17 +302,17 @@
     relations: [ cicd ]
   
   - 
-    content: "Utilized the Kendo grid library to develop custom and state-of-the-art Angular applications, also using custom components from Kendo UI grid like dropdown, table, etc."
+    content: "Leveraged the Kendo grid library to build custom, leading-edge Angular applications, incorporating custom components from Kendo UI such as dropdowns, tables, etc."
     quality: 8
     writer: https://www.linkedin.com/in/akshaya-subramani-0886161bb/
     relations: [ angular, kendoui ]
   - 
-    content: "Upgraded the project from Ionic 3 and Angular 5 to Ionic 4 and Angular 11, implementing pixel-perfect design from PSD using Angular material styling and theming."
+    content: "Upgraded the project from Ionic 3 and Angular 5 to Ionic 4 and Angular 11, achieving pixel-perfect implementation from PSD designs using Angular material styling and theming."
     quality: 9
     writer: https://www.linkedin.com/in/akshaya-subramani-0886161bb/
     relations: [ angular, ionic ]
   - 
-    content: "Responsible for coding various APIs utilizing {cloud} services to facilitate business flow and logic."
+    content: "Responsible for coding and developing various APIs leveraging {cloud} services to support essential business logic and workflows."
     exchange:
       cloud:
         - [ [ AWS ], [ aws ] ]
@@ -323,7 +323,7 @@
     relations: [ restapi ]
 
   - 
-    content: "Worked on {fr} web applications using {fr} and {fr} for state management of the application."
+    content: "Developed {fr} web applications utilizing {fr} for comprehensive state management within the application."
     exchange:
       fr:
         - [ [ React, Redux, Recoil ], [ react, redux, recoil ] ]
@@ -333,12 +333,12 @@
     writer: cednore
     relations: []
   - 
-    content: "Developed an ASP.NET Core MVC web application using .NET Core to enhance functionality, such as accepting user input from page requests, implemented client and server-side validation, and invoked actions on the controller."
+    content: "Developed an ASP.NET Core MVC web application on .NET Core to enhance functionality of individual pages by accepting user input from requests, implementing client and server-side validations, and executing requested actions through controllers."
     quality: 10
     writer: cednore
     relations: [ c#, mvc, dotnetcore, asp ]
   - 
-    content: "Developed REST APIs and relational database models using {bfr} and {db}."
+    content: "Constructed REST APIs and designed relational database models using {bfr} and {db} technologies."
     exchange:
       bfr:
         - [ [ Node.js ], [ nodejs ] ]
@@ -368,7 +368,7 @@
     relations: [ restapi, database ]
 
   - 
-    content: "Converted existing PHP applications into {bfr} applications to enhance data modeling and support advanced language features."
+    content: "Migrated existing PHP applications to {bfr}, enhancing data modeling and supporting advanced language features."
     exchange:
       bfr:
         - [ [ Node.js ], [ nodejs ] ]
@@ -391,7 +391,7 @@
     relations: [ php ]
 
   -
-    content: "Collaborated on a Monorepo built with {fr}, {fr}, and TypeScript; created {test} cucumber BDD tests and mocks with TypeScript and Nx command scripts."
+    content: "Collaborated on a Monorepo built with {fr}, {fr}, and TypeScript, developing {test} Cucumber BDD tests and mocks using TypeScript and Nx command scripts."
     exchange:
       fr:
         - [ [ React, Angular ], [ react, angular ] ]
@@ -406,7 +406,7 @@
     relations: [ bdd, typescript ]
 
   -
-    content: "Committed to UI/UX testing through {test} to automate main parts of smoke and regression test suites."
+    content: "Committed to UI/UX testing automation with {test}, streamlining smoke and regression test suites."
     exchange:
       test:
         - [ [ Cypress ], [ cypress ] ]
@@ -417,7 +417,7 @@
     relations: [ uiux ]
   
   -
-    content: "Automated UI smoke tests and integrated them into the workflow using {test} with Page Object Model patterns."
+    content: "Integrated UI smoke tests into the workflow using the {test} framework employing the Page Object Model patterns."
     exchange:
       test:
         - [ [ Cypress ], [ cypress ] ]
@@ -428,7 +428,7 @@
     relations: [ e2etesting ]
   
   -
-    content: "Created maintainable unit tests utilizing {fr} and end-to-end tests with {e2etest} throughout the {fr} (TypeScript), and {mobile} application by adapting a TDD approach to cover 60%."
+    content: "Authored maintainable unit tests leveraging {fr}, and conducted end-to-end testing with {e2etest}, applying a TDD approach for {fr} (TypeScript), {mobile} applications and achieving a 60% coverage."
     exchange:
       fr:
         - [ [ Jest, React ], [ jest, react ] ]
@@ -449,25 +449,25 @@
     relations: [ tdd, unittesting, e2etesting, reactnative, javascript ]
   
   -
-    content: "Identified low-performance rendering issues via Chrome Dev tools (React Profiler, Redux tools) and improved 36% of components and pages to enhance reusability."
+    content: "Identified performance issues in rendering using Chrome DevTools (React Profiler, Redux tools) and improved reusability in 36% of components and pages."
     quality: 9
     writer: https://www.linkedin.com/in/emmalyn-ngoka/
     relations: [ react, redux ]
   
   -
-    content: "Enforced ES6 JS code quality by introducing ESLint, Prettier with Husky to detect vulnerable issues automatically before commits and pushes."
+    content: "Enforced ES6 JavaScript code quality by integrating ESLint, Prettier, and Husky, automating the detection of vulnerabilities before commits and pushes."
     quality: 10
     writer: https://www.linkedin.com/in/emmalyn-ngoka/
     relations: [ es6, eslint, husky, es6 ]
   
   -
-    content: "Conducted code review (10% of work daily) to write optimized code, reducing bundle sizes in production."
+    content: "Conducted code reviews (10% daily workload) to produce optimized code, reducing production bundle sizes."
     quality: 8
     writer: https://www.linkedin.com/in/emmalyn-ngoka/
     relations: [ codereview, spaframework ]
   
   -
-    content: "Developed services using Golang to produce and consume messages utilizing go-routines from {queue} to topics, and updated user records."
+    content: "Developed services using Golang to generate and consume messages utilizing go-routines from {queue} to topics, subsequently updating user records."
     exchange:
       queue:
         - [ [ Kafka ], [ kafka ] ]
@@ -478,7 +478,7 @@
     relations: [ go, goroutine ]
   
   -
-    content: "Rewrote microservices that required increased throughput and reduced latency, improving performance from {slow} to {fast}, achieving significantly increased throughput and reduced memory usage."
+    content: "Re-engineered microservices necessitating elevated throughput and diminished latency, thereby enhancing performance from {slow} to {fast}, achieving noticeable advancements in throughput and reduction in memory consumption."
     exchange:
       fast:
         - [ [ Golang ], [ go ] ]
@@ -493,19 +493,19 @@
     relations: [ microservice ]
   
   -
-    content: "Created web services in Golang using the Beego framework, gRPC, and Protocol Buffer."
+    content: "Created web services in Golang employing the Beego framework, gRPC, and Protocol Buffers."
     quality: 9
     writer: https://www.linkedin.com/in/tejaswi-k/
     relations: [ go, grpc ]
 
   -
-    content: "Developed a script utilizing PHP and SQL prepared statements to upload over 1 million email contacts into a MySQL database and an email marketing platform – “pro1sms” using LAMP architecture."
+    content: "Constructed scripts with PHP and SQL prepared statements to upload over 1,000,000 email contacts into a MySQL database and an email marketing platform – “pro1sms” utilizing LAMP architecture."
     quality: 8
     writer: https://www.linkedin.com/in/adhaarjaiswal/
     relations: [ php, sql, mysql ]
 
   -
-    content: "Forked and customized the Uniswap core SDK for building DEX protocols on different blockchain platforms, developed {fr} frontend project from scratch, ensuring seamless interaction with customized blockchain platforms."
+    content: "Forked and adapted the Uniswap core SDK to develop a DEX protocol on various blockchain platforms, creating {fr} frontend projects from scratch, ensuring seamless interaction with customized blockchain platforms."
     exchange:
       fr:
         - [ [ React ], [ react ] ]
@@ -517,7 +517,7 @@
     relations: [ uniswap, web3 ]
   
   -
-    content: "Integrated web 3.0 modules to include on-chain data and events into {fr} frontend data flow, introducing innovative web 3 features to traditional web applications."
+    content: "Integrated web 3.0 modules to incorporate on-chain data and events into {fr} frontend data flow, introducing novel web3 features to conventional web applications."
     exchange:
       fr:
         - [ [ React ], [ react ] ]
@@ -529,30 +529,30 @@
     relations: [ web3js, ethersjs, spaframework ]
 
   -
-    content: "Authored multiple smart contracts on EVM-compatible blockchains, implementing functionalities for airdrops, pre-sales, auction logistics in NFT and FT development."
+    content: "Authored multiple smart contracts on EVM-compatible blockchains, implementing functionalities for airdrops, pre-sales, and auction logics in NFT and FT development."
     quality: 10
     writer: mitnick
     relations: [ nft, solidity ]
 
   -
-    content: "Maintained and upgraded WordPress-based websites to the latest versions of core, plugins, and themes."
+    content: "Maintained and upgraded legacy WordPress websites with latest versions of core/plugins/themes."
     quality: 10
     writer: mitnick
     relations: [ wordpress ]
   
   -
-    content: "Ensured high performance and availability, and managed all technical aspects of CMS, utilizing front-end technologies such as HTML5, CSS3, JavaScript, jQuery, and PHP."
+    content: "Ensured high performance and availability, managing all technical aspects of CMS, employing front-end technologies such as HTML5, CSS3, JavaScript, jQuery, and PHP."
     quality: 9
     writer: mitnick
     relations: [ php, cms ]
 
   -
-    content: "Exhibit profound experience with Java EE technologies including Java Servlets, JSP, and JDBC/Hibernate for developing and deploying enterprise applications."
+    content: "Extensive experience in Java EE technologies, including Java Servlets, JSP, JDBC/Hibernate for developing and deploying enterprise applications."
     quality: 9
     writer: mitnick
     relations: [ java, j2ee, jsp, hibernate ]
   -
-    content: "Refactored existing codebase to the latest React Native version (0.60), developing new features and UI screens based on {ds} Design."
+    content: "Refactored the existing codebase to the latest React Native version (0.60), and developed new features and UI screens based on {ds} Design."
     exchange:
       ds:
         - [ [ Figma ], [ figma ]]
@@ -562,7 +562,7 @@
     writer: mitnick
     relations: [ reactnative, mobile ]
   -
-    content: "Developed web 3 DApps integrating blockchain SDKs including {lib} and deployed to IPFS and {storage}, with on-chain indexing using SubGraph."
+    content: "Developed web3 DApps integrating blockchain SDKs, including {lib}, and deployed to IPFS and {storage}, with on-chain indexing using SubGraph."
     exchange:
       lib:
         - [ [ web3.js ], [ web3js ]]
@@ -575,17 +575,17 @@
     writer: mitnick
     relations: [ web3, dapp, subgraph, blockchain ]
   -
-    content: "Incorporated exclusive DeFi protocols (AAVE, Compound, MakerDAO, Uniswap, and Sushiswap) into smart contract and dApp projects."
+    content: "Integrated exclusive DeFi protocols (AAVE, Compound, MakerDAO, Uniswap, and Sushiswap) into smart contract and dApp projects."
     quality: 9
     writer: mitnick
     relations: [ defi, uniswap, aave ]
   -
-    content: "Architected an enterprise-level cryptocurrency trading platform synchronizing with various blockchains and wallet providers, ensuring compatibility of different native currencies."
+    content: "Designed the architecture of enterprise-level cryptocurrency trading platforms, synchronizing with various blockchains and wallet providers, ensuring compatibility of different native currencies."
     quality: 9
     writer: mitnick
     relations: [ cryptocurrency, wallet ]
   -
-    content: "Designed and developed a metaverse front-end application using {fr} and {lib}, integrating a blockchain backend and NFTs."
+    content: "Engineered and developed a metaverse front-end application using {fr} and {lib}, driven by a blockchain backend and NFTs."
     exchange:
       fr:
         - [ [ React ], [ react ] ]
@@ -601,12 +601,12 @@
     relations: [ [nft, 1.5], [web3, 1.5] ]
   
   -
-    content: "Developed an e-exam and learning management system (LMS) using React, GraphQL (Apollo), and additional technologies."
+    content: "Developed an e-exam and learning management system (LMS) with React, GraphQL (Apollo), and supplementary technologies."
     quality: 9
     writer: mitnick
     relations: [ react, graphql ]
   -
-    content: "– Designed and implemented complex distribution systems and facilitated communication between microservices utilizing {com} and {mq} queuing systems."
+    content: "Designed and implemented complex distribution systems and facilitated communication between microservices using {com} and {mq} queuing systems."
     exchange:
       com:
         - [ [ REST API ], [ restapi ]]
@@ -620,7 +620,7 @@
     writer: mitnick
     relations: [ [backendarchitecture, 1.5] ]
   -
-    content: "Implemented modules using core {fr} APIs, Python, multithreading, and object-oriented designs."
+    content: "Created modules using Core {fr} APIs, Python, multithreading, and object-oriented designs."
     exchange:
       fr:
         - [ [ Django ], [ django ]]
@@ -634,7 +634,7 @@
     writer: mitnick
     relations: [ docker, ec2, s3, cicd ]
   -
-    content: "Designed and implemented CI/CD pipelines using {cicd}, and automated CI/CD processes by invoking Ansible playbooks."
+    content: "Designed and implemented CI/CD pipelines using {cicd}, automating CI/CD processes by invoking Ansible playbooks."
     group: cicd-creation
     exchange:
       cicd:
@@ -646,7 +646,7 @@
     writer: mitnick
     relations: [ cicd ]
   -
-    content: "Developed and maintained software within an Agile framework, leveraging programming language {lang} using {cicd} pipelines, Cloudbees, Docker, and Groovy across UNIX/Linux environments."
+    content: "Developed and maintained software within an Agile framework utilizing programming language {lang}. Used {cicd} pipeline, Cloudbees, Docker, and Groovy across UNIX/Linux environments."
     exchange:
       lang:
         - [ [ Ruby ], [ ruby ] ]
@@ -665,27 +665,27 @@
     writer: mitnick
     relations: [ docker, linux ]
   -
-    content: "Implemented A/B testing strategies for the front-end user interface of Amazon Exclusives platform, achieving a 15% increase in click-through rates and a 5% increase in average order value."
+    content: "Implemented A/B testing strategies for the front-end user interface of Amazon Exclusives platform, achieving a 15% increase in click-through rates and a 5% rise in average order value."
     quality: 10
     writer: phoenix
     relations: [ aws, frontend, e2etesting ]
   -
-    content: "Built pixel-perfect, mobile-responsive designs using Bootstrap and media queries."
+    content: "Crafted pixel-perfect, mobile-responsive designs using Bootstrap and media queries."
     quality: 9
     writer: phoenix
     relations: [ mobile, uiux, bootstrap, bootstrap ]
   -
-    content: "Utilized Express middleware to efficiently query GraphQL endpoints, leveraging middleware functions for routing and error handling, resulting in streamlined development and enhanced data retrieval performance."
+    content: "Utilized Express middleware to effectively query GraphQL endpoints, devised middleware functions for routing and error handling, thereby enhancing development workflow and data retrieval performance."
     quality: 10
     writer: phoenix
     relations: [ express, graphql ]
   -
-    content: "Optimized client-side applications by integrating Apollo GraphQL Client caching to reduce round-trip requests and network latency by up to 90%."
+    content: "Optimized client-side applications by implementing Apollo GraphQL Client caching, reducing round-trip requests and network latency by up to 90%."
     quality: 10
     writer: phoenix
     relations: [ frontend, [graphql, 1.5] ]
   -
-    content: "Developed RESTful APIs by creating models, interfaces, and controllers to enable seamless communication between the client application and the database using {bfr}."
+    content: "Developed RESTful APIs by creating models, interfaces, and controllers to enable seamless communication between client applications and databases utilizing {bfr}."
     exchange:
       bfr:
         - [ [ Node.js ], [ nodejs ] ]
@@ -708,7 +708,7 @@
     writer: phoenix
     relations: [ [restapi, 0.5], [mvc, 0.5] ]
   -
-    content: "Implemented continuous integration/continuous deployment (CI/CD) pipelines using {cicd} and Git, thereby enhancing development efficiency and product reliability."
+    content: "Implemented continuous integration/continuous deployment (CI/CD) pipelines using {cicd} and Git, boosting development efficiency and product reliability."
     group: cicd-creation
     exchange:
       cicd:
@@ -720,7 +720,7 @@
     writer: anonymous
     relations: [ cicd ]
   -
-    content: "Designed communication systems between microservices using Kubernetes Service Discovery and utilized {queue} for asynchronous communication between microservices."
+    content: "Designed a communication system between microservices using Kubernetes Service Discovery and used {queue} for asynchronous communication between services."
     exchange:
       queue:
         - [ [ Kafka ], [ kafka ] ]
@@ -730,7 +730,7 @@
     writer: anonymous
     relations: [ microservice, [kubernetes, 1.5] ]
   -
-    content: "Spearheaded development and maintenance of fully automated CI/CD pipelines using {cicd}, achieving a 15% reduction in production delivery time."
+    content: "Developed and maintained fully automated CI/CD pipelines using {cicd}, shortening production delivery time by 15%."
     group: cicd-creation
     exchange:
       cicd:
@@ -742,41 +742,41 @@
     writer: anonymous
     relations: [ cicd ]
   -
-    content: "Refactored the codebase to make it sonar compliant and fixed many lint issues over Node.js/TypeScript."
+    content: "Refactored the codebase to ensure Sonar compliance and resolved numerous lint issues in Node.js/TypeScript."
     quality: 9
     writer: anonymous
     relations: [ typescript, [ nodejs, 1.5 ], [ eslint, 1.5 ] ]
   
   -
-    content: "Developed a component library based on Material UI, utilizing Storybook for robust development."
+    content: "Developed a comprehensive component library based on Material UI, utilizing Storybook for strengthened development processes."
     quality: 10
     writer: anonymous
     relations: [ materialui, storybook, react ]
   -
-    content: "Utilized Express middleware to efficiently query GraphQL endpoints, leveraging middleware functions for routing and error handling, resulting in streamlined development and enhanced data retrieval performance."
+    content: "Utilized Express middleware to effectively query GraphQL endpoints, devised middleware functions for routing and error handling, thereby enhancing development workflow and data retrieval performance."
     quality: 10
     writer: anonymous
     relations: [ express, graphql ]
 
   -
-    content: "Leveraged AWS services, including AWS Lambda, API Gateway, CloudFront, and Amplify, to architect and develop scalable and secure serverless applications, achieving cost optimization and enhanced application performance."
+    content: "Harnessed AWS services, including AWS Lambda, API Gateway, CloudFront, and Amplify, to design and deploy scalable and secure serverless applications, achieving cost optimization and enhanced application performance."
     quality: 10
     writer: anonymous
     relations: [ lambda, apigateway, cloudfront, amplify, aws ]
   -
-    content: "Integrated multiple Azure Cloud technologies, such as Service Bus, Functions, Event Grid, and Event Hubs, into a scalable cloud architecture, boosting system resilience and scalability by 12.6%."
+    content: "Integrated a series of Azure Cloud technologies, such as Service Bus, Functions, Event Grid, and Event Hubs, into a scalable cloud architecture, thereby increasing system resilience and scalability by 12.6%."
     quality: 10
     writer: anonymous
     relations: [ azure, azurefunction, cloud, backendarchitecture ]
 
   -
-    content: "Successfully implemented SonarQube for continuous code quality checks and security vulnerability detection, reducing security issues by 60% within six months."
+    content: "Implemented SonarQube for ongoing code quality audits and security vulnerability detection, achieving a 60% reduction in security issues over six months."
     quality: 10
     writer: anonymous
     relations: [ cicd, backendarchitecture ]
   
   -
-    content: "Developed a suite of microservices using {bfr}, resulting in a 10% reduction in latency and an 8% improvement in reusability."
+    content: "Engineered a suite of microservices using {bfr}, resulting in a 10% decrease in latency and an 8% improvement in reusability."
     exchange:
       bfr:
         - [ [ Node.js/Express.js ], [ nodejs, expressjs ] ]
