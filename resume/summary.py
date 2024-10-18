@@ -56,25 +56,15 @@ def extract_skills(content: str):
     content_start = content.find('\n', section_start)
     if content_start < 0:
         raise Exception('invalid skills generated')
-    line_start = content_start + 1
-
     skill_categories = []
-    while True:
-        line_end = content.find('\n', line_start)
-        line = content[line_start:line_end].strip()
-        if not line.startswith('**'):
-            break
-        matches = re.findall('\\*\\*([^\\*]+)\\*\\*:([^\\*]+)', line, flags=re.IGNORECASE)
-        if matches is None:
-            raise Exception('invalid skill line')
-        match = matches[0]
+    matches = re.findall('\\*\\*([^\\*]+)\\*\\*:([^\\*]+)', content[content_start + 1:], flags=re.IGNORECASE)
+    for match in matches:
         category_name = match[0].strip()
         skills = [ item.strip() for item in match[1].split(',') if len(item.strip()) > 0 ]
         skill_categories.append({
             "header": category_name,
             "skills": skills,
         })
-        line_start = line_end + 1
     print(skill_categories)
     return skill_categories
 
