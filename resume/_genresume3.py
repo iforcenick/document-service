@@ -2,7 +2,7 @@ import re
 from datetime import datetime
 from .utils import gen_linkedin_default, gen_github_default, gen_website_default, gen_phone_default, replace_images, replace_mock_images
 
-def _replace_data(document, headline, summary, history, skill_section_headers, skill_section_contents, profile, pipeline):
+def _replace_data(document, headline, summary, skill_categories, history, profile, pipeline):
   sentence_slot_index = 0
   position_slot_index = 0
   company_slot_index = 0
@@ -64,10 +64,10 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
           return current_sentence
       if match == "category":
           category_slot_index += 1
-          return skill_section_headers[category_slot_index - 1]
+          return skill_categories[category_slot_index - 1]['header']
       if match == "skill":
           skill_slot_index += 1
-          return " • ".join(skill_section_contents[skill_slot_index - 1])
+          return " • ".join(skill_categories[skill_slot_index - 1]['skills'])
       return match
   
   for paragraph in document.paragraphs:
@@ -80,7 +80,7 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
           paragraph._element.getparent().remove(paragraph._element)
   for table in document.tables:
     for row_index, row in enumerate(table.rows):
-      if row_index >= len(skill_section_headers):
+      if row_index >= len(skill_categories):
         row._element.getparent().remove(row._element)
       else:
         for cell in row.cells:
@@ -90,7 +90,7 @@ def _replace_data(document, headline, summary, history, skill_section_headers, s
                 run.text = re.sub("{(.*?)}", _interpolate_data, run.text)
   # replace_mock_images(document)
     
-def generate(document, headline, summary, history, skill_section_headers, skill_section_contents, profile):
+def generate(document, headline, summary, skill_categories, history, profile):
   def gen_duration(start_date_str, end_date_str):
     start_date = datetime.strptime(start_date_str, '%m/%d/%Y') if start_date_str != "" else None
     end_date = datetime.strptime(end_date_str, '%m/%d/%Y') if end_date_str != "" else None
@@ -111,4 +111,4 @@ def generate(document, headline, summary, history, skill_section_headers, skill_
     "github": gen_github_default,
     "phone": gen_phone_default,
   }
-  _replace_data(document, headline, summary, history, skill_section_headers, skill_section_contents, profile, pipeline)
+  _replace_data(document, headline, summary, skill_categories, history, profile, pipeline)

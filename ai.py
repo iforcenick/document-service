@@ -13,10 +13,14 @@ def inject_variables_to_content(content: str, variables):
     content = content.replace('{{' + match + '}}', variable)
   return content
 
-def generate_ai_text(prompt: str, temperature=0.8):
+def generate_ai_text(prompt: str, system=None, temperature=0.8):
+  messages = []
+  if system is not None:
+    messages.append({ "role": "system", "content": system })
+  messages.append({"role": "user", "content": prompt})
   chat_completion = client.chat.completions.create(
     model="gpt-4o",
-    messages=[{"role": "user", "content": prompt}],
+    messages=messages,
     temperature=temperature
   )
   try:
