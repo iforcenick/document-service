@@ -58,26 +58,3 @@ def get_skill_tree():
         (root_cache, nodes_cache) = _compile_skill_tree()
         last_tree_built_time = current_timestamp
     return (root_cache, nodes_cache)
-
-def get_skill_relation_value(skill_name: str, target_skill_name: str, nodes, parent_loss=0.4, child_loss=0.2):
-    normalized = normalize_skill_name(skill_name)
-    def _get_skill_depth(node: SkillNode, target_skill_name: str, get_connections):
-        if normalize_skill_name(node.skill_name) == target_skill_name:
-            return [1]
-        connections = get_connections(node)
-        for connection in connections:
-            depths = _get_skill_depth(connection, target_skill_name, get_connections)
-            if depths is not None:
-                return depths + [len(connections)]
-        return None
-    depths = _get_skill_depth(nodes[normalized], target_skill_name, lambda x: x.children)
-    discord_limit = 0
-    if depths is None:
-        depths = _get_skill_depth(nodes[normalized], target_skill_name, lambda x: x.parents)
-        if depths is None:
-            return 0
-        else:
-            discord_limit = parent_loss
-    else:
-        discord_limit = child_loss
-    return 1 - (discord_limit - discord_limit ** reduce(lambda x, y: x + y, depths, 0))
