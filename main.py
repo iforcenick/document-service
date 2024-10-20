@@ -8,7 +8,6 @@ import json
 from env import DOCUMENT_SERVICE_PORT
 import resume
 import coverletter
-from skill.utils import get_required_skills
 from social_profile import get_profile_from_name
 from util import get_save_path
 
@@ -43,18 +42,9 @@ def generate_resume_summary():
 @app.post("/resume/generate/history")
 def generate_resume_history():
     body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"], body["position"])
     profile = get_profile_from_name(body['profile'])
-    history = resume.generate_resume_history(profile, body["position"], required_skills, body["jd"])
+    history = resume.generate_work_history(body["position"], body["jd"], profile)
     return history
-
-@app.post("/resume/generate/history/detail")
-def generate_detailed_resume_history():
-    body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"], body["position"])
-    profile = get_profile_from_name(body['profile'])
-    detailed_history = resume.generate_detailed_resume_history(profile, body["position"], required_skills, body["jd"])
-    return detailed_history
 
 
 
@@ -62,21 +52,19 @@ def generate_detailed_resume_history():
 @app.post("/resume/generate/file")
 def generate_resume_file():
     body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"], body["position"])
     profile = get_profile_from_name(body['profile'])
     file_path = get_save_path(body["fileId"], body['profile'], 'resume', body['ext'])
-    resume.generate_resume_file(body["position"], required_skills, body["jd"], profile, file_path)
+    resume.generate_resume_file(body["position"], body["jd"], profile, file_path)
     response = send_file(file_path, mimetype='application/pdf')
     return response
 
 @app.post("/resume/generate/binary")
 def generate_resume_binary():
     body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"], body["position"])
     temp_file_id = str(uuid.uuid4())
     temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
     profile = get_profile_from_name(body['profile'])
-    resume.generate_resume_file(body["position"], required_skills, body["jd"], profile, temp_pdfpath)
+    resume.generate_resume_file(body["position"], body["jd"], profile, temp_pdfpath)
     response = send_file(temp_pdfpath, mimetype='application/pdf')
     os.remove(temp_pdfpath)
     return response
@@ -85,11 +73,10 @@ def generate_resume_binary():
 def generate_resume_fromjd_binary():
     body = json.loads(request.data)
     position = resume.get_most_proper_position_from_jd(body["jd"])
-    required_skills = get_required_skills(body["jd"], position)
     temp_file_id = str(uuid.uuid4())
     temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
     profile = get_profile_from_name(body['profile'])
-    resume.generate_resume_file(position, required_skills, body["jd"], profile, temp_pdfpath)
+    resume.generate_resume_file(position, body["jd"], profile, temp_pdfpath)
     response = send_file(temp_pdfpath, mimetype='application/pdf')
     os.remove(temp_pdfpath)
     return response
@@ -108,10 +95,9 @@ def download_generated_resume():
 @app.post("/coverletter/generate/file")
 def generate_cover_letter_file():
     body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"], body["position"])
     profile = get_profile_from_name(body['profile'])
     file_path = get_save_path(body["fileId"], body['profile'], 'coverletter', body['ext'])
-    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, file_path)
+    coverletter.generate_cover_letter_file(body['position'], body['jd'], body['company'], profile, file_path)
     response = send_file(file_path, mimetype='application/pdf')
     return response
 
@@ -129,11 +115,10 @@ def generate_cover_letter_fromjd_binary():
 @app.post("/coverletter/generate/binary")
 def generate_cover_letter_binary():
     body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"], body["position"])
     temp_file_id = str(uuid.uuid4())
     temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
     profile = get_profile_from_name(body['profile'])
-    coverletter.generate_cover_letter_file(body['position'], required_skills, body['jd'], body['company'], profile, temp_pdfpath)
+    coverletter.generate_cover_letter_file(body['position'], body['jd'], body['company'], profile, temp_pdfpath)
     response = send_file(temp_pdfpath, mimetype='application/pdf')
     os.remove(temp_pdfpath)
     return response

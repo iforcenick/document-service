@@ -1,0 +1,25 @@
+Given the following candidate profile and job description, generate below sections in my resume:
+
+1. **Professional Summary**: concise paragraph summarizing the experience and skills ( shouldn't be longer than 3 sentences ).
+2. **Skills**: Categorize the skills based on the job description and add at least 2 more related skills for every category ( shouldn't be more than 5 categories ).
+
+Provide the output in the following format strictly:
+
+### Professional Summary
+[Summary text here]
+
+### Skills
+**Category**: [List of skills by category by joint ,] like "**Front-End Development**: React,Angular"
+
+
+Below is the reference data.
+`
+Work Experience:
+{{experience}}
+
+Job Title:
+{{position}}
+
+Job Description:
+{{jd}}
+`

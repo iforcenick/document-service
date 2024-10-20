@@ -48,7 +48,7 @@ def _generate_cover_letter_file(position, jd, company, headline, profile, path):
       shutil.move(temp_docxpath, path)
   return os.path.abspath(path)
 
-def generate_cover_letter_file(position: str, required_skills, jd: str, company: str, profile: dict, path: str) -> str:
+def generate_cover_letter_file(position: str, jd: str, company: str, profile: dict, path: str) -> str:
     headline = generate_headline(position, jd, profile)
     _generate_cover_letter_file(position, jd, company, headline, profile, path)
 

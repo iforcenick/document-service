@@ -11,9 +11,8 @@ import tempfile
 from env import LIBREOFFICE_PATH
 from mutex import libre_office_mutex
 
-from .sentences import generate_resume_history
 from .headline import generate_headline
-from .summary import generate_summary
+from .genai import generate_all
 
 from . import _genresume1
 from . import _genresume2
@@ -58,8 +57,7 @@ def _generate_resume_file(headline, summary, skill_categories, history, profile,
         shutil.move(temp_docxpath, path)
     return os.path.abspath(path)
 
-def generate_resume_file(position: str, required_skills, jd: str, profile: dict, path: str) -> str:
-    history = generate_resume_history(profile, position, required_skills, jd)
+def generate_resume_file(position: str, jd: str, profile: dict, path: str) -> str:
     headline = generate_headline(position, jd, profile)
-    (summary, skill_categories) = generate_summary(position, jd, profile)
-    _generate_resume_file(headline, summary, skill_categories, history, profile, path)
+    (summary, skill_categories, work_history) = generate_all(position, jd, profile)
+    _generate_resume_file(headline, summary, skill_categories, work_history, profile, path)

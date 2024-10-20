@@ -1,0 +1,39 @@
+Given the following candidate profile and job description, generate below sections in my resume:
+
+1. **Professional Summary**: concise paragraph summarizing the experience and skills ( shouldn't be longer than 3 sentences ).
+
+2. **Work Experience**: Detailed descriptions of work experience, including:
+   - **Company Name**
+   - **Period of Employment** (Start Date - End Date)
+   - **Role Title**
+   - **Job Descriptions**: Provide around 6 bullet points highlighting key responsibilities, achievements, and technologies used.
+
+3. **Skills**: Categorize the skills based on the job description and add at least 2 more related skills for every category ( shouldn't be more than 5 categories ).
+
+Provide the output in the following format strictly:
+
+### Professional Summary
+[Summary text here]
+
+### Work Experience
+**[Company Name]**
+**Period** [Period]
+**Role** [Role Title]
+**Job Descriptions**
+[Around 6 Bullets]
+
+### Skills
+**Category**: [List of skills by category by joint ,] like "**Front-End Development**: React,Angular"
+
+
+Below is the reference data.
+`
+Work Experience:
+{{experience}}
+
+Job Title:
+{{position}}
+
+Job Description:
+{{jd}}
+`

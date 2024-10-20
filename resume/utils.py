@@ -9,6 +9,26 @@ def get_profile_specific_template(profile: dict):
     return template_type
   return None
 
+def get_profile_experience_description(profile: dict):
+  experience = ''
+  position_index = 1
+  while True:
+      if f'position-title-{position_index}' not in profile:
+          break
+      position_title = profile[f'position-title-{position_index}']
+      company_name = profile[f'company-name-{position_index}']
+      company_start_date = profile[f'company-start-date-{position_index}']
+      company_end_date = profile[f'company-end-date-{position_index}']
+      if company_end_date == '':
+          company_end_date = 'present'
+      achievement = profile[f'achievement-{position_index}']
+      experience += f'{position_index}. {position_title} at {company_name} company from {company_start_date} to {company_end_date}\n'
+      for line in achievement:
+        experience += f'- {line}\n'
+      experience += '\n'
+      position_index += 1
+  return experience
+
 def get_most_relevant_template(position: str, required_skills: any):
     if re.search("full(.*?)stack", position, re.IGNORECASE):
         return "fullstack"
