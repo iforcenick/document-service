@@ -1,6 +1,12 @@
 from ai import generate_ai_text, inject_variables_to_content
 import re
 from .utils import get_profile_experience_description
+import yaml
+
+def get_bullet_counts(resume_template_index: int):
+    with open('./assets/docx/metadata.yaml', 'r') as stream:
+        bullets_data = yaml.safe_load(stream)
+        return bullets_data[resume_template_index - 1]
 
 def extract_summary(content: str):
     matches = re.findall('### Professional Summary([\\s\\S]*?)\n###', content)
@@ -41,7 +47,6 @@ def extract_work_history(content: str):
 
 def generate_summary(position: str, jd: str, profile: dict):
     experience = get_profile_experience_description(profile)
-    print(experience)
     variables = {
         "experience": experience,
         "position": position,
@@ -58,8 +63,12 @@ def generate_summary(position: str, jd: str, profile: dict):
 
 def generate_work_history(position: str, jd: str, profile: dict):
     experience = get_profile_experience_description(profile)
+    bullet_counts = get_bullet_counts(profile['resume-template-index'])
+    print(bullet_counts)
+    bullet_counts_str = ", ".join([ str(item) for item in bullet_counts ])
     variables = {
         "experience": experience,
+        "bullet_counts": bullet_counts_str,
         "position": position,
         "jd": jd,
     }
@@ -67,14 +76,18 @@ def generate_work_history(position: str, jd: str, profile: dict):
         prompt_template = stream.read()
         prompt = inject_variables_to_content(prompt_template, variables)
 
+    print(prompt)
     content = generate_ai_text(prompt, 'You are a helpful resume generator.', 1.0)
     work_history = extract_work_history(content)
     return work_history
 
 def generate_all(position: str, jd: str, profile: dict):
     experience = get_profile_experience_description(profile)
+    bullet_counts = get_bullet_counts(profile['resume-template-index'])
+    bullet_counts_str = ", ".join([ str(item) for item in bullet_counts ])
     variables = {
         "experience": experience,
+        "bullet_counts": bullet_counts_str,
         "position": position,
         "jd": jd,
     }
