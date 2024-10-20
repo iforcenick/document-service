@@ -10,9 +10,9 @@ Given the following candidate profile and job description, generate below sectio
       Include the version of technology used for the last company experience. ( try to point out near-latest versions )
       Move the bullets related to hard skill to top and soft skill related ones to bottom in every company experience.
       Number of bullets for each company should be {{bullet_counts}}
-      Write professional and rich bullets. ( most of bullets should be longer than 120 characters )
+      Write professional and rich bullets. ( most of bullets should be longer than 130 characters )
 
-3. **Skills**: Categorize the skills based on the job description and add at least 2 more related skills for every category ( shouldn't be more than 5 categories ).
+3. **Skills**: Categorize the skills based on the job description and add at least 2 more related skills for every category ( there should be 5 categories ).
 
 Provide the output in the following format strictly:
 

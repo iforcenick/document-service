@@ -4,11 +4,7 @@ from .utils import get_profile_specific_template
 from ._template import get_template_data
 
 def generate_headline(position: str, jd: str, profile: dict):
-    template_name = get_profile_specific_template(profile)
-    if template_name is None:
-        return None
-    template = get_template_data(template_name)
-    return template['headline']
+    return profile['headline']
 
 def get_most_proper_position_from_jd(jd):
     skill_groups = get_required_skill_groups(jd, '')

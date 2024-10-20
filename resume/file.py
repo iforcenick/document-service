@@ -22,6 +22,8 @@ from . import _genresume5
 from . import _genresume6
 from . import _genresume7
 from . import _genresume8
+from . import _genresume9
+from . import _genresume10
 
 # Extensible array as the templates increase.
 resume_generators = [
@@ -33,6 +35,8 @@ resume_generators = [
     _genresume6.generate,
     _genresume7.generate,
     _genresume8.generate,
+    _genresume9.generate,
+    _genresume10.generate,
 ]
 
 TEMP_PATH = tempfile.gettempdir()
