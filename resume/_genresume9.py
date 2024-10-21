@@ -10,10 +10,6 @@ def _replace_data(document, headline, summary, skill_categories, history, profil
   category_slot_index = 0
   skill_slot_index = 0
 
-  all_sentences = []
-  for company_item in history:
-     all_sentences.extend(company_item['sentences'])
-
   def _interpolate_data(match_obj):
       nonlocal sentence_slot_index, position_slot_index, company_slot_index, duration_slot_index, category_slot_index, skill_slot_index, pipeline
       match = match_obj.group(1)
@@ -59,9 +55,11 @@ def _replace_data(document, headline, summary, skill_categories, history, profil
           end_date_str = profile['university-end-date']
           return pipeline['university-duration'](start_date_str, end_date_str)
       if match == "sentence":
-          current_sentence = all_sentences[sentence_slot_index]
           sentence_slot_index += 1
-          return current_sentence
+          sentences = history[position_slot_index - 1]['sentences']
+          if sentence_slot_index - 1 < len(sentences):
+            return sentences[sentence_slot_index - 1]
+          return ''
       if match == "category":
           category_slot_index += 1
           return skill_categories[category_slot_index - 1]['header']
