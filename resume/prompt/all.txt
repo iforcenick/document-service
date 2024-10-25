@@ -15,7 +15,7 @@ Given the following candidate profile and job description, generate below sectio
       Move the bullets related to hard skill to top and soft skill related ones to bottom in every company experience.
       Limit the count of bullets related to soft skill to just 1 or 2, focus more on hard skills.
 
-3. **Skills**: Categorize the skills based on the job description and add at least 2 more related skills for every category ( there should be 5 categories ).
+3. **Skills**: Categorize the skills based on the job description and add at least 3 more related skills for every category ( there should be 5 categories ).
 
 Provide the output in the following format strictly:
 
