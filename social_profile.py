@@ -1,17 +1,30 @@
 from urllib import request, parse
 from env import DBHUB_URL
 import json
+from threading import Thread
+import time
+
 
 profiles = None
-last_load_time = 0
 
-request_body = parse.urlencode({
-    "operation": "getFullProfiles",
-    "body": {}
-}).encode()
-req = request.Request(f'{DBHUB_URL}/operate', data=request_body) # this will make the method "POST"
-response = request.urlopen(req)
-profiles = json.loads(response.read())
+def profile_fetch_thread_handler():
+  global profiles
+  while True:
+    try:
+      request_body = parse.urlencode({
+        "operation": "getFullProfiles",
+        "body": {}
+      }).encode()
+      req = request.Request(f'{DBHUB_URL}/operate', data=request_body) # this will make the method "POST"
+      response = request.urlopen(req)
+      profiles = json.loads(response.read())
+    except:
+      pass
+    time.sleep(10)
+
+
+profile_fetch_thread = Thread(target=profile_fetch_thread_handler)
+profile_fetch_thread.start()
 
 def get_profile_from_name(full_name):
   global profiles
