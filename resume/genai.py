@@ -95,8 +95,22 @@ def generate_all(position: str, jd: str, profile: dict):
         prompt_template = stream.read()
         prompt = inject_variables_to_content(prompt_template, variables)
 
-    content = generate_ai_text(prompt, 'You are a helpful resume generator.', 1.0)
-    summary = extract_summary(content)
-    skill_categories = extract_skills(content)
-    work_history = extract_work_history(content)
+    while True:
+        print('Attempting AI geneartion ...')
+        content = generate_ai_text(prompt, 'You are a helpful resume generator.', 1.0)
+        summary = extract_summary(content)
+        skill_categories = extract_skills(content)
+        work_history = extract_work_history(content)
+        if bool(summary) is False or bool(skill_categories) is False or bool(work_history) is False:
+            continue
+        for index, bullet_count in enumerate(bullet_counts):
+            if index >= len(work_history):
+                break
+            if bool(work_history[index]["position"]) is False or bool(work_history[index]["sentences"]) is False:
+                break
+            if len(work_history[index]["sentences"]) != bullet_count:
+                break
+        else:
+            break
+    print('Finished AI generation')
     return ( summary, skill_categories, work_history )
