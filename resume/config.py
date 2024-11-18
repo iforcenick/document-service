@@ -4,6 +4,7 @@ COMPANY_LOGOS = {
   'Meta': 'meta.jpeg',
   'Wolters Kluwer': 'wolters.jpeg',
   'Wipro': 'wipro.jpeg',
+  'Samsara': 'samsara.jpeg',
   'Autodesk': 'autodesk.jpeg',
   'Cognizant': 'cognizant.jpeg',
   'TriNet': 'trinet.jpeg',
@@ -21,6 +22,9 @@ COMPANY_LOGOS = {
   'Mursion': 'mursion.jpeg',
   'Adobe': 'adobe.jpeg',
   'CVS Health': 'cvshealth.jpeg',
+  'Stripe': 'stripe.jpeg',
+  'Rippling': 'rippling.jpeg',
+  'Amazon': 'amazon.jpeg',
 
   'National University of Singapore': 'nus.jpeg',
   'Curtin University': 'cu.jpeg',
@@ -30,4 +34,5 @@ COMPANY_LOGOS = {
   'Penn State University': 'penn.jpeg',
   'Georgia Southwestern State University': 'gss.jpeg',
   'Florida Southwestern State College': 'fssc.jpeg',
+  'The University of Texas at El Paso': 'uot.jpeg',
 }
