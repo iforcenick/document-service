@@ -25,6 +25,10 @@ COMPANY_LOGOS = {
   'Stripe': 'stripe.jpeg',
   'Rippling': 'rippling.jpeg',
   'Amazon': 'amazon.jpeg',
+  'Becton, Dickinson and Company': 'bd.jpeg',
+  'Calendly': 'calendly.jpeg',
+  'Workday': 'workday.jpeg',
+  'Texas Southern University': 'tsu.jpeg',
 
   'National University of Singapore': 'nus.jpeg',
   'Curtin University': 'cu.jpeg',
